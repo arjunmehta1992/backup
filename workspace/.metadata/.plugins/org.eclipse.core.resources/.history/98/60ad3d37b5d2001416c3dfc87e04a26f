@@ -1,0 +1,216 @@
+package com.list;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import org.omg.PortableServer.IdAssignmentPolicy;
+
+class EmpDetails 
+{
+	
+	ArrayList<Integer> ID=new ArrayList<Integer>();
+	ArrayList<String> NAME=new ArrayList<String>();
+	ArrayList<Float> SAL=new ArrayList<Float>();
+	
+	
+	
+	
+	
+	Scanner sc=new Scanner(System.in);
+	public void AddEmployee(int id,String name,Float salary)
+	{
+		/*System.out.println("Enter the employee id");
+		id=sc.nextInt();
+		System.out.println("Enter the employee id");
+		name=sc.nextInt();
+		System.out.println("Enter the employee id");
+		salary=sc.nex();
+		*/
+		
+		ID.add(id);
+		NAME.add(name);
+		SAL.add(salary);
+		
+		
+		
+	}
+	public void update(int id)
+	{
+		
+		for(int i=0;i<ID.size();i++)
+		{
+			if(ID.get(i)==id)
+			{
+				System.out.println("Enter the employee name");
+				String name=sc.next();
+				System.out.println("Enter the employee salary");
+				Float sal=sc.nextFloat();
+				NAME.add(i, name);
+				SAL.add(i, sal);
+				display();
+				
+				
+			}
+			
+			}
+		}
+		public void search(int id)
+		{
+			
+			for(int i=0;i<ID.size();i++)
+			{
+				if(ID.get(i)==id)
+				{
+					System.out.println("ID="+ID.get(i));
+					System.out.println("ID="+NAME.get(i));
+					System.out.println("ID="+SAL.get(i));
+					
+					
+				}
+				
+			}
+		}
+		public void delete(int id)
+		{
+			
+			for(int i=0;i<ID.size();i++)
+			{
+				if(ID.get(i)==id)
+				{
+					System.out.println("Enter the employee name");
+					String name=sc.next();
+					System.out.println("Enter the employee salary");
+					Float sal=sc.nextFloat();
+					ID.remove(i);
+					NAME.remove(i);
+					SAL.remove(i);
+					display();
+					
+				}
+				
+			}
+		
+		
+	}
+	
+	
+	
+	
+	public void display()
+	{
+		
+		for(int i=0;i<ID.size();i++)
+		{
+			System.out.println("++++++++++++++++++++++++++");
+			System.out.println("Employee ID:"+ID.get(i));
+			System.out.println("Employee Name:"+NAME.get(i));
+			System.out.println("Employee Salary:"+SAL.get(i));
+			System.out.println("++++++++++++++++++++++++++");
+		}
+	}
+	
+	
+}
+
+
+
+
+
+
+public class Employee {
+	
+	
+	public static void main(String args[])
+	{
+		
+		EmpDetails obj=new EmpDetails();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int choice = 10;
+		do
+		{
+			System.out.println("Press 1. for Add employee details");
+			System.out.println("Press 2. for Search employee details with their ID");
+			System.out.println("Press 3. for update record");
+			System.out.println("Press 4. for delete record");
+			System.out.println("Press 5. for exit record");
+			System.out.println("Please enter your choice...");
+			choice=sc.nextInt();
+			switch(choice)
+			{
+				case 1:
+					System.out.println("How many employee you want to add?");
+					int n=sc.nextInt();
+					for(int i=0;i<n;i++)
+					{
+					
+					
+					int id;
+					Float salary;
+					String name;
+					System.out.println("Enter the employee id");
+					id=sc.nextInt();
+					System.out.println("Enter the employee name");
+					name=sc.next();
+					System.out.println("Enter the employee salary");
+					salary=sc.nextFloat();
+					obj.AddEmployee(id, name, salary);
+					System.out.println("value inserted...");
+				
+					}
+				break;
+				
+				case 2:
+					
+					obj.display();
+					
+				break;
+					
+				case 3:
+					int id;
+					System.out.println("Enter the employee id");
+					id=sc.nextInt();
+					obj.update(id);
+					
+				break;
+				
+				case 4:
+					int id;
+					System.out.println("Enter the employee id");
+					id=sc.nextInt();
+					obj.delete(id);
+
+					
+				break;
+				
+				case 6:
+					System.exit(choice);
+				break;
+				
+		
+			}
+			 
+				
+			
+			
+		}
+			
+		while(choice!=0);
+		
+		
+		
+		
+		
+		
+	}
+
+}

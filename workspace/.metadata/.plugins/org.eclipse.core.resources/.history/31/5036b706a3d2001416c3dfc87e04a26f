@@ -1,0 +1,62 @@
+package com.prectise;
+
+
+
+class A
+{
+	void methodA()
+	{
+		
+		System.out.print("This is method of class A");
+		
+	}
+	
+	
+	
+}
+
+
+class B extends A 
+{
+	
+	void methodB()
+	{
+		System.out.print("This is method of class B");
+		
+	}
+}
+
+
+
+class C 
+{
+	
+	void methodC()
+	{
+		System.out.print("This is method of class C");
+		
+	}
+}
+
+
+
+
+
+public class InheritanceDemo {
+
+	public static void main(String[] args) {
+	
+
+		C objc=new C();
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

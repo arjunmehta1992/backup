@@ -1,0 +1,92 @@
+package com.exam;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
+class ButtonFrame extends JFrame
+{
+  JButton bChange,bChange2 ; 
+  JLabel label1 = new JLabel("Arjun");
+  JLabel label2 = new JLabel("Mehta");
+  private javax.swing.Timer timer;
+  ButtonFrame(String title) 
+  {
+    super( title );                    
+    setLayout( new FlowLayout() ); 
+    setSize(300, 300);
+    bChange = new JButton("Print Arjun"); 
+    add( bChange );
+   
+    bChange.addActionListener(new ActionListener() {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			add(label1);
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+	});
+    
+    
+    
+    bChange2 = new JButton("Print Mehta"); 
+    add( bChange2 );
+   
+    bChange2.addActionListener(new ActionListener() {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			add(label2);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+	});
+    
+    
+    
+    
+    
+    
+    
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );   
+  }
+}
+
+
+
+
+public class FrameDemo {
+
+	public static void main(String args[])
+	{
+		 ButtonFrame frm = new ButtonFrame("Button Demo");
+
+		    frm.setSize( 150, 75 );     
+		    frm.setVisible( true );   
+	}
+	
+	
+	
+	
+	
+	
+}

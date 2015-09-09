@@ -1,0 +1,35 @@
+package com.exam;
+
+
+class ThreadChild extends Thread implements Runnable
+{
+	public void run()
+	{
+		System.out.println("Thread is strating");
+	}
+}
+
+
+
+public class ThreadExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ThreadChild tc=new ThreadChild();
+		tc.start();
+		try {
+			tc.sleep(120);
+			tc.wait(200);
+		
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
+
+}

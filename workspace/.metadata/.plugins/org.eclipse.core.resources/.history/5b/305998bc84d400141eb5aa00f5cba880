@@ -1,0 +1,42 @@
+package com.prectise;
+
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.prefs.BackingStoreException;
+
+public class AppletDemo extends Applet implements ActionListener {
+
+	public void init()
+	{
+		
+		
+		Button b1=new Button("Red");
+		add(b1);
+		
+	}
+
+	public void paint(Graphics g)
+	{
+		
+		g.drawString("Hiii.....Applet is running", 35, 35);
+		g.drawLine(10, 20, 15, 20);
+		g.drawOval(50, 60, 100, 100);
+		
+	
+	
+	}
+
+
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	
+	
+}

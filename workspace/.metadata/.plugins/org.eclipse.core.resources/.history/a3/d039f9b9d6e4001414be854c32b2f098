@@ -1,0 +1,9 @@
+package com.example.studentmappingdb;
+
+public class StudentData {
+
+	int std_id;
+	String std_name,std_address,std_contact,std_gender,std_email;
+	
+	
+}

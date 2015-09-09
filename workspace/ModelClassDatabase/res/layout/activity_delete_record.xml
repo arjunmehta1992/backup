@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f7ff"
+    tools:context="com.example.modelclassdatabase.Delete_Record" >
+
+    <RelativeLayout
+        android:id="@+id/Delete_Header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#c6dddd" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Delete_Footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:background="#c6dddd" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/delete_Record_box"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Delete_Header"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:ems="8"
+                android:text="Employee Name:" />
+
+            <Spinner
+                android:id="@+id/delete_spinner_empname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/delete_record_submit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="Delete Employee"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

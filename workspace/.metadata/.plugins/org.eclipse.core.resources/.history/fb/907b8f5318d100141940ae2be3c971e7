@@ -1,0 +1,24 @@
+package com.exam;
+
+
+class Frame extends java.awt.Frame
+{
+	
+	Frame f=new Frame();
+	
+	
+	
+}
+
+
+
+
+public class FrameDemo {
+
+	
+	
+	
+	
+	
+	
+}

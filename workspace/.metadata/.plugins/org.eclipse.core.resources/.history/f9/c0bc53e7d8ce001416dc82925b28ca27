@@ -1,0 +1,91 @@
+package com.exam;
+
+import java.util.Scanner;
+
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+
+abstract class Animal
+{
+	public void mammal()
+	{
+		System.out.println("Abstract method is implemented");
+	}
+}
+
+interface Animal_interface
+{
+	public void mm();
+}
+
+
+
+class VariableType extends Animal implements Animal_interface
+{
+
+	public void mm() 
+	{
+		System.out.println("Innterface implementd in Variable type class");
+		
+	}
+	
+	
+	
+	
+	
+}
+
+
+class Sample 
+{
+	String name;
+	int no;
+	
+	void setName(String name)
+	{
+		this.name =name;
+	}
+	
+	void setNumber(int no)
+	{
+		this.no=no;
+	}
+	
+	void getName()
+	{
+		System.out.print("Your name is"+name);
+	}
+	
+	void getNumber()
+	{
+		System.out.print("Your number is"+no);
+	}
+	
+}
+
+
+
+
+public class Prectise {
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc=new Scanner(System.in);
+		Sample obj=new Sample();
+		System.out.println("Write your name:");
+		String name=sc.nextLine();
+		System.out.println("Write your number:");
+		int no=sc.nextInt();
+		obj.setName(name);
+		obj.setNumber(no);
+		obj.getName();
+		obj.getNumber();
+		
+	
+		VariableType b=new VariableType();
+		b.mm();
+		b.mammal();
+	}
+
+}

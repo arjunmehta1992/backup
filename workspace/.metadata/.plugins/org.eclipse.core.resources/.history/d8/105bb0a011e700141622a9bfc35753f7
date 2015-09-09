@@ -1,0 +1,263 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.AddStudent" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/addStdHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/addStdHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/addStdFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/addStdFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/addStdFooter"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/addStdBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/addStdFooter"
+        android:layout_below="@+id/addStdHeader"
+        android:layout_centerHorizontal="true"
+        android:background="#BDEDFF"
+         >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/stdNamelayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/addStdName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:ems="7"
+                    android:text="@string/addStdName" />
+
+                <EditText
+                    android:id="@+id/edStdName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                   
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                  
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:hint="@string/addStdName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/stdaddresslayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/addStdAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="22dp"
+                    android:ems="7"
+                    android:text="@string/addStdAddress" />
+
+                <EditText
+                    android:id="@+id/edStdAddress"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/edStdName"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,"
+                    android:hint="@string/addStdAddress" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/stdcontactlayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/addStdContact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="22dp"
+                    android:ems="7"
+                    android:text="@string/addStdContact" />
+
+                <EditText
+                    android:id="@+id/edStdContact"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignBaseline="@+id/addStdContact"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@+id/addStdContact"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:digits="1234567890"
+                    android:hint="@string/addStdContact" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/genderlayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/addStdGen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="22dp"
+                    android:ems="7"
+                    android:text="@string/addStdGen" />
+
+                <RadioGroup
+                    android:id="@+id/addRgGender"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" 
+                    android:layout_gravity="bottom">
+
+                    <RadioButton
+                        android:id="@+id/addStdMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/addStdGenMale" />
+
+                    <RadioButton
+                        android:id="@+id/addStdFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/addStdGenFemale" />
+                </RadioGroup>
+
+            </LinearLayout>
+			  <LinearLayout
+                android:id="@+id/stdemaillayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/addStdEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="22dp"
+                android:ems="7"
+                android:text="@string/addStdEmail" />
+
+            <EditText
+                android:id="@+id/edStdEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/addStdEmail"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="@string/addStdEmail"
+                android:singleLine="true" />
+			</LinearLayout>
+			  <LinearLayout
+                android:id="@+id/stdclgnamelayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/addClgName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+                android:layout_marginTop="22dp"
+                android:ems="7"
+                android:text="@string/addClgName" />
+
+            <Spinner
+                android:id="@+id/edStudClgName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+          		</LinearLayout>
+			 <LinearLayout
+                android:id="@+id/stdbtnlayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" 
+                android:layout_gravity="top">
+            <Button
+                android:id="@+id/btnStdAdd"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10sp"
+                android:background="#95B9C7"
+                android:text="@string/btnStdAdd"
+                android:textColor="#FF0000" />
+
+            <Button
+                android:id="@+id/btnStdClear"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10sp"
+                android:background="#95B9C7"
+                android:text="@string/btnStdClear"
+                android:textColor="#FF0000" />
+
+            <Button
+                android:id="@+id/btnHome"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:background="#95B9C7"
+                android:layout_marginLeft="10sp"
+                android:text="@string/btnHome"
+                android:textColor="#FF0000" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

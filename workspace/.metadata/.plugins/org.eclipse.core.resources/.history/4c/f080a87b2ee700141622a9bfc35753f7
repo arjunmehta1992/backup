@@ -1,0 +1,43 @@
+package com.example.studentmappingdb;
+
+import java.util.ArrayList;
+
+import com.example.studentmappingdb.DIsplayCollegeList.DataLoad;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Window;
+import android.widget.ListView;
+
+public class DisplayStudent extends Activity {
+
+	
+	ListView displayList;
+	ArrayList<CollegeData> list_college;
+	Context context;
+	DBHelper helper;
+	CollegeData obj_collegData;
+	ProgressDialog progressDialog;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		
+		progressDialog= new ProgressDialog(DisplayStudent.this);
+		helper = new DBHelper(DisplayStudent.this);
+		displayList = (ListView) findViewById(R.id.DisplayCollegeList);
+		list_college = new ArrayList<CollegeData>();	
+
+		context = DisplayStudent.this;
+		obj_collegData = new CollegeData();
+		list_college = helper.getCollegeList();
+		new DataLoad().execute();
+		
+		
+	}
+}
+

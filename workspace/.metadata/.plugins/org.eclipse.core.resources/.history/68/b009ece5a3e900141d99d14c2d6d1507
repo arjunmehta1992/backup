@@ -1,0 +1,67 @@
+package com.example.maps;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+
+public class MainActivity extends Activity implements OnClickListener {
+
+	private GoogleMap googleMap;
+	private LatLngBounds AUSTRALIA = new LatLngBounds(
+			  new LatLng(-44, 113), new LatLng(-10, 154));
+
+	Button zoom_in, zoom_out;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		init();
+		googleMap =((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
+		
+                
+		
+		
+		zoom_in.setOnClickListener(this);
+		zoom_out.setOnClickListener(this);
+	}
+
+	public void init() {
+		zoom_in = (Button) findViewById(R.id.Zoom_in);
+		zoom_out = (Button) findViewById(R.id.Zoom_out);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+
+		switch (v.getId()) {
+		case R.id.Zoom_in:
+
+			CameraUpdateFactory.zoomIn();
+
+
+			break;
+		case R.id.Zoom_out:
+
+			CameraUpdateFactory.zoomOut();
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

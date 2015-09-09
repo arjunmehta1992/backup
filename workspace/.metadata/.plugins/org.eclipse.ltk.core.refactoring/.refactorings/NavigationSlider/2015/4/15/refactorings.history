@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;NavigationSlider/res/layout/drawer_nav_item.xml&apos; to &apos;listview_item_row.xml&apos;" description="Rename resource &apos;drawer_nav_item.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/layout/drawer_nav_item.xml" name="listview_item_row.xml" stamp="1428407627293" updateReferences="true"/>
+</session>

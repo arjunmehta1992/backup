@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.DeleteStudent" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/delStdHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/delStdHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/delStdFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/delStdFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/delStdFooter"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/delStdBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/delStdFooter"
+        android:layout_below="@+id/delStdHeader"
+        android:layout_centerHorizontal="true"
+        android:background="#BDEDFF"
+        android:paddingTop="20dp" >
+
+        <Spinner
+            android:id="@+id/delStdSpinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/autoCompleteTextView"
+            
+            
+            
+             />
+
+        <TextView
+            android:id="@+id/delClgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:ems="5"
+            android:text="@string/delStdName" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/delClgName"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/delClgName"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="AutoCompleteTextView" />
+
+        <Button
+            android:id="@+id/btnStdDel"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/autoCompleteTextView"
+            android:layout_marginLeft="10dp"
+            android:background="#95B9C7"
+            android:text="@string/btnDelStdName"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnDelStdClear"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/autoCompleteTextView"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnStdDel"
+            android:background="#95B9C7"
+            android:text="@string/btnDelStdClear"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnDelStdHome"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/autoCompleteTextView"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnDelStdClear"
+            android:background="#95B9C7"
+            android:text="@string/btnHome"
+            android:textColor="#FF0000" />
+
+       
+
+    </RelativeLayout>
+
+</RelativeLayout>

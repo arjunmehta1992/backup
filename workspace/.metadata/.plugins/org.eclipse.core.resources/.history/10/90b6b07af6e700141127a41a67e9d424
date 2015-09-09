@@ -1,0 +1,102 @@
+package com.example.studentmappingdb;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.opengl.Visibility;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class SearchCollege extends Activity implements OnClickListener {
+
+	Button btnSearch, btnClear, btnHome;
+	AutoCompleteTextView edClgName;
+	TextView clgName,clgAddress,clgContact,clgLongitude,clgLatitude;
+	RelativeLayout display;
+
+	
+	DBHelper helper;
+	ArrayList<String> collegeList;
+	ArrayList<CollegeData> college;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_search_college);
+
+		helper=new DBHelper(SearchCollege.this);
+		collegeList=new ArrayList<String>();
+		
+		btnSearch = (Button) findViewById(R.id.btnClgSearch);
+		btnClear = (Button) findViewById(R.id.btnSearchClgClear);
+		btnHome = (Button) findViewById(R.id.btnSearchClgHome);
+
+		edClgName = (AutoCompleteTextView) findViewById(R.id.edSearchClgName);
+		
+		display=(RelativeLayout)findViewById(R.id.searchClgDisplay);
+		
+		clgName=(TextView)findViewById(R.id.searchClgNameResult);
+		clgAddress=(TextView)findViewById(R.id.searchClgAddressResult);
+		clgContact=(TextView)findViewById(R.id.searchClgContactResult);
+		clgLongitude=(TextView)findViewById(R.id.searchClgLongitudeResult);
+		clgLatitude=(TextView)findViewById(R.id.searchClgLatitudeResult);
+
+		btnSearch.setOnClickListener(this);
+		btnClear.setOnClickListener(this);
+		btnHome.setOnClickListener(this);
+		
+		displayData();
+	
+
+	}
+	public void displayData()
+	{
+		collegeList=helper.getCollegeName();
+		ArrayAdapter<String> adpt=new ArrayAdapter<String>(SearchCollege.this, android.R.layout.simple_list_item_1, collegeList);
+		edClgName.setAdapter(adpt);
+		edClgName.setThreshold(1);
+	}
+	public void searchResult()
+	{
+		college=helper.getCollegeList();
+		clgName.setText(college.get(0).getCollege_name());
+		clgAddress.setText(college.get(0).getCollege_address());
+		clgContact.setText(college.get(0).getCollege_contact());
+		clgLatitude.setText(college.get(0).getCollege_lat());
+		clgLongitude.setText(college.get(0).getCollege_long());
+		display.setVisibility(display.VISIBLE);
+		
+	}
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+
+		switch (v.getId()) {
+		case R.id.btnClgSearch:
+			searchResult();
+			
+			break;
+		case R.id.btnSearchClgClear:
+			edClgName.setText("");
+
+			break;
+		case R.id.btnSearchClgHome:
+				Intent home=new Intent(getApplicationContext(), HomeActivity.class);
+				startActivity(home);
+			break;
+		default:
+			break;
+		}
+
+	}
+
+}

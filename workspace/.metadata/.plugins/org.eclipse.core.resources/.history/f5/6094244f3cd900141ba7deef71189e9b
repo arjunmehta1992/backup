@@ -1,0 +1,26 @@
+package com.layoutnew;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class data extends Activity{
+	
+	
+	TextView tv_name,tv_address,tv_gender,tv_password,tv_confirmpasseord,tv_lastname;
+	
+	protected void onCreate(Bundle savedinstancestate) {
+		super.onCreate(savedinstancestate);
+		setContentView(R.layout.data);
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+
+}

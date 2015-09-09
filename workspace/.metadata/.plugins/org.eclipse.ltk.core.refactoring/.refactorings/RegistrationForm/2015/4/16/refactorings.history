@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;RegistrationForm/res/anim/myanimation.xml&apos; to &apos;clockanimation.xml&apos;" description="Rename resource &apos;myanimation.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/anim/myanimation.xml" name="clockanimation.xml" stamp="1428984877875" updateReferences="true"/>
+</session>

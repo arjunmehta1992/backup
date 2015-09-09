@@ -1,0 +1,33 @@
+package com.multiplewidget;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
+public class second extends Activity{
+
+	RadioGroup rg1;
+	RadioButton r1,r2;
+	
+	
+	protected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.second);
+		
+		
+		rg1=(RadioGroup)findViewById(R.id.radioGroup1);
+		r1=(RadioButton)findViewById(R.id.radio0);
+		r2=(RadioButton)findViewById(R.id.radio1);
+		
+		
+		
+		
+		
+		
+		
+			
+	}
+}

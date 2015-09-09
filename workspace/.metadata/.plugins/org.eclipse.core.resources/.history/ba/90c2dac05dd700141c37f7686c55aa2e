@@ -1,0 +1,68 @@
+package com.multiplewidget;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TabHost;
+import android.widget.TabHost.TabSpec;
+
+public class MainActivity extends ActionBarActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.tab);
+		
+		
+		TabHost tabhost=(TabHost)findViewById(R.id.tabhost);
+		
+		TabHost tabHost = getTabHost();
+		this.setNewTab(this, tabhost, "tab1", R.string.tab1, android.R.drawable.star_on, R.id.tab1);
+		this.setNewTab(this, tabhost, "tab2", R.string.tab2, android.R.drawable.star_on, R.id.tab2);
+		
+	}
+
+	
+
+	private TabHost getTabHost() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	private void setNewTab(MainActivity mainActivity, TabHost tabHost,
+			String string, int tab1, int starOn, int tab12) {
+		// TODO Auto-generated method stub
+		TabSpec tabSpec = tabHost.newTabSpec(string);
+    	String titleString = getString(tab1);
+        tabSpec.setIndicator(titleString, mainActivity.getResources().getDrawable(android.R.drawable.star_on));
+    	tabSpec.setContent(tab12);
+        tabHost.addTab(tabSpec);
+		
+		
+		
+	}
+
+	
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}

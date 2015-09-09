@@ -1,0 +1,63 @@
+package com.example.studentmappingdb;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+public class SearchCollege extends Activity implements OnClickListener {
+
+	Button btnSearch, btnClear, btnHome;
+	EditText edClgName;
+	TextView clgName,clgAddress,clgContact,clgLongitude,clgLatitude;
+	RelativeLayout display;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_search_college);
+
+		btnSearch = (Button) findViewById(R.id.btnClgSearch);
+		btnClear = (Button) findViewById(R.id.btnSearchClgClear);
+		btnHome = (Button) findViewById(R.id.btnSearchClgHome);
+
+		edClgName = (EditText) findViewById(R.id.edSearchClgName);
+		
+		display=(RelativeLayout)findViewById(R.id.searchClgBody);
+
+		btnSearch.setOnClickListener(this);
+		btnClear.setOnClickListener(this);
+		btnHome.setOnClickListener(this);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+
+		switch (v.getId()) {
+		case R.id.btnClgSearch:
+
+			break;
+		case R.id.btnSearchClgClear:
+			edClgName.setText("");
+
+			break;
+		case R.id.btnSearchClgHome:
+				Intent home=new Intent(getApplicationContext(), HomeActivity.class);
+				startActivity(home);
+			break;
+		default:
+			break;
+		}
+
+	}
+
+}

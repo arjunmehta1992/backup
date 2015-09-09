@@ -1,0 +1,168 @@
+<ScrollView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    
+    
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+<RelativeLayout 
+    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   
+   >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:maxWidth="20dp"
+        android:src="@drawable/five" />
+
+    <Button
+        android:id="@+id/button1"
+       
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/imageView1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="First" 
+        
+        
+        />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:text="Go to login" 
+        android:layout_toRightOf="@+id/button1"
+        android:layout_below="@+id/imageView1"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        />
+
+    <Button
+        android:id="@+id/button2"
+       
+        android:layout_alignParentLeft="true"
+      	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+       	android:text="Second" 
+      
+        />
+<TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:text="Go to images" 
+        android:layout_toRightOf="@+id/button1"
+        android:layout_below="@+id/imageView1"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        
+        />
+
+
+<Button
+        android:id="@+id/button3"
+       
+        android:layout_alignParentLeft="true"
+      	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+       	android:text="Third" 
+      
+        />
+<TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:text="Go to images" 
+        android:layout_toRightOf="@+id/button3"
+        android:layout_below="@+id/imageView1"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        
+        />
+
+
+<Button
+        android:id="@+id/button4"
+       
+        android:layout_alignParentLeft="true"
+      	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        
+        android:text="Four" 
+      
+        />
+<TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button4"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_centerHorizontal="true"
+        android:text="Go to images" 
+        android:layout_toRightOf="@+id/button4"
+        android:layout_below="@+id/imageView1"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        
+        />
+
+
+
+<Button
+        android:id="@+id/button5"
+      	android:layout_alignParentLeft="true"
+      	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button4"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+       	android:text="Four" 
+      
+        />
+<TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button5"
+        android:layout_alignBottom="@+id/button5"
+        android:layout_centerHorizontal="true"
+        android:text="Go to images" 
+        android:layout_toRightOf="@+id/button5"
+        android:layout_below="@+id/imageView1"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        
+        />
+    
+
+</RelativeLayout>
+</ScrollView>

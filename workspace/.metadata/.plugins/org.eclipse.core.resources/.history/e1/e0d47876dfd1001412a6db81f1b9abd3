@@ -1,0 +1,144 @@
+package com.exam;
+
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Scanner;
+import java.util.Vector;
+abstract class Animal
+{
+	public void mammal()
+	{
+		System.out.println("Abstract method is implemented");
+	}
+	
+	abstract void lion();
+	
+	
+}
+
+interface Animal_interface
+{
+	public void mm();
+}
+
+
+
+class VariableType extends Animal implements Animal_interface
+{
+
+	public void mm() 
+	{
+		System.out.println("Innterface implementd in Variable type class");
+		
+	}
+	public void  lion()
+	{
+		System.out.println("Abstrct method implemented...");
+	}
+	
+	
+	
+	
+}
+
+
+class Sample 
+{
+	String name;
+	int no;
+	
+	void setName(String name)
+	{
+		this.name =name;
+	}
+	
+	void setNumber(int no)
+	{
+		this.no=no;
+	}
+	
+	void getName()
+	{
+		System.out.println("Your name is "+name);
+	}
+	
+	void getNumber()
+	{
+		System.out.println("Your number is "+no);
+	}
+	
+}
+
+
+
+
+public class Prectise {
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		
+		 Enumeration days;
+	      Vector dayNames = new Vector();
+	      dayNames.add("Sunday");
+	      dayNames.add("Monday");
+	      dayNames.add("Tuesday");
+	      dayNames.add("Wednesday");
+	      dayNames.add("Thursday");
+	      dayNames.add("Friday");
+	      dayNames.add("Saturday");
+	      days = dayNames.elements();
+	      while (days.hasMoreElements()){
+	         System.out.println(days.nextElement()); 
+	      }
+		
+		
+		
+		
+		
+		
+		Scanner sc=new Scanner(System.in);
+		Sample obj=new Sample();
+		System.out.println("Write your name: ");
+		String name=sc.nextLine();
+		System.out.println("Write your number: ");
+		int no=sc.nextInt();
+		obj.setName(name);
+		obj.setNumber(no);
+		obj.getName();
+		obj.getNumber();
+		
+	
+		VariableType b=new VariableType();
+		b.mm();
+		b.mammal();
+		int a[]={1,2,2,3,3,4,4,5,5,10,20};
+		int len=String.valueOf(a).length();
+		for(int i=0;i<len;i++)
+		{
+			System.out.println(a[i]);
+			
+		}
+		
+		Date date = new Date();
+		System.out.println(date.toString());
+		
+		
+		int x=10,y=20;
+		x=x+y;
+		y=x-y;
+		x=x-y;
+		System.out.println("Swapping without third variable");
+		System.out.println("x="+x+"Y="+y);
+		System.out.println("--------------------------------");
+
+		
+		
+		
+		
+	}
+
+}

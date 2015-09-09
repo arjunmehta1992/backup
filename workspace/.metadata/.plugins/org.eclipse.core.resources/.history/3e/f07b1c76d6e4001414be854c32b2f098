@@ -1,0 +1,6 @@
+package com.example.studentmappingdb;
+
+public class CollegeData {
+
+	int college
+}

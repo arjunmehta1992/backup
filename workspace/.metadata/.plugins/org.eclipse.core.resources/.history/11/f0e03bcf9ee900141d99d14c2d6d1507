@@ -1,0 +1,60 @@
+package com.example.maps;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+
+public class MainActivity extends FragmentActivity implements OnClickListener {
+
+	private GoogleMap mMap;
+	private LatLngBounds AUSTRALIA = new LatLngBounds(
+			  new LatLng(-44, 113), new LatLng(-10, 154));
+
+	Button zoom_in, zoom_out;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		init();
+		zoom_in.setOnClickListener(this);
+		zoom_out.setOnClickListener(this);
+	}
+
+	public void init() {
+		zoom_in = (Button) findViewById(R.id.Zoom_in);
+		zoom_out = (Button) findViewById(R.id.Zoom_out);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+
+		switch (v.getId()) {
+		case R.id.Zoom_in:
+
+			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(AUSTRALIA.getCenter(), 10));
+
+
+			break;
+		case R.id.Zoom_out:
+
+			mMap.animateCamera(CameraUpdateFactory.zoomOut());
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

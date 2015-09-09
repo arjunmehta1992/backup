@@ -1,0 +1,319 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.UpdateStudent" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/updateStdHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/updateStdHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/updateStdFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/updateStdFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/updateStdFooter"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/updateStdBody"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/updateStdHeader"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dp"
+        android:background="#BDEDFF"
+        android:paddingTop="10dp"
+         >
+
+        <TextView
+            android:id="@+id/updateStdName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:ems="7"
+            android:text="@string/updateStdName" />
+
+        <EditText
+            android:id="@+id/edUpdateStdName"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/updateStdName"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/updateStdName"
+            android:background="@android:drawable/editbox_background_normal"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ., "
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btnLoadStd"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edUpdateStdName"
+            android:layout_marginLeft="10dp"
+            android:background="#95B9C7"
+            android:text="@string/btnLoadStdName"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnUpdateStdClear"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edUpdateStdName"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnLoadStd"
+            android:background="#95B9C7"
+            android:text="@string/btnUpdateStdClear"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnUpdateStdHome"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edUpdateStdName"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnUpdateStdClear"
+            android:background="#95B9C7"
+            android:text="@string/btnHome"
+            android:textColor="#FF0000" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/updateStdFooter"
+        android:layout_below="@+id/updateStdBody" >
+
+        <RelativeLayout
+            android:id="@+id/updateStdDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/updateStdFooter"
+            android:layout_below="@+id/updateStdBody"
+            android:layout_centerHorizontal="true"
+            android:background="#BDEDFF"
+            android:paddingBottom="10dp"
+            android:paddingTop="30dp"
+            android:visibility="visible" >
+
+            <TextView
+                android:id="@+id/updateStdNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addStdName" />
+
+            <EditText
+                android:id="@+id/UpdateStdNameResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateStdNameText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateStdNameText"
+                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ., "
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="@string/addStdName"
+                android:paddingRight="5dp" />
+
+            <TextView
+                android:id="@+id/updateStdAddressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateStdNameText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addStdAddress" />
+
+            <EditText
+                android:id="@+id/updateStdAddressResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateStdAddressText"
+                android:layout_below="@+id/updateStdNameResult"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateStdAddressText"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,123456789/- "
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="@string/addStdAddress"
+                android:paddingRight="5dp" />
+
+            <TextView
+                android:id="@+id/updateStdContactText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateStdAddressText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addStdContact" />
+
+            <EditText
+                android:id="@+id/updateStdContactResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateStdContactText"
+                android:layout_below="@+id/updateStdAddressResult"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateStdContactText"
+                android:background="@android:drawable/editbox_background_normal"
+                android:digits="1234567890"
+                android:hint="@string/addStdContact"
+                android:maxLength="10"
+                android:paddingRight="5dp" />
+
+            <TextView
+                android:id="@+id/updateStdEmailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateStdContactText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addStdEmail" />
+
+            <EditText
+                android:id="@+id/updateStdEmailResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateStdEmailText"
+                android:layout_below="@+id/updateStdContactResult"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateStdEmailText"
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="@string/addStdEmail"
+                android:paddingRight="5dp" />
+
+            <TextView
+                android:id="@+id/updateStdGenderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateStdEmailText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addStdGen" />
+
+            <RadioGroup
+                android:id="@+id/updateStdGenderResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateStdGenderText"
+                android:layout_below="@+id/updateStdEmailResult"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateStdGenderText"
+                
+               
+                android:paddingRight="5dp"
+                android:orientation="horizontal" >
+            
+            
+            
+            <RadioButton 
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/addStdGenMale"
+                
+                
+                />
+            <RadioButton 
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/addStdGenFemale"
+                
+                
+                />
+            
+            
+            
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/updateStdCollegeNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateStdGenderText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addClgName" />
+
+            <Spinner
+                android:id="@+id/updateStdCollegeNameResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignTop="@+id/updateStdCollegeNameText"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/updateStdCollegeNameText"
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="@string/addClgName"
+                android:paddingRight="5dp" />
+
+            <Button
+                android:id="@+id/btnUpdateStd"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/updateStdCollegeNameResult"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:background="#95B9C7"
+                android:text="@string/btnUpdateStdName"
+                android:textColor="#FF0000" />
+
+            <Button
+                android:id="@+id/btnUpdateStdClearResult"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/updateStdCollegeNameResult"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/btnUpdateStd"
+                android:background="#95B9C7"
+                android:text="@string/btnUpdateStdClear"
+                android:textColor="#FF0000" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

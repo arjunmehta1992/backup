@@ -1,0 +1,21 @@
+package com.prectise;
+
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class AppletDemo extends Applet  {
+
+	public void init()
+	{
+		
+	}
+
+	public void paint(Graphics g)
+	{
+		g.drawString("Hiii.....Applet is running", 20, 30);
+	}
+	
+
+	
+	
+}

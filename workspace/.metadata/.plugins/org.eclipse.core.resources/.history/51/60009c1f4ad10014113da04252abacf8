@@ -1,0 +1,62 @@
+package com.exam;
+
+import java.awt.EventQueue;
+
+class JframeDemo {
+
+	 private static final String EXIT_ON_CLOSE = null;
+
+	public void SimpleEx() {
+
+	        initUI();
+	    }
+
+	    private void initUI() {
+	        
+	        setTitle("Simple example");
+	        setSize(300, 200);
+	        setLocationRelativeTo(null);
+	        setDefaultCloseOperation(EXIT_ON_CLOSE);
+	    }
+	
+	
+	
+	
+	private void setDefaultCloseOperation(String exitOnClose) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	private void setLocationRelativeTo(Object object) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	private void setSize(int i, int j) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	private void setTitle(boolean b) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	public static void main(String[] args) {
+		
+
+		EventQueue.invokeLater(new Runnable() {
+	        
+            public void run() {
+            	JframeDemo   ex = new JframeDemo();
+                
+            }
+        });
+		
+		
+		
+		
+		
+	}
+
+}

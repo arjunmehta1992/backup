@@ -1,0 +1,377 @@
+package com.example.studentmappingdb;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.SyncStateContract.Columns;
+import android.util.Log;
+
+public class DBHelper extends SQLiteOpenHelper {
+
+	public static final String DATABASE_NAME = "student_management";
+	public static final String STUDENT_TABLE_NAME = "student_master";
+	public static final String COLLEGE_TABLE_NAME = "college_master";
+
+	public static final String STUDENT_COLUMN_ID = "id";
+	public static final String STUDENT_COLUMN_NAME = "std_name";
+	public static final String STUDENT_COLUMN_ADDRESS = "std_address";
+	public static final String STUDENT_COLUMN_CONTACT = "std_contact";
+	public static final String STUDENT_COLUMN_GENDER = "std_gender";
+	public static final String STUDENT_COLUMN_EMAIL = "std_email";
+	public static final String STUDENT_COLUMN_COLLEGE_ID = "college_id";
+
+	public static final String COLLEGE_COLUMN_ID = "college_id";
+	public static final String COLLEGE_COLUMN_NAME = "college_name";
+
+	public static final String COLLEGE_COLUMN_ADDRESS = "college_address";
+	public static final String COLLEGE_COLUMN_CONTACT = "college_contact";
+	public static final String COLLEGE_COLUMN_LATTITUDE = "college_lat";
+	public static final String COLLEGE_COLUMN_LONGITUDE = "college_long";
+
+	CollegeData objCollege;
+	StudentData objStudentData;
+
+	public DBHelper(Context context) {
+		super(context, DATABASE_NAME, null, 1);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+		db.execSQL("create table if not exists " + COLLEGE_TABLE_NAME + "("
+				+ COLLEGE_COLUMN_ID + " integer primary key,"
+				+ COLLEGE_COLUMN_NAME + " text," + COLLEGE_COLUMN_ADDRESS
+				+ " text," + COLLEGE_COLUMN_CONTACT + " text,"
+				+ COLLEGE_COLUMN_LATTITUDE + " text,"
+				+ COLLEGE_COLUMN_LONGITUDE + " text)");
+
+		db.execSQL("create table if not exists " + STUDENT_TABLE_NAME + " ("
+				+ STUDENT_COLUMN_ID + " integer primary key, "
+				+ STUDENT_COLUMN_NAME + " text, " + STUDENT_COLUMN_ADDRESS
+				+ " text, " + STUDENT_COLUMN_CONTACT + " text, "
+				+ STUDENT_COLUMN_GENDER + " text, " + STUDENT_COLUMN_EMAIL
+				+ " text, " + STUDENT_COLUMN_COLLEGE_ID
+				+ " integer, foreign key (" + STUDENT_COLUMN_COLLEGE_ID
+				+ " ) references " + COLLEGE_TABLE_NAME + " ( "
+				+ COLLEGE_COLUMN_ID + " ) )");
+
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+	}
+
+	public void openDB() {
+		SQLiteDatabase db = getWritableDatabase();
+
+	}
+
+	public void addCollegeData(CollegeData objCollegeData) {
+		SQLiteDatabase db = getWritableDatabase();
+
+		ContentValues values = new ContentValues();
+		values.put(COLLEGE_COLUMN_NAME, objCollegeData.getCollege_name());
+		values.put(COLLEGE_COLUMN_ADDRESS, objCollegeData.getCollege_address());
+		values.put(COLLEGE_COLUMN_CONTACT, objCollegeData.getCollege_contact());
+		values.put(COLLEGE_COLUMN_LATTITUDE, objCollegeData.getCollege_lat());
+		values.put(COLLEGE_COLUMN_LONGITUDE, objCollegeData.getCollege_long());
+		Log.i("College Name", "===== " + objCollegeData.getCollege_name());
+		db.insert(COLLEGE_TABLE_NAME, null, values);
+
+	}
+
+	public void addStudentData(StudentData objStudentData) {
+		SQLiteDatabase db = getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(STUDENT_COLUMN_NAME, objStudentData.getStd_name());
+		values.put(STUDENT_COLUMN_ADDRESS, objStudentData.getStd_address());
+		values.put(STUDENT_COLUMN_CONTACT, objStudentData.getStd_contact());
+		values.put(STUDENT_COLUMN_GENDER, objStudentData.getStd_gender());
+		values.put(STUDENT_COLUMN_EMAIL, objStudentData.getStd_email());
+		values.put(STUDENT_COLUMN_COLLEGE_ID, objStudentData.getCollege_id());
+		db.insert(STUDENT_TABLE_NAME, null, values);
+
+	}
+
+	public ArrayList<CollegeData> getCollegeList() {
+
+		ArrayList<CollegeData> list_college = new ArrayList<CollegeData>();
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db
+				.rawQuery("select * from " + COLLEGE_TABLE_NAME, null);
+
+		if (cursor.getCount() > 0) {
+			if (cursor.moveToFirst()) {
+				do {
+
+					CollegeData obj_clgdata = new CollegeData();
+					obj_clgdata.setCollege_id(cursor.getInt(cursor
+							.getColumnIndex(COLLEGE_COLUMN_ID)));
+					obj_clgdata.setCollege_name(cursor.getString(cursor
+							.getColumnIndex(COLLEGE_COLUMN_NAME)));
+					obj_clgdata.setCollege_address(cursor.getString(cursor
+							.getColumnIndex(COLLEGE_COLUMN_ADDRESS)));
+					obj_clgdata.setCollege_contact(cursor.getString(cursor
+							.getColumnIndex(COLLEGE_COLUMN_CONTACT)));
+					obj_clgdata.setCollege_lat(cursor.getString(cursor
+							.getColumnIndex(COLLEGE_COLUMN_LATTITUDE)));
+					obj_clgdata.setCollege_long(cursor.getString(cursor
+							.getColumnIndex(COLLEGE_COLUMN_LONGITUDE)));
+
+					list_college.add(obj_clgdata);
+
+				} while (cursor.moveToNext());
+			}
+		}
+
+		return list_college;
+	}
+
+	public void deleteAll() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(COLLEGE_TABLE_NAME, null, null);
+	}
+
+	public ArrayList<String> getCollegeName() {
+		ArrayList<String> listOfCollege = new ArrayList<String>();
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		Cursor cursor = db.rawQuery("select " + COLLEGE_COLUMN_ID + ","
+				+ COLLEGE_COLUMN_NAME + " from " + COLLEGE_TABLE_NAME + "",
+				null);
+
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				do {
+					String name = cursor.getString(cursor
+							.getColumnIndex(COLLEGE_COLUMN_NAME));
+					int id = cursor.getInt(cursor
+							.getColumnIndex(COLLEGE_COLUMN_ID));
+					listOfCollege.add(name);
+					Log.i("college name=====", ">>>>>>>>>>>>>>>>" + name);
+				} while (cursor.moveToNext());
+			}
+
+		}
+		cursor.close();
+		db.close();
+
+		return listOfCollege;
+
+	}
+
+	public String getCollegeName(int id) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(
+				"select " + COLLEGE_COLUMN_NAME + " from " + COLLEGE_TABLE_NAME
+						+ " where " + COLLEGE_COLUMN_ID + "=" + id, null);
+		String name = "";
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				do {
+					name = cursor.getString(cursor
+							.getColumnIndex(COLLEGE_COLUMN_NAME));
+
+				} while (cursor.moveToNext());
+			}
+
+		}
+
+		return name;
+
+	}
+
+	public int getClgId(String clgName) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		int n = 0;
+		Cursor cursor = db.rawQuery("select " + COLLEGE_COLUMN_ID + " from "
+				+ COLLEGE_TABLE_NAME + " where " + COLLEGE_COLUMN_NAME + "='"
+				+ clgName + "'", null);
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				do {
+
+					n = cursor.getInt(cursor.getColumnIndex(COLLEGE_COLUMN_ID));
+					Log.i("College Id",
+							"=======>>>>>>"
+									+ cursor.getInt(cursor
+											.getColumnIndex(COLLEGE_COLUMN_ID)));
+
+				} while (cursor.moveToNext());
+			}
+		}
+		return n;
+	}
+
+	public ArrayList<StudentData> getStudentList() {
+
+		ArrayList<StudentData> list_college = new ArrayList<StudentData>();
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db
+				.rawQuery("select * from " + STUDENT_TABLE_NAME, null);
+
+		if (cursor.getCount() > 0) {
+			if (cursor.moveToFirst()) {
+				do {
+
+					StudentData obj_clgdata = new StudentData();
+					obj_clgdata.setStd_id(cursor.getInt(cursor
+							.getColumnIndex(STUDENT_COLUMN_ID)));
+					obj_clgdata.setStd_name(cursor.getString(cursor
+							.getColumnIndex(STUDENT_COLUMN_NAME)));
+					obj_clgdata.setStd_address(cursor.getString(cursor
+							.getColumnIndex(STUDENT_COLUMN_ADDRESS)));
+					obj_clgdata.setStd_contact(cursor.getString(cursor
+							.getColumnIndex(STUDENT_COLUMN_CONTACT)));
+					obj_clgdata.setStd_gender(cursor.getString(cursor
+							.getColumnIndex(STUDENT_COLUMN_GENDER)));
+
+					obj_clgdata.setStd_email(cursor.getString(cursor
+							.getColumnIndex(STUDENT_COLUMN_EMAIL)));
+
+					obj_clgdata.setCollege_id(cursor.getInt(cursor
+							.getColumnIndex(STUDENT_COLUMN_COLLEGE_ID)));
+
+					list_college.add(obj_clgdata);
+
+				} while (cursor.moveToNext());
+			}
+		}
+
+		return list_college;
+	}
+
+	public int getTotalStudent(int id) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery("select " + STUDENT_COLUMN_ID + " from  "
+				+ STUDENT_TABLE_NAME + " where " + STUDENT_COLUMN_COLLEGE_ID
+				+ "=" + id, null);
+		return cursor.getCount();
+
+	}
+
+	public void deleteCollege(CollegeData data) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		// CollegeData obj_data=new CollegeData();
+		db.delete(COLLEGE_TABLE_NAME, COLLEGE_COLUMN_NAME + "=?",
+				new String[] { data.getCollege_name() });
+
+	}
+
+	public ArrayList<String> getStudentName() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ArrayList<String> listName = new ArrayList<String>();
+		Cursor cursor = db.rawQuery("select " + STUDENT_COLUMN_NAME + " from "
+				+ STUDENT_TABLE_NAME + " ", null);
+		String name = "";
+		if (cursor != null)
+
+		{
+			if (cursor.moveToFirst()) {
+				do {
+					StudentData db1 = new StudentData();
+					String name1 = cursor.getString(cursor
+							.getColumnIndex(STUDENT_COLUMN_NAME));
+
+					listName.add(name1);
+				} while (cursor.moveToNext());
+			}
+		}
+
+		return listName;
+
+	}
+
+	public ArrayList<String> GetCollegeNameFromStdName(String stdname) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ArrayList<String> list = new ArrayList<String>();
+		Cursor cursor = db.rawQuery(
+				"SELECT college_id from student_master where std_name='"
+						+ stdname + "'", null);
+		Log.i("total=", " >>>>>>>>>>>>>>>>>>>>" + cursor.getCount());
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				do {
+
+					int a = cursor.getInt(cursor
+							.getColumnIndex(STUDENT_COLUMN_ID));
+
+					Log.i("College ID=", " >>>>>>>>>>>>>>>>>>>>" + a);
+
+				} while (cursor.moveToNext());
+			}
+		}
+		return list;
+
+	}
+
+	public List<String> getAllLabels() {
+		List<String> list = new ArrayList<String>();
+
+		String selectQuery = "SELECT  * FROM " + COLLEGE_TABLE_NAME;
+
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor cursor = db.rawQuery(selectQuery, null);// selectQuery,selectedArguments
+
+		if (cursor.moveToFirst()) {
+			do {
+				list.add(cursor.getString(1));// adding 2nd column data
+			} while (cursor.moveToNext());
+		}
+
+		cursor.close();
+		db.close();
+
+		return list;
+	}
+
+	public void deleteStudent(String collegename, String stdName) {
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery("select " + COLLEGE_COLUMN_ID + " from "
+				+ COLLEGE_TABLE_NAME + " where " + COLLEGE_COLUMN_NAME + "='"
+				+ collegename + "'", null);
+		int id = 0;
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				id = cursor.getInt(cursor.getColumnIndex(COLLEGE_COLUMN_ID));
+			}
+		}
+
+		Log.i("ID=========", ">>>>>>>>>>>>>>" + id);
+		Log.i("name=========", ">>>>>>>>>>>>>>" + stdName);
+
+		// Cursor a=db.rawQuery("delete from "+STUDENT_TABLE_NAME + " where " +
+		// STUDENT_COLUMN_NAME + "='" + stdName +
+		// "' and "+STUDENT_COLUMN_COLLEGE_ID + "=" + id, null);
+		db.delete(STUDENT_TABLE_NAME, STUDENT_COLUMN_NAME + "='" + stdName
+				+ "' AND " + STUDENT_COLUMN_COLLEGE_ID + "=" + id, null);
+
+		// Log.i("ID=========", ">>>>>>>>>>>>>>"+cursor.getCount());
+
+	}
+
+	public void updateCollege(CollegeData clg) {
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(COLLEGE_COLUMN_NAME, clg.getCollege_name());
+		values.put(COLLEGE_COLUMN_NAME, clg.getCollege_address());
+		values.put(COLLEGE_COLUMN_NAME, clg.getCollege_contact());
+		values.put(COLLEGE_COLUMN_NAME, clg.getCollege_lat());
+		values.put(COLLEGE_COLUMN_NAME, clg.getCollege_long());
+
+		db.update(COLLEGE_TABLE_NAME, values,
+				COLLEGE_COLUMN_NAME + "='" + clg.getCollege_name() + "'", null);
+
+	}
+
+}

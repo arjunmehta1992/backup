@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;action/res/drawable/android-home.png&apos; to &apos;android_home.png&apos;" description="Rename resource &apos;android-home.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable/android-home.png" name="android_home.png" stamp="1428467332354" updateReferences="true"/>
+</session>

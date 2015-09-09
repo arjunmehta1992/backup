@@ -1,0 +1,64 @@
+package com.exam;
+
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+class FrameChild extends java.awt.Frame
+{
+	
+	public FrameChild(String str) {
+		// TODO Auto-generated constructor stub
+	
+					super(str);
+					
+					this.setTitle(str);
+					
+					this.setVisible(true);
+					this.setSize(200, 200);
+					this.setBackground(Color.BLUE);
+					 addWindowListener(new java.awt.event.WindowAdapter() {
+				            public void windowClosing(java.awt.event.WindowEvent e) {
+				                System.exit(0);
+				            }
+				        });
+	
+	
+					 Button b1=new Button("Click me");
+					 b1.addActionListener(new ActionListener() {
+						
+						public void actionPerformed(ActionEvent e) {
+							// TODO Auto-generated method stub
+							
+							System.out.println("Your are clicked the button");
+							
+						}
+					});
+					 
+					 
+	
+	}
+	
+	
+	
+}
+
+
+
+
+public class FrameDemo {
+
+	public static void main(String args[])
+	{
+		new FrameChild("Frame Demo");
+	}
+	
+	
+	
+	
+	
+	
+}

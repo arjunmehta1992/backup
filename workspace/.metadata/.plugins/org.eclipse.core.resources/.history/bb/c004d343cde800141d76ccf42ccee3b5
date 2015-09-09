@@ -1,0 +1,7 @@
+package com.example.tablayout_with_fragements;
+
+import android.app.Fragment;
+
+public class TabListener extends Fragment{
+
+}

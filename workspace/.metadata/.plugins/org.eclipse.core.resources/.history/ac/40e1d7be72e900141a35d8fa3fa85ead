@@ -1,0 +1,8 @@
+ <com.google.android.maps.MapView
+android:id="@+id/myGMap"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:enabled="true"
+      android:clickable="true"
+      android:apiKey="0YaGLMeMFKXrhzHL-uSYZSnqXqbGwE6kxF4VwFQ"
+    />

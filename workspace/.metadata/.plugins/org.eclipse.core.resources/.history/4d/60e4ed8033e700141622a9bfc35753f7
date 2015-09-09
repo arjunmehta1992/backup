@@ -1,0 +1,179 @@
+package com.example.studentmappingdb;
+
+import java.util.ArrayList;
+
+import com.example.studentmappingdb.DIsplayCollegeList.CustomAdapter;
+import com.example.studentmappingdb.DIsplayCollegeList.DataLoad;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
+
+public class DisplayStudent extends Activity  {
+
+	ListView displayList;
+	ArrayList<StudentData> list_college;
+	Context context;
+	DBHelper helper;
+	CollegeData obj_collegData;
+	ProgressDialog progressDialog;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		helper = new DBHelper(DisplayStudent.this);
+		list_college = new ArrayList<StudentData>();
+		init();
+
+		context = DisplayStudent.this;
+		obj_collegData = new CollegeData();
+		list_college = helper.getStudentList();
+		new DataLoad().execute();
+		
+		
+		
+	/*displayList.setOnItemClickListener(new OnItemClickListener() {
+
+		
+			
+			
+			
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				displayAlertCollegeDetail(list_college.get(position));
+			}
+		});*/
+
+
+	}
+
+	public void init() {
+		progressDialog = new ProgressDialog(DisplayStudent.this);
+
+		displayList = (ListView) findViewById(R.id.DisplayStudentList);
+		
+		
+	}
+
+	class CustomAdapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return list_college.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return list_college.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+			convertView = inflater.inflate(R.layout.row_display_student, null);
+
+			TextView collegName = (TextView) convertView
+					.findViewById(R.id.Student_Name);
+
+			collegName.setText(list_college.get(position).getStd_name());
+
+			return convertView;
+		}
+
+	}
+	
+	
+	
+	
+	
+	class DataLoad extends AsyncTask<Void,Void,Void>
+	{
+
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			progressDialog.setTitle("Data is loading......");
+			progressDialog.setCancelable(false);
+			progressDialog.show();
+			
+			super.onPreExecute();
+		}	
+		
+		
+		@Override
+		protected Void doInBackground(Void... params) {
+			list_college=helper.getStudentList();
+			
+			
+			return null;
+		}
+		
+		
+		@Override
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			if(progressDialog.isShowing())
+			{
+				progressDialog.dismiss();
+			}
+			displayList.setAdapter(new CustomAdapter());
+		}
+		
+	}
+	
+	
+	
+	
+	public void displayAlertCollegeDetail(StudentData collegeinfo) {
+		AlertDialog.Builder alert = new AlertDialog.Builder(context);
+		alert.setTitle("Student Informatoin");
+		alert.setMessage("Student Id:-" + collegeinfo.getCollege_id()
+				+ "\nStudent Name:-" + collegeinfo.getStd_id()
+				+ "\nStudent Address:-" + collegeinfo.getStd_address()
+				+ "\nStudent Contact:-" + collegeinfo.getStd_contact()
+				+ "\n Student Email:-" + collegeinfo.getStd_email()
+				+ "\n Student College name:-" + collegeinfo.getStd_id()
+				+ "\nCollege gender:-" + collegeinfo.getStd_gender());
+	alert.setPositiveButton("Ok", new OnClickListener() {
+		
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+			// TODO Auto-generated method stub
+			dialog.cancel();
+		}
+	});
+	alert.show();
+	}
+	
+	
+}

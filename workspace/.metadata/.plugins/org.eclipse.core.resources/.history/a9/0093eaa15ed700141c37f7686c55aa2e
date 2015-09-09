@@ -1,0 +1,12 @@
+package com.multiplewidget;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class second extends Activity{
+
+	protected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		
+	}
+}

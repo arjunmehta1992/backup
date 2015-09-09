@@ -1,0 +1,101 @@
+package com.list;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class EmpDetails 
+{
+	
+	ArrayList<Integer> ID=new ArrayList<Integer>();
+	ArrayList<String> NAME=new ArrayList<String>();
+	ArrayList<Float> SAL=new ArrayList<Float>();
+	
+	
+	
+	
+	
+	Scanner sc=new Scanner(System.in);
+	public void AddEmployee(int id,String name,Float salary)
+	{
+		/*System.out.println("Enter the employee id");
+		id=sc.nextInt();
+		System.out.println("Enter the employee id");
+		name=sc.nextInt();
+		System.out.println("Enter the employee id");
+		salary=sc.nex();
+		*/
+		
+		ID.add(id);
+		NAME.add(name);
+		SAL.add(salary);
+		
+		
+		
+	}
+	
+	
+}
+
+
+
+
+
+
+public class Employee {
+	
+	
+	public static void main(String args[])
+	{
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int choice = 10;
+		do
+		{
+			System.out.println("Press 1. for Add employee details");
+			System.out.println("Press 2. for Search employee details with their ID");
+			System.out.println("Press 3. for exit");
+			System.out.println("Please enter your choice...");
+			choice=sc.nextInt();
+			switch(choice)
+			{
+				case 1:
+					int id;
+					Float salary;
+					String name;
+					System.out.println("Enter the employee id");
+					id=sc.nextInt();
+					System.out.println("Enter the employee name");
+					name=sc.nextLine();
+					System.out.println("Enter the employee salary");
+					salary=sc.nextFloat();
+				break;
+				
+				
+		
+			}
+			
+			
+			
+		}
+			
+		while(choice!=0);
+		
+		
+		
+		
+		
+		
+	}
+
+}

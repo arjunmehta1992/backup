@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.emailservice.MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/Header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#8290A9" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/MailBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_below="@+id/Header"
+        android:layout_centerHorizontal="true"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" 
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To:"
+                android:layout_marginBottom="5dip" 
+                android:ems="5"
+               
+                />
+
+            <EditText
+                android:id="@+id/mail_to"
+                android:layout_width="188dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dip"
+                android:background="@android:drawable/editbox_background_normal"
+                android:ems="10" >
+
+                <requestFocus />
+            </EditText>
+            
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

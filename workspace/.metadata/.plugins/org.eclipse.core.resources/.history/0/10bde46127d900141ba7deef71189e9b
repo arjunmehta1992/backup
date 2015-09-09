@@ -1,0 +1,274 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.layoutnew.MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/form_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#00FA9A" >
+
+        <ImageView
+            android:id="@+id/form_btn_Back"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/back"
+            android:text="@string/Back" />
+
+        <ImageView
+            android:id="@+id/form_btn_profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/profile"
+            android:text="@string/Profile" />
+
+        <ImageView
+            android:id="@+id/form_camara"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/camara" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/form_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:background="#00FA9A" >
+    </RelativeLayout>
+
+     <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        
+        android:layout_below="@+id/form_header"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="21dp" 
+        android:id="@+id/frame"
+        >
+   
+    
+    
+    <ImageButton
+        android:id="@+id/form_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="80dip"
+        
+		android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:background="@drawable/capture" 
+        />
+    
+   
+     </FrameLayout>
+
+    
+    
+    
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/form_footer"
+        android:layout_below="@+id/frame" >
+
+        <LinearLayout
+            android:id="@+id/form_registeration"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/form"
+            android:background="#FFF8DC"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:ems="7"
+                    android:text="Name"
+                    android:textColor="#D2691E" />
+
+                <EditText
+                    android:id="@+id/form_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="@string/Name"
+                    android:paddingRight="30dip"
+                    android:singleLine="true"
+                    android:textColor="#D2691E" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:ems="7"
+                    android:text="@string/Email"
+                    android:textColor="#D2691E" />
+
+                <EditText
+                    android:id="@+id/form_email"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="@string/Email"
+                    android:inputType="textEmailAddress"
+                    
+                    android:paddingRight="30dip"
+                    android:singleLine="true"
+                    android:textColor="#D2691E" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:ems="7"
+                    android:text="@string/Password"
+                    android:textColor="#D2691E" />
+
+                <EditText
+                    android:id="@+id/form_password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="@string/Password"
+                    android:inputType="textPassword"
+                    android:paddingRight="30dip"
+                    android:singleLine="true"
+                    android:textColor="#D2691E" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:ems="7"
+                    android:text="@string/ConfirmPass"
+                    android:textColor="#D2691E" />
+
+                <EditText
+                    android:id="@+id/form_confirm"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="@string/ConfirmPass"
+                    android:inputType="textPassword"
+                    android:paddingRight="30dip"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:ems="7"
+                    android:text="@string/Address"
+                    android:textColor="#D2691E" />
+
+                <EditText
+                    android:id="@+id/form_address"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="@string/Address"
+                    android:inputType="textMultiLine"
+                    android:padding="10dip"
+                    android:paddingRight="30dip"
+                    android:singleLine="true"
+                    android:textColor="#D2691E" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:ems="7"
+                    android:text="Lastname"
+                    android:textColor="#D2691E" />
+
+                <EditText
+                    android:id="@+id/form_lastname"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="@string/Address"
+                    android:inputType="textPostalAddress"
+                    android:padding="10dip"
+                    android:paddingRight="30dip"
+                    android:singleLine="true"
+                    android:textColor="#D2691E" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/form_submit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="@string/Submit"
+                    android:textColor="#D2691E"
+                    android:textStyle="bold|italic" 
+                    android:background="@android:drawable/btn_default_small"
+                    />
+
+                <Button
+                    android:id="@+id/form_cancle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="@string/Cancle"
+                    android:textColor="#D2691E" 
+                    android:background="@android:drawable/btn_default_small"
+                   	android:textStyle="bold|italic"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+   
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+package com.exam;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+
+class ButtonFrame extends JFrame
+{
+  JButton bChange ; 
+  
+  private javax.swing.Timer timer;
+  ButtonFrame(String title) 
+  {
+    super( title );                    
+    setLayout( new FlowLayout() ); 
+    setSize(300, 300);
+    bChange = new JButton("Click Me!"); 
+    add( bChange );
+    bChange.addActionListener(new ActionListener() {
+		
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+	});
+    
+    
+    
+    
+    
+    
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );   
+  }
+}
+
+
+
+
+public class FrameDemo {
+
+	public static void main(String args[])
+	{
+		 ButtonFrame frm = new ButtonFrame("Button Demo");
+
+		    frm.setSize( 150, 75 );     
+		    frm.setVisible( true );   
+	}
+	
+	
+	
+	
+	
+	
+}

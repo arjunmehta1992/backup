@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LayoutNew</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings for main home screen -->
+    <string name="Back">Back</string>
+    <string name="Profile">Profile</string>
+    <string name="Name">Name</string>
+    <string name="Email">E-mail</string>
+    <string name="Password">Password</string>
+    <string name="Submit">Submit</string>
+    
+	
+</resources>

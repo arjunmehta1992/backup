@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0E68C"
+    tools:context="com.example.firstdatabase.MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/Header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#B7B927" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:background="#B7B927" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/Button_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Header"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/Add_Record"
+            android:layout_width="203dp"
+            android:layout_height="36dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/red_button"
+            android:text="Add Record"
+            android:textAllCaps="false"
+            android:textColor="#FFFAF0" />
+
+        <Button
+            android:id="@+id/Update_Record"
+            android:layout_width="203dp"
+            android:layout_height="36dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/red_button"
+            android:text="Update Record"
+            android:textAllCaps="false"
+            android:textColor="#FFFAF0" />
+
+        <Button
+            android:id="@+id/Delete_Record"
+            android:layout_width="203dp"
+            android:layout_height="36dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/red_button"
+            android:text="Delete Record"
+            android:textAllCaps="false"
+            android:textColor="#FFFAF0" />
+
+        <Button
+            android:id="@+id/Display_Record"
+            android:layout_width="203dp"
+            android:layout_height="36dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/red_button"
+            android:text="Display Record"
+            android:textAllCaps="false"
+            android:textColor="#FFFAF0" />
+
+        <Button
+            android:id="@+id/Search_Record"
+            android:layout_width="203dp"
+            android:layout_height="36dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/red_button"
+            android:text="Serach Record"
+            android:textAllCaps="false"
+            android:textColor="#FFFAF0" />
+
+        <Button
+            android:id="@+id/display_custom_list"
+            android:layout_width="203dp"
+            android:layout_height="36dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/red_button"
+            android:text="Display With List-View"
+            android:textAllCaps="false"
+            android:textColor="#FFFAF0" />
+
+        <Button
+            android:id="@+id/delete_all_record"
+            android:layout_width="203dp"
+            android:layout_height="36dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/red_button"
+            android:text="Delete All Record"
+            android:textAllCaps="false"
+            android:textColor="#FFFAF0" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/add_Footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:background="#B7B927" >
+    </RelativeLayout>
+
+</RelativeLayout>

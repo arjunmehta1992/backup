@@ -1,0 +1,17 @@
+package com.map;
+
+import android.R;
+import android.app.Activity;
+import android.os.Bundle;
+
+public class main extends Activity {
+	
+	
+	protected void onCreate(Bundle savedinstancestate){
+		super.onCreate(savedinstancestate);
+		
+
+
+	}
+
+}

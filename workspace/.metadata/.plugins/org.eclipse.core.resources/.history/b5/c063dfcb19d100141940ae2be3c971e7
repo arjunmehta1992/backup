@@ -1,0 +1,36 @@
+package com.exam;
+
+
+class FrameChild extends java.awt.Frame
+{
+	
+	public FrameChild(String str) {
+		// TODO Auto-generated constructor stub
+	
+					super(str);
+					
+					this.setTitle(str);
+					
+					this.setVisible(true);
+	}
+	
+	
+	
+}
+
+
+
+
+public class FrameDemo {
+
+	public static void main(String args[])
+	{
+		new FrameChild("Frame Demo");
+	}
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.optionmenu.MainActivity" >
+
+    <item
+        android:id="@+id/Mainpage"
+        android:orderInCategory="100"
+        android:title="@string/Home"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/Settings"
+        android:orderInCategory="100"
+        android:title="@string/Settings"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/First"
+        android:orderInCategory="100"
+        android:title="@string/First"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/Second"
+        android:orderInCategory="100"
+        android:title="@string/Second"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/Third"
+        android:orderInCategory="100"
+        android:title="@string/Third"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/Four"
+        android:orderInCategory="100"
+        android:title="@string/Four"
+        app:showAsAction="always"/>
+
+</menu>

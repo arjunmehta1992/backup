@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.prectise.LinkedHashMap.java&apos; to &apos;LinkedHashMapDemo.java&apos;&#x0A;- Original project: &apos;PrectiseSession&apos;&#x0A;- Original element: &apos;com.prectise.LinkedHashMap.java&apos;&#x0A;- Renamed element: &apos;com.prectise.LinkedHashMapDemo.java&apos;" description="Rename compilation unit &apos;LinkedHashMap.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.prectise{LinkedHashMap.java" name="LinkedHashMapDemo.java" references="false" stamp="1427436508344" version="1.0"/>
+</session>

@@ -1,0 +1,123 @@
+package com.example.studentmappingdb;
+
+import java.util.ArrayList;
+
+import com.example.studentmappingdb.DIsplayCollegeList.DataLoad;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
+
+public class DisplayStudent extends Activity{
+
+	ListView displayList;
+	ArrayList<StudentData> list_student;
+	Context context;
+	DBHelper helper;
+	StudentData obj_std;
+	ProgressDialog progressDialog;
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_display_student);
+
+		
+		progressDialog= new ProgressDialog(DisplayStudent.this);
+		helper = new DBHelper(DisplayStudent.this);
+		displayList = (ListView) findViewById(R.id.DisplayCollegeList);
+		list_student = new ArrayList<StudentData>();	
+
+		context = DisplayStudent.this;
+		obj_std = new StudentData();
+		list_student = helper.getStudentList();
+		//new DataLoad().execute();
+		
+		displayList.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				displayAlertCollegeDetail(list_student.get(position));
+			}
+		});
+
+	}
+
+		
+	class CustomAdapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return list_student.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return list_student.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+			convertView = inflater.inflate(R.layout.row_display_student, null);
+
+			TextView collegName = (TextView) convertView
+					.findViewById(R.id.Student_Name);
+
+			collegName.setText(list_student.get(position).getStd_name());
+
+			return convertView;
+		}
+
+	}
+	
+	
+	
+	public void displayAlertCollegeDetail(StudentData collegeinfo) {
+		AlertDialog.Builder alert = new AlertDialog.Builder(context);
+		alert.setTitle("College Informatoin");
+		alert.setMessage("College Id:-" + collegeinfo.getStd_id()
+				+ "\nCollege Name:-" + collegeinfo.getStd_name()
+				+ "\nCollege Address:-" + collegeinfo.getStd_address()
+				+ "\n College Contact:-" + collegeinfo.getStd_contact()
+				+ "\n College Latitude:-" + collegeinfo.getStd_email()
+				+ "\nCollege Longitude:-" + collegeinfo.getStd_gender());
+			alert.setPositiveButton("Ok", new OnClickListener() {
+		
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+			// TODO Auto-generated method stub
+			dialog.cancel();
+		}
+	});
+	alert.show();
+	}
+	
+}

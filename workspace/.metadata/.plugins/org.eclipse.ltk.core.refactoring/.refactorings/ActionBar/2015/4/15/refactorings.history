@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring accessors="true" comment="Delete element from project &apos;ActionBar&apos;&#x0A;- Original project: &apos;ActionBar&apos;&#x0A;- Original element: &apos;main_fragment.xml&apos;" description="Delete element" element1="res/layout/main_fragment.xml" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1428408862852" subPackages="false" version="1.0"/>&#x0A;&#x0A;</session>

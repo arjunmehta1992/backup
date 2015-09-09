@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.modelclassdatabase.MainActivity"
+    android:background="#f4f7ff"
+     >
+
+    <RelativeLayout
+        android:id="@+id/Main_Header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#c6dddd" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Main_Footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:background="#c6dddd" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/Box"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Main_Header"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/Add_Employee"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Button_AddRecord" 
+            android:textAllCaps="false"
+            android:padding="10dip"
+            />
+        
+		<Button
+            android:id="@+id/Update_Employee"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Button_UpdateRecord" 
+            android:textAllCaps="false"
+            android:padding="10dp"/>
+		<Button
+            android:id="@+id/Delete_Employee"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Button_DeleteRecord" 
+            android:textAllCaps="false"
+            android:padding="10dp" />
+		
+		<Button
+            android:id="@+id/Search_Employee"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Button_DisplayRecord" 
+            android:textAllCaps="false"
+            
+            android:padding="10dp"/>
+		<Button
+            android:id="@+id/Display_Employee"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Display Employee" 
+            android:textAllCaps="false"
+            
+            android:padding="10dp"/>
+        
+        
+        
+    </LinearLayout>
+
+</RelativeLayout>

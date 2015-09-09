@@ -1,0 +1,258 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.SearchStudent" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/searchStdHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/searchStdHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/searchStdFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/searchStdFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/searchStdFooter"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/searchStdBody"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@+id/searchStdHeader"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dp"
+        android:background="#BDEDFF"
+        android:paddingTop="20dp" >
+
+        <TextView
+            android:id="@+id/searchStdName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:ems="7"
+            android:text="@string/searchStdName" />
+
+        <AutoCompleteTextView 
+            android:id="@+id/edSearchStdName"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/searchStdName"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/searchStdName"
+            android:background="@android:drawable/editbox_background_normal"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btnStdSearch"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edSearchStdName"
+            android:layout_marginLeft="10dp"
+            android:background="#95B9C7"
+            android:text="@string/btnSearchStdName"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnSearchStdClear"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edSearchStdName"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnStdSearch"
+            android:background="#95B9C7"
+            android:text="@string/btnSearchStdClear"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnSearchStdHome"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edSearchStdName"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnSearchStdClear"
+            android:background="#95B9C7"
+            android:text="@string/btnHome"
+            android:textColor="#FF0000" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/searchStdDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/searchStdFooter"
+        android:layout_below="@+id/searchStdBody"
+        android:layout_centerHorizontal="true"
+        android:background="#BDEDFF"
+        android:paddingTop="25dp"
+        android:visibility="invisible" >
+
+        <TextView
+            android:id="@+id/searchStdNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="7"
+            android:text="@string/addStdName" />
+
+        <TextView
+            android:id="@+id/searchStdNameResult"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/searchStdNameText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/searchStdNameText"
+            android:background="@android:drawable/editbox_background_normal"
+            android:paddingRight="5dp"
+            android:text="@string/addStdName" />
+
+        <TextView
+            android:id="@+id/searchStdAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchStdNameText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="7"
+            android:text="@string/addStdAddress" />
+
+        <TextView
+            android:id="@+id/searchStdAddressResult"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/searchStdAddressText"
+            android:layout_below="@+id/searchStdNameResult"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/searchStdAddressText"
+            android:background="@android:drawable/editbox_background_normal"
+            android:paddingRight="5dp"
+            android:text="@string/addStdAddress" />
+
+        <TextView
+            android:id="@+id/searchStdContactText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchStdAddressText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="7"
+            android:text="@string/addStdContact" />
+
+        <TextView
+            android:id="@+id/searchStdContactResult"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/searchStdContactText"
+            android:layout_below="@+id/searchStdAddressResult"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/searchStdContactText"
+            android:background="@android:drawable/editbox_background_normal"
+            android:paddingRight="5dp"
+            android:text="@string/addStdContact" />
+
+        <TextView
+            android:id="@+id/searchStdEmailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchStdContactText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="7"
+            android:text="@string/addStdEmail" />
+
+        <TextView
+            android:id="@+id/searchStdEmailResult"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/searchStdEmailText"
+            android:layout_below="@+id/searchStdContactResult"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/searchStdEmailText"
+            android:background="@android:drawable/editbox_background_normal"
+            android:paddingRight="5dp"
+            android:text="@string/addStdEmail" />
+
+        <TextView
+            android:id="@+id/searchStdGenderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchStdEmailText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="7"
+            android:text="@string/addStdGen" />
+
+        <TextView
+            android:id="@+id/searchStdGenderResult"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/searchStdGenderText"
+            android:layout_below="@+id/searchStdEmailResult"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/searchStdGenderText"
+            android:background="@android:drawable/editbox_background_normal"
+            android:paddingRight="5dp"
+            android:text="@string/addStdGen" />
+
+        <TextView
+            android:id="@+id/searchStdCollegeNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchStdGenderText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="7"
+            android:text="@string/addClgName" />
+
+        <TextView
+            android:id="@+id/searchStdCollegeNameResult"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/searchStdCollegeNameText"
+            android:layout_below="@+id/searchStdEmailResult"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/searchStdCollegeNameText"
+            android:background="@android:drawable/editbox_background_normal"
+            android:paddingRight="5dp"
+            android:text="@string/addClgName" />
+    </RelativeLayout>
+
+</RelativeLayout>

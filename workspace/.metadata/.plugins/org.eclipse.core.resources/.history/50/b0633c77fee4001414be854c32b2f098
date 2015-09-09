@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StudentMappingDB</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="header">Student Mapping System</string>
+    <string name="homeFooter">Student Home System</string>
+    <string name="btnHomeAdd">Add</string>
+    <string name="btnHomeUpdate">Update</string>
+    <string name="btnHomeDisplay">Display</string>
+    <string name="btnHomeSearch">Search</string>
+    <string name="btnHomeDelete">Delete</string>
+    <string name="title_activity_add">AddActivity</string>
+    <string name="addFooter">Add Page</string>
+    <string name="btnAddCollege">Add College</string>
+    <string name="btnAddStudent">Add Student</string>
+    <string name="btnHome">Home</string>
+    <string name="title_activity_add_college">AddCollege</string>
+    <string name="addClgFooter">Add College Page</string>
+    <string name="addClgName">College Name</string>
+    <string name="addClgAddress">College Address</string>
+    <string name="addClgContact">Contact Number</string>
+    <string name="addClgLongitude">Longitude</string>
+    <string name="addClgLatitude">Latitude</string>
+    <string name="btnClgAdd">Add</string>
+    <string name="btnClgClear">Clear</string>
+    <string name="displayFooter">Display College List</string>
+    <string name="title_activity_display_data">DisplayData</string>
+
+    <string name="DisplayFooter">Display Selection</string>
+</resources>

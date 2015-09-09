@@ -1,0 +1,274 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.UpdateCollege" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/updateClgHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/updateClgHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/updateClgFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/updateClgFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/updateClgFooter"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/updateClgBody"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@+id/updateClgHeader"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dp"
+        android:background="#BDEDFF"
+        android:paddingTop="20dp" >
+
+        <TextView
+            android:id="@+id/updateClgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:ems="7"
+            android:text="@string/updateClgName" />
+
+        <AutoCompleteTextView
+            android:id="@+id/edUpdateClgName"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/updateClgName"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/updateClgName"
+            android:background="@android:drawable/editbox_background_normal"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btnUpdateClgLoad"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edUpdateClgName"
+            android:layout_marginLeft="10dp"
+            android:background="#95B9C7"
+            android:text="@string/btnLoadClgName"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnUpdateClgClear"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edUpdateClgName"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnUpdateClgLoad"
+            android:background="#95B9C7"
+            android:text="@string/btnUpdateClgClear"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnLoadClgHome"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/edUpdateClgName"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnUpdateClgClear"
+            android:background="#95B9C7"
+            android:text="@string/btnHome"
+            android:textColor="#FF0000" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/updateClgFooter"
+        android:layout_below="@+id/updateClgBody" >
+
+        <RelativeLayout
+            android:id="@+id/updateClgDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/updateClgFooter"
+            android:layout_below="@+id/updateClgBody"
+            android:layout_centerHorizontal="true"
+            android:background="#BDEDFF"
+            android:paddingBottom="10dp"
+            android:paddingTop="20dp"
+            android:visibility="invisible" >
+
+            <TextView
+                android:id="@+id/updateClgNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addClgName"
+                android:paddingBottom="5dp" />
+
+            <EditText
+                android:id="@+id/updateClgNameResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateClgNameText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateClgNameText"
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="@string/addClgName"
+               
+                android:layout_marginBottom="5dp"
+                />
+
+            <TextView
+                android:id="@+id/updateClgAddressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateClgNameText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addClgAddress" />
+
+            <EditText
+                android:id="@+id/updateClgAddressResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateClgAddressText"
+                android:layout_below="@+id/updateClgNameResult"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateClgAddressText"
+                android:background="@android:drawable/editbox_background_normal"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,123456789/- "
+                android:hint="@string/addClgAddress"
+                android:paddingRight="5dp" 
+                android:textSize="10"
+                />
+
+            <TextView
+                android:id="@+id/updateClgContactText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateClgAddressText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addClgContact" />
+
+            <EditText
+                android:id="@+id/updateClgContactResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateClgContactText"
+                android:layout_below="@+id/updateClgNameResult"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateClgContactText"
+                android:background="@android:drawable/editbox_background_normal"
+                android:digits="1234567890-"
+                android:hint="@string/addClgContact"
+                android:paddingRight="5dp" />
+
+            <TextView
+                android:id="@+id/updateClgLongitudeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateClgContactText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addClgLongitude" />
+
+            <EditText
+                android:id="@+id/updateClgLongitudeResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateClgLongitudeText"
+                android:layout_below="@+id/updateClgContactResult"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateClgLongitudeText"
+                android:background="@android:drawable/editbox_background_normal"
+                android:digits="1234567890."
+                android:hint="@string/addClgLongitude"
+                android:paddingRight="5dp" />
+
+            <TextView
+                android:id="@+id/updateClgLatitudeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateClgLongitudeText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="7"
+                android:text="@string/addClgLatitude" />
+
+            <EditText
+                android:id="@+id/updateClgLatitudeResult"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/updateClgLatitudeText"
+                android:layout_below="@+id/updateClgLongitudeResult"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/updateClgLatitudeText"
+                android:background="@android:drawable/editbox_background_normal"
+                android:digits="1234567890."
+                android:hint="@string/addClgLatitude"
+                android:paddingRight="5dp" />
+
+            <Button
+                android:id="@+id/btnUpdateClg"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/updateClgLatitudeResult"
+                android:layout_marginLeft="60dp"
+                android:background="#95B9C7"
+                android:text="@string/btnUpdateClgName"
+                android:textColor="#FF0000" />
+
+            <Button
+                android:id="@+id/btnUpdateClgClearResult"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/updateClgLatitudeResult"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/btnUpdateClg"
+                android:background="#95B9C7"
+                android:text="@string/btnUpdateClgClear"
+                android:textColor="#FF0000" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

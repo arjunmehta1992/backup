@@ -1,0 +1,111 @@
+package com.example.studentmappingdb;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class AddCollege extends Activity implements OnClickListener {
+
+	EditText name, address, number, latittude, longitude;
+	Button btn_add, btn_clear, btn_home;
+	CollegeData objCollegeData;
+	DBHelper obj_helper;
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_add_college);
+		init();
+		objCollegeData=new CollegeData();
+		obj_helper=new DBHelper(AddCollege.this);
+		
+		
+		
+		btn_add.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			
+				
+				String getName,getAddress,getNumber,getLat,getLong;
+				
+				getName=name.getText().toString();
+				
+*/
+				
+			}
+		});
+		
+		
+	//	btn_add.setOnClickListener(this);
+		btn_clear.setOnClickListener(this);
+		btn_home.setOnClickListener(this);
+
+	}
+
+	public void init() {
+		name = (EditText) findViewById(R.id.edClgName);
+		address = (EditText) findViewById(R.id.edClgAddress);
+		number = (EditText) findViewById(R.id.edClgContact);
+		latittude = (EditText) findViewById(R.id.edClgLatitude);
+		longitude = (EditText) findViewById(R.id.edClgLongitude);
+
+		btn_add = (Button) findViewById(R.id.btnClgAdd);
+		btn_clear = (Button) findViewById(R.id.btnClgClear);
+		btn_home = (Button) findViewById(R.id.btnClgHome);
+
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		
+		case R.id.btnClgAdd:
+			
+			
+			objCollegeData.setCollege_name(name.getText().toString());
+			objCollegeData.setCollege_address(address.getText().toString());
+			objCollegeData.setCollege_contact(number.getText().toString());
+			objCollegeData.setCollege_lat(latittude.getText().toString());
+			objCollegeData.setCollege_long(longitude.getText().toString());
+			
+			
+			obj_helper.addCollegeData(objCollegeData);
+			Toast.makeText(AddCollege.this,"College is registerd",Toast.LENGTH_SHORT).show();
+			name.setText("");
+			address.setText("");
+			number.setText("");
+			latittude.setText("");
+			longitude.setText("");
+			
+			break;
+		
+		
+		
+		
+		case R.id.btnClgClear:
+				
+			
+			break;
+
+		case R.id.btnClgHome:
+
+				Intent intentHome=new Intent(AddCollege.this,HomeActivity.class);
+				startActivity(intentHome);
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

@@ -1,0 +1,90 @@
+package com.example.studentmappingdb;
+
+import java.util.ArrayList;
+
+import com.example.studentmappingdb.DIsplayCollegeList.DataLoad;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class DisplayStudent extends Activity {
+
+	ListView displayList;
+	ArrayList<StudentData> list_college;
+	Context context;
+	DBHelper helper;
+	CollegeData obj_collegData;
+	ProgressDialog progressDialog;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		helper = new DBHelper(DisplayStudent.this);
+		list_college = new ArrayList<StudentData>();
+		init();
+
+		context = DisplayStudent.this;
+		obj_collegData = new CollegeData();
+		list_college = helper.getStudentName();
+		new DataLoad().execute();
+
+	}
+
+	public void init() {
+		progressDialog = new ProgressDialog(DisplayStudent.this);
+
+		displayList = (ListView) findViewById(R.id.DisplayStudentList);
+
+	}
+	class CustomAdapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return list_college.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return list_college.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+			convertView = inflater.inflate(R.layout.row_display_student, null);
+
+			TextView collegName = (TextView) convertView
+					.findViewById(R.id.Student_Name);
+
+			collegName.setText(list_college.get(position).getStd_name());
+
+			return convertView;
+		}
+		
+		
+	
+		
+	}
+}

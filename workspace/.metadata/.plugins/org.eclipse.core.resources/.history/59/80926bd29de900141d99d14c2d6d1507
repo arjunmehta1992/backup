@@ -1,0 +1,59 @@
+package com.example.maps;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+
+public class MainActivity extends FragmentActivity implements OnClickListener {
+
+	private GoogleMap mMap;
+
+	Button zoom_in,zoom_out;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		
+		
+		
+		
+		
+		
+	}
+	public void init()
+	{
+		zoom_in=(Button)findViewById(R.id.Zoom_in);
+		zoom_out=(Button)findViewById(R.id.Zoom_out);
+		
+	}
+	
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+		
+		switch (v.getId()) {
+		case R.id.Zoom_in:
+			
+			 mMap.animateCamera(CameraUpdateFactory.zoomIn());
+			
+			break;
+		case R.id.Zoom_out:
+			
+			
+			
+			break;
+
+		default:
+			break;
+		}
+		
+	}
+
+}

@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.DeleteCollege" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/delClgHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/delClgHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/delClgFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/delClgFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/delClgFooter"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/delClgBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/delClgFooter"
+        android:layout_below="@+id/delClgHeader"
+        android:layout_centerHorizontal="true"
+        android:background="#BDEDFF"
+        android:paddingTop="20dp" >
+
+        <TextView
+            android:id="@+id/delClgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:ems="4"
+            android:text="@string/delClgName" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/delClgName"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/delClgName"
+            android:hint="AutoCompleteTextView" 
+            android:background="@android:drawable/editbox_background_normal"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:id="@+id/btnClgDel"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/autoCompleteTextView1"
+            android:layout_marginLeft="10dp"
+            android:background="#95B9C7"
+            android:text="@string/btnDelClgName"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnClgDelClear"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/autoCompleteTextView1"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnClgDel"
+            android:background="#95B9C7"
+            android:text="@string/btnDelClgClear"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnClgDelHome"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/autoCompleteTextView1"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnClgDelClear"
+            android:background="#95B9C7"
+            android:text="@string/btnHome"
+            android:textColor="#FF0000" />
+    </RelativeLayout>
+
+</RelativeLayout>

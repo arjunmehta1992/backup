@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Mar 23 10:10:31 IST 2015
+@default-models-http\://download.eclipse.org/recommenders/models/luna/.lastUpdated=1427085631618
+http\://download.eclipse.org/recommenders/models/luna/.error=Could not transfer artifact jre\:jre\:zip\:ovrm\:1.0.0-20140604.182659-5 from/to models (http\://download.eclipse.org/recommenders/models/luna/)\: download.eclipse.org\: Name or service not known

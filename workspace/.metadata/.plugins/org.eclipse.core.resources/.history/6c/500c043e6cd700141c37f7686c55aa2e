@@ -1,0 +1,17 @@
+package com.multiplewidget;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.TextView;
+
+public class second extends Activity{
+
+	protected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.second);
+		
+		
+			
+	}
+}

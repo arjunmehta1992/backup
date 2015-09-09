@@ -1,0 +1,44 @@
+package com.exam;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+
+class ButtonFrame extends JFrame
+{
+  JButton bChange ; 
+  ButtonFrame(String title) 
+  {
+    super( title );                    
+    setLayout( new FlowLayout() );         
+    bChange = new JButton("Click Me!"); 
+    add( bChange );
+    
+    
+    
+    
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );   
+  }
+}
+
+
+
+
+public class FrameDemo {
+
+	public static void main(String args[])
+	{
+		 ButtonFrame frm = new ButtonFrame("Button Demo");
+
+		    frm.setSize( 150, 75 );     
+		    frm.setVisible( true );   
+	}
+	
+	
+	
+	
+	
+	
+}

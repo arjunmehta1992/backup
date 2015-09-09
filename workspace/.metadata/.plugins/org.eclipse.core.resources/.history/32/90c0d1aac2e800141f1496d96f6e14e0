@@ -1,0 +1,114 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.HomeActivity" >
+
+   	 <RelativeLayout
+        android:id="@+id/homeHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/homeHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/homeFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/homeFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/homeFooter"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+	<ScrollView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/homeHeader"
+	    >
+    <RelativeLayout
+        android:id="@+id/homeBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/homeFooter"
+        android:layout_below="@+id/homeHeader"
+        android:layout_centerHorizontal="true"
+        android:background="#BDEDFF" >
+        
+        <Button
+            android:id="@+id/btnHomeAdd" 
+            android:layout_height="40dp"
+            android:layout_width="140dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/btnHomeAdd"
+            android:background="#95B9C7"
+            android:textColor="#FF0000"/>
+        <Button 
+            android:id="@+id/btnHomeUpdate"
+            android:layout_height="40dp"
+            android:layout_width="140dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/btnHomeUpdate"
+            android:layout_toRightOf="@+id/btnHomeAdd"
+            android:layout_below="@+id/btnHomeAdd"
+            android:background="#95B9C7"
+            android:textColor="#FF0000"/>
+        <Button 
+            android:id="@+id/btnHomeDisplay"
+            android:layout_height="40dp"
+            android:layout_width="140dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/btnHomeDisplay"
+            android:layout_toLeftOf="@+id/btnHomeUpdate"
+            android:layout_below="@+id/btnHomeUpdate"
+            android:background="#95B9C7"
+            android:textColor="#FF0000"/>
+        <Button 
+            android:id="@+id/btnHomeSearch"
+            android:layout_height="40dp"
+            android:layout_width="140dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/btnHomeSearch"
+            android:layout_toRightOf="@+id/btnHomeDisplay"
+            android:layout_below="@+id/btnHomeDisplay"
+            android:background="#95B9C7"
+            android:textColor="#FF0000"/>
+         <Button 
+            android:id="@+id/btnHomeDelete"
+            android:layout_height="40dp"
+            android:layout_width="140dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/btnHomeDelete"
+            android:layout_toLeftOf="@+id/btnHomeSearch"
+            android:layout_below="@+id/btnHomeSearch"
+            android:background="#95B9C7"
+            android:textColor="#FF0000"/>
+        
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>
