@@ -1,0 +1,63 @@
+package com.example.ratingbartask;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	Button btnFirst, btnSecond, btnThird;
+	RatingBar ratingFirst, ratingSecond, ratingThird;
+	TextView txtFirstResult, txtSecondResult, txtThirdResult;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		init();
+
+		ratingFirst
+				.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+
+					@Override
+					public void onRatingChanged(RatingBar ratingBar,
+							float rating, boolean fromUser) {
+						// TODO Auto-generated method stub
+						txtFirstResult.setText(String.valueOf(rating));
+					}
+				});
+
+		btnFirst.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+
+				if (txtFirstResult.getText().toString().equals(null)) {
+
+				}
+
+			}
+		});
+
+	}
+
+	void init() {
+		btnFirst = (Button) findViewById(R.id.btn_One);
+		btnSecond = (Button) findViewById(R.id.btn_Two);
+		btnThird = (Button) findViewById(R.id.btn_Three);
+		ratingFirst = (RatingBar) findViewById(R.id.firstRating);
+		ratingSecond = (RatingBar) findViewById(R.id.secondRating);
+		ratingThird = (RatingBar) findViewById(R.id.thirdRating);
+		txtFirstResult = (TextView) findViewById(R.id.txtResultone);
+		txtSecondResult = (TextView) findViewById(R.id.txtResulttwo);
+		txtThirdResult = (TextView) findViewById(R.id.txtResultthree);
+
+	}
+
+}

@@ -1,0 +1,95 @@
+package com.zaptech.placesmap;
+
+import android.R.animator;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.internal.widget.AdapterViewCompat;
+import android.support.v7.internal.widget.AdapterViewCompat.OnItemSelectedListener;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+
+public class HomeActivity extends Activity implements OnItemSelectedListener {
+
+	private GoogleMap googleMap;
+	private Spinner spinnerCategory;
+
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		googleMap = ((MapFragment) getFragmentManager().findFragmentById(
+				R.id.map)).getMap();
+		googleMap.setMyLocationEnabled(true);
+		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		Criteria criteria = new Criteria();
+		String bestProvider = locationManager.getBestProvider(criteria, true);
+		Location location = locationManager.getLastKnownLocation(bestProvider);
+
+		googleMap.getUiSettings().setZoomControlsEnabled(true);
+
+	}
+
+	public void init() {
+		spinnerCategory = (Spinner) findViewById(R.id.spinner_Category);
+
+	}
+
+	@Override
+	public void onItemSelected(AdapterViewCompat<?> arg0, View arg1, int arg2,
+			long arg3) {
+
+		String name = (String) spinnerCategory.getSelectedItem();
+
+		switch (name) {
+		case "Hotel":
+			Toast.makeText(HomeActivity.this, "Hotels", Toast.LENGTH_SHORT)
+					.show();
+
+			break;
+	/*		
+		case "Hospi":
+			Toast.makeText(HomeActivity.this, "Hotels", Toast.LENGTH_SHORT)
+					.show();
+
+			break;
+		case "Hotel":
+			Toast.makeText(HomeActivity.this, "Hotels", Toast.LENGTH_SHORT)
+					.show();
+
+			break;
+		case "Hotel":
+			Toast.makeText(HomeActivity.this, "Hotels", Toast.LENGTH_SHORT)
+					.show();
+
+			break;
+		case "Hotel":
+			Toast.makeText(HomeActivity.this, "Hotels", Toast.LENGTH_SHORT)
+					.show();
+*/
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+	@Override
+	public void onNothingSelected(AdapterViewCompat<?> arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

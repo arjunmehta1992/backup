@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Strings used in app ui-->
+    <string name="app_name">DemoIntegrationTwitter</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello">Hello, </string>
+    <string name="login_instructions">Login to twiter</string>
+    <string name="share_instructions">Enter share message</string>
+    <string name="btn_login">Login to Twitter</string>
+    <string name="btn_share">Share</string>
+    <string name="btn_logout">Logout</string>
+
+    <!-- Twitter Configurations -->
+    <string name="twitter_callback">api.twitter.com/oauth/authorize?force_login=true</string>
+    <string name="twitter_consumer_key">f4rcxuBRxedJSTHGy1x4ylTk0</string>
+    <string name="twitter_consumer_secret">U57eA6TelDaiC1DafmDXxPjR2jmPCh4QUUoxrATtpZOOF2i7Oa</string>
+    <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <!-- End Configurations -->
+</resources>

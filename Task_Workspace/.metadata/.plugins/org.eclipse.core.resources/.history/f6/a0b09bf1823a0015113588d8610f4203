@@ -1,0 +1,253 @@
+package com.zaptech.wallpapermanager;
+
+import android.app.Dialog;
+import android.app.WallpaperManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.LayoutParams;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.nineoldandroids.view.ViewHelper;
+
+public class MyPagerAdapter extends FragmentPagerAdapter implements
+		ViewPager.OnPageChangeListener {
+
+	public int[] imageId = { R.drawable.one, R.drawable.two, R.drawable.six,
+			R.drawable.five, R.drawable.fore, R.drawable.index, R.drawable.two,
+			R.drawable.p_img1, R.drawable.p_img2 };
+	String[] web = { "One", "Two", "Three", "Four", "Five", "Six", "Seven" };
+
+	private boolean swipedLeft = false;
+	private int lastPage = 9;
+	private MyLinearLayout cur = null;
+	private MyLinearLayout next = null;
+	private MyLinearLayout prev = null;
+	private MyLinearLayout prevprev = null;
+	private MyLinearLayout nextnext = null;
+	private SelectedImage context;
+	private FragmentManager fm;
+	private float scale;
+	private boolean IsBlured;
+	private static float minAlpha = 0.6f;
+	private static float maxAlpha = 1f;
+	private static float minDegree = 60.0f;
+	private int counter = 0;
+
+	public static float getMinDegree() {
+		return minDegree;
+	}
+
+	public static float getMinAlpha() {
+		return minAlpha;
+	}
+
+	public static float getMaxAlpha() {
+		return maxAlpha;
+	}
+
+	public MyPagerAdapter(SelectedImage context, FragmentManager fm) {
+		super(fm);
+		this.fm = fm;
+		this.context = context;
+	}
+
+	@Override
+	public Fragment getItem(int position) {
+
+		// make the first pager bigger than others
+		if (position == SelectedImage.FIRST_PAGE)
+			scale = SelectedImage.BIG_SCALE;
+		else {
+			scale = SelectedImage.SMALL_SCALE;
+			IsBlured = true;
+
+		}
+
+		Log.d("position", String.valueOf(position));
+		Fragment curFragment = MyFragment.newInstance(context,
+				imageId[position], scale, IsBlured, imageId[position]);
+		cur = getRootView(position);
+		next = getRootView(position + 1);
+		prev = getRootView(position - 1);
+
+		return curFragment;
+	}
+
+	@Override
+	public int getCount() {
+		return imageId.length;
+	}
+
+	@Override
+	public void onPageScrolled(int position, float positionOffset,
+			int positionOffsetPixels) {
+		if (positionOffset >= 0f && positionOffset <= 1f) {
+			positionOffset = positionOffset * positionOffset;
+			cur = getRootView(position);
+			next = getRootView(position + 1);
+			prev = getRootView(position - 1);
+			nextnext = getRootView(position + 2);
+
+			ViewHelper.setAlpha(cur, maxAlpha - 0.5f * positionOffset);
+			ViewHelper.setAlpha(next, minAlpha + 0.5f * positionOffset);
+			ViewHelper.setAlpha(prev, minAlpha + 0.5f * positionOffset);
+
+			if (nextnext != null) {
+				ViewHelper.setAlpha(nextnext, minAlpha);
+				ViewHelper.setRotationY(nextnext, -minDegree);
+			}
+			if (cur != null) {
+				cur.setScaleBoth(SelectedImage.BIG_SCALE
+						- SelectedImage.DIFF_SCALE * positionOffset);
+
+				ViewHelper.setRotationY(cur, 0);
+			}
+
+			if (next != null) {
+				next.setScaleBoth(SelectedImage.SMALL_SCALE
+						+ SelectedImage.DIFF_SCALE * positionOffset);
+				ViewHelper.setRotationY(next, -minDegree);
+			}
+			if (prev != null) {
+				ViewHelper.setRotationY(prev, minDegree);
+			}
+
+			if (swipedLeft) {
+				if (next != null)
+					ViewHelper.setRotationY(next, -minDegree + minDegree
+							* positionOffset);
+				if (cur != null)
+					ViewHelper
+							.setRotationY(cur, 0 + minDegree * positionOffset);
+			} else {
+				if (next != null)
+					ViewHelper.setRotationY(next, -minDegree + minDegree
+							* positionOffset);
+				if (cur != null) {
+					ViewHelper
+							.setRotationY(cur, 0 + minDegree * positionOffset);
+				}
+			}
+		}
+		if (positionOffset >= 1f) {
+			ViewHelper.setAlpha(cur, maxAlpha);
+		}
+	}
+
+	@Override
+	public void onPageSelected(int position) {
+
+		if (lastPage <= position) {
+			swipedLeft = true;
+		} else if (lastPage > position) {
+			swipedLeft = false;
+		}
+		lastPage = position;
+	}
+
+	// public Object instantiateItem(ViewGroup container, int position) {
+	//
+	// LayoutInflater inflater = (LayoutInflater) context
+	// .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	//
+	// container = (ViewGroup) inflater.inflate(R.layout.mf, null);
+	// ImageView imageView = (ImageView) container.findViewById(R.id.content);
+	//
+	// imageView.setImageResource(imageId[position]);
+	//
+	// return container;
+	// }
+
+	@Override
+	public void onPageScrollStateChanged(int state) {
+	}
+
+	private MyLinearLayout getRootView(final int position) {
+		MyLinearLayout ly;
+		try {
+			ly = (MyLinearLayout) fm
+					.findFragmentByTag(this.getFragmentTag(position)).getView()
+					.findViewById(R.id.root);
+
+			ly.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+
+					final Dialog dialog = new Dialog(context);
+					MyFragment objFragment = new MyFragment();
+
+					dialog.setContentView(R.layout.raw_custom_dialog);
+
+					ImageView image = (ImageView) dialog
+							.findViewById(R.id.img_CustomDialog);
+
+					image.setImageResource(imageId[position]);
+
+					Button btn_cancle = (Button) dialog
+							.findViewById(R.id.btn_cancleDialog);
+					Button btn_setWallpaper = (Button) dialog
+							.findViewById(R.id.btn_SetAsWallpaper);
+					btn_cancle.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							// TODO Auto-generated method stub
+							dialog.dismiss();
+
+						}
+					});
+
+					btn_setWallpaper.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							// TODO Auto-generated method stub
+
+							try {
+
+								WallpaperManager myWallpaperManager = WallpaperManager
+										.getInstance(context);
+
+								myWallpaperManager
+										.setResource(imageId[position]);
+
+								Toast.makeText(context, "Wallpaper set",
+										Toast.LENGTH_SHORT).show();
+
+							} catch (Exception e) {
+
+								Toast.makeText(context, "Wallpaper not set",
+										Toast.LENGTH_SHORT).show();
+							}
+						}
+					});
+
+					dialog.getWindow().getAttributes().width = LayoutParams.FILL_PARENT;
+
+					dialog.show();
+
+				}
+			});
+
+		} catch (Exception e) {
+
+			return null;
+		}
+		if (ly != null)
+			return ly;
+		return null;
+	}
+
+	private String getFragmentTag(int position) {
+		return "android:switcher:" + context.pager.getId() + ":" + position;
+	}
+}

@@ -1,0 +1,50 @@
+package com.zaptech.tabfragment;
+
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.app.ActionBar;
+
+public class TabListener implements ActionBar.TabListener {
+
+	private Fragment fragment;
+
+	// The contructor.
+	public TabListener(Fragment firstFragmentTab) {
+		this.fragment = firstFragmentTab;
+	}
+
+	@Override
+	public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		ft.replace(R.id.activity_main, fragment);
+	}
+
+	@Override
+	public void onTabUnselected(Tab tab, android.app.FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTabReselected(Tab tab, android.app.FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	// // When a tab is tapped, the FragmentTransaction replaces
+	// public void onTabSelected(Tab tab, FragmentTransaction ft) {
+	// ft.replace(R.id.activity_main, fragment);
+	// }
+	//
+	// // When a tab is unselected, we have to hide it from the user's view.
+	// public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+	// ft.remove(fragment);
+	// }
+	//
+	// // Nothing special here. Fragments already did the job.
+	// public void onTabReselected(Tab tab, FragmentTransaction ft) {
+	//
+	// }
+
+}

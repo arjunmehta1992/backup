@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;CardViewDemo&apos;&#x0A;- Original project: &apos;CardViewDemo&apos;&#x0A;- Original element: &apos;push_left_in.xml&apos;" description="Delete element" element1="res/anim/push_left_in.xml" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1439294568588" subPackages="false" version="1.0"/>
+</session>

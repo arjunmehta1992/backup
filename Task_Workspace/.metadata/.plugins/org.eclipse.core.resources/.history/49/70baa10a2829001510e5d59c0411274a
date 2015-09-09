@@ -1,0 +1,5 @@
+package com.zaptech.lazyload;
+
+public class FileCache {
+
+}

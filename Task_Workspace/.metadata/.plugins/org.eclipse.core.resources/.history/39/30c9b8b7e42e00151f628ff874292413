@@ -1,0 +1,49 @@
+package com.example.test;
+
+import android.support.v7.app.ActionBarActivity;
+import android.app.ProgressDialog;
+import android.app.Application.OnProvideAssistDataListener;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ProgressBar;
+
+public class MainActivity extends ActionBarActivity {
+
+	private ProgressBar progress;
+	private Handler progressBarHandler = new Handler();
+	 int i;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		progress = (ProgressBar) findViewById(R.id.progressBar);
+
+		
+		
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+			
+				while (progress.getProgress() < 100)
+				{
+					i+=1;
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				
+			}
+		});
+		
+	}
+
+}

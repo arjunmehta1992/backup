@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ratingbartask.MainActivity" >
+
+    <Button
+        android:id="@+id/btn_One"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First" />
+
+    <RatingBar
+        android:id="@+id/firstRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn_One" />
+
+    <Button
+        android:id="@+id/btn_Two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_One"
+        android:text="Second" />
+
+    <RatingBar
+        android:id="@+id/secondRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn_Two" />
+
+    <Button
+        android:id="@+id/btn_Three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Two"
+        android:text="Third" />
+
+    <RatingBar
+        android:id="@+id/thirdRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn_Three" />
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+package com.zaptech.placesmap;
+
+import com.google.android.gms.maps.model.Marker;
+
+import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+
+public class OnInfoWindowItemTouchListener implements OnTouchListener {
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		final View view;
+		final int bgDrawableNormal;
+		final int bgDrawablePressed;
+		final Handler handler = new Handler();
+
+		Marker marker;
+		boolean pressed = false;
+
+		return false;
+	}
+
+}

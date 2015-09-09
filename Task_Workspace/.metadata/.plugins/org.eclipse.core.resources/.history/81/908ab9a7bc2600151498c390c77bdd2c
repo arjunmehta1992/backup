@@ -1,0 +1,34 @@
+package com.zaptech.placesmap;
+
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.List;
+
+
+import com.google.android.gms.location.places.Places;
+
+import android.os.AsyncTask;
+
+public class PlacesDisplayTask extends AsyncTask<Object, Integer, List<HashMap<String, String>>>{
+
+	@Override
+	protected List<HashMap<String, String>> doInBackground(Object... params) {
+		
+
+		List<HashMap<String, String>> googlePlacesList = null;
+       
+		return null;
+	}
+
+	
+	
+	
+}

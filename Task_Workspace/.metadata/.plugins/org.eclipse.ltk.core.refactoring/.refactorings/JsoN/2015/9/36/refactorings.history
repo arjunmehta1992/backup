@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DBModel.java&apos; to &apos;Android WebView Demo/src/com.zaptech.database&apos;&#x0A;- Original project: &apos;JsoN&apos;&#x0A;- Destination element: &apos;Android WebView Demo/src/com.zaptech.database&apos;&#x0A;- Original element: &apos;com.zaptech.json.DBmodel.DBModel.java&apos;" description="Copy compilation unit" destination="=Android WebView Demo/src&lt;com.zaptech.database" element1="/src&lt;com.zaptech.json.DBmodel{DBModel.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1441174741375" units="1" version="1.0"/>
+</session>

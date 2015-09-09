@@ -1,0 +1,5 @@
+package com.zaptech.religiousapp;
+
+public class ViewPagerAdapter {
+
+}

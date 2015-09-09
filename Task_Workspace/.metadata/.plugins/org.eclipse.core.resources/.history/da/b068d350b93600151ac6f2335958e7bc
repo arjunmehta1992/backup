@@ -1,0 +1,112 @@
+package com.example.testapp;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+
+public class MainActivity extends ActionBarActivity {
+
+	Button btn_startMusic;
+
+	private AudioManager m_amAudioManager;
+	String URL = "http://www.hdwallpapersllc.com/wp-content/uploads/2015/07/3D-Android-Wallpaper-HD-3.jpg";
+	ImageView image;
+	Button button;
+	ProgressDialog mProgressDialog;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		btn_startMusic = (Button) findViewById(R.id.btn_start);
+		image = (ImageView) findViewById(R.id.img);
+
+		btn_startMusic.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+
+				// m_amAudioManager = (AudioManager)
+				// getSystemService(Context.AUDIO_SERVICE);
+				// m_amAudioManager.setMode(AudioManager.MODE_IN_CALL);
+				// m_amAudioManager.setSpeakerphoneOn(false);
+				// m_amAudioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+				// MediaPlayer mediaPlayer =
+				// MediaPlayer.create(MainActivity.this,
+				// R.raw.song);
+				//
+				// mediaPlayer.setAudioStreamType(AudioManager.STREAM_VOICE_CALL);
+				//
+				// try {
+				// mediaPlayer.prepare();
+				// mediaPlayer.start();
+				// } catch (IllegalStateException | IOException e) {
+				// // TODO Auto-generated catch block
+				// e.printStackTrace();
+				// }
+				new LoadImage().execute();
+
+			}
+		});
+
+	}
+
+	public class LoadImage extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected void onPreExecute() {
+
+			mProgressDialog = new ProgressDialog(MainActivity.this);
+			// Set progressdialog title
+			mProgressDialog.setTitle("Image is downloading");
+			// Set progressdialog message
+			mProgressDialog.setMessage("Loading...");
+			mProgressDialog.setIndeterminate(false);
+			// Show progressdialog
+			mProgressDialog.show();
+
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			String imageURL = URL;
+
+			Bitmap bitmap = null;
+			try {
+				// Download Image from URL
+				InputStream input = new java.net.URL(imageURL).openStream();
+				// Decode Bitmap
+				bitmap = BitmapFactory.decodeStream(input);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+
+			super.onPostExecute(result);
+		}
+
+	}
+
+}

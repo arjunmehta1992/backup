@@ -1,0 +1,60 @@
+package com.zaptech.lazyload;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.widget.ListView;
+
+public class HomeActivity extends ActionBarActivity {
+
+	private String[] mStrings = {
+			"http://androidexample.com/media/webservice/LazyListView_images/image0.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image1.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image2.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image3.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image4.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image5.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image6.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image7.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image8.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image9.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image10.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image0.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image1.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image2.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image3.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image4.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image5.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image6.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image7.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image8.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image9.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image10.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image0.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image1.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image2.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image3.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image4.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image5.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image6.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image7.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image8.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image9.png",
+			"http://androidexample.com/media/webservice/LazyListView_images/image10.png"
+
+	};
+
+	
+	 ListView list;
+	    LazyImageLoadAdapter adapter;
+	 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.placesmap.HomeActivity" >
+
+    <TextView
+        android:id="@+id/txt_spinnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        
+        android:text="@string/spinner_text" />
+
+    <Spinner
+        android:id="@+id/spinner_Category"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/txt_spinnerName" />
+
+</RelativeLayout>

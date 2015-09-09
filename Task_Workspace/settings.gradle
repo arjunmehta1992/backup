@@ -1,0 +1,2 @@
+include ':Android WebView Demo'
+include ':appcompat_v7'

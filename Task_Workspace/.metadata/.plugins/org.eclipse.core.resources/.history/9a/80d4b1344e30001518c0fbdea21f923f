@@ -1,0 +1,48 @@
+package com.example.fileupload;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+
+public class HomeActivity extends Activity implements OnClickListener {
+
+	Button btn_loadImage;
+	ImageView img_Image;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		init();
+
+	}
+
+	public void init() {
+		btn_loadImage = (Button) findViewById(R.id.btn_LoadImage);
+		img_Image = (ImageView) findViewById(R.id.img_imageFromGallary);
+
+	}
+
+	void clickListener() {
+		btn_loadImage.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btn_LoadImage:
+				
+				
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

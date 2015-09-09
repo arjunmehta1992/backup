@@ -1,0 +1,39 @@
+package com.zaptech.religiousapp;
+
+import android.R.integer;
+import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.widget.RelativeLayout;
+
+public class ViewPagerAdapter extends PagerAdapter {
+
+	Context context;
+	int[] flag;
+
+	public ViewPagerAdapter(Context context, int[] flag) {
+
+		this.context = context;
+		this.flag = flag;
+
+	}
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return flag.length;
+	}
+
+	@Override
+	public boolean isViewFromObject(View arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		return arg0 == ((RelativeLayout) arg1);
+	}
+	
+	@Override
+	public Object instantiateItem(View container, int position) {
+		
+		return super.instantiateItem(container, position);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.zaptech.wallpapermanager;
+
+import java.security.PublicKey;
+
+public class ArrayWallpaper {
+
+	
+	public static int[] CarsArray={};
+	
+}

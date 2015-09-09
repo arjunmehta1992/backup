@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.AddActivity" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/addHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/addHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/addFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1589FF" >
+
+        <TextView
+            android:id="@+id/addFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/addFooter"
+            android:textColor="#F0FFFF"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/addBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/addFooter"
+        android:layout_below="@+id/addHeader"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="60dp"
+        android:background="#BDEDFF" >
+
+        <Button
+            android:id="@+id/btnAddCollege"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="25dp"
+            android:background="#95B9C7"
+            android:text="@string/btnAddCollege"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/btnAddStudent"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnAddCollege"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="30dp"
+            android:background="#95B9C7"
+            android:text="@string/btnAddStudent"
+            android:textColor="#FF0000" />
+        
+        <Button
+            android:id="@+id/btnAddHome"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnAddStudent"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="30dp"
+            android:background="#95B9C7"
+            android:text="@string/btnHome"
+            android:textColor="#FF0000" />
+    </RelativeLayout>
+
+</RelativeLayout>

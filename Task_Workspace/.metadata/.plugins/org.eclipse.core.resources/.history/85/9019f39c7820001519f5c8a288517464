@@ -1,0 +1,322 @@
+package com.zaptech.maptask;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.zaptech.maptask.MapUtils.Connection;
+import com.zaptech.maptask.MapUtils.JsonParser;
+import com.zaptech.maptask.MapUtils.LocationParser;
+import com.zaptech.maptask.model_class.MainModel;
+import com.zaptech.taskapp.R;
+
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.appcompat.R.drawable;
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.graphics.Color;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class HomeActivity extends ActionBarActivity implements
+		android.view.View.OnClickListener {
+
+	private TextView txt_mbatteryPercentage;
+	private TextView txt_mdistance, txt_Date;
+	private ImageView img_mrefresh;
+	private LocationManager mlocationManager;
+
+	private ProgressDialog mProgressDialolg;
+
+	private Connection obj_mConnection;
+	private JsonParser obj_mJsonParser;
+	private Location mlocation;
+	private StringBuilder murlString = new StringBuilder();
+	private GoogleMap mgoogleMap;
+
+	private LocationParser obj_mlocationParser;
+	private String mPath;
+	private LatLng source;
+	private LatLng destination;
+
+	double dist;
+	private String mStr;
+
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		init();
+		// add map on map fragment
+		mgoogleMap = ((MapFragment) getFragmentManager().findFragmentById(
+				R.id.map)).getMap();
+		mgoogleMap.setMyLocationEnabled(true);
+		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		Criteria criteria = new Criteria();
+		String bestProvider = locationManager.getBestProvider(criteria, true);
+		// add current location on map
+		mlocation = locationManager.getLastKnownLocation(bestProvider);
+		mgoogleMap.addMarker(new MarkerOptions().position(
+				new LatLng(mlocation.getLatitude(), mlocation.getLongitude()))
+				.icon(BitmapDescriptorFactory.fromResource(R.drawable.blue)));
+		new LoadData().execute();
+
+		/*Location locationA = new Location("point A");
+		locationA.setLatitude(mlocation.getLatitude());
+		locationA.setLongitude(mlocation.getLongitude());
+		Location locationB = new Location("point B");
+		locationB.setLatitude(21.7600);
+		locationB.setLongitude(72.1500);
+		dist = locationA.distanceTo(locationB);
+		System.err.println("Distance=====" + dist/1000 + "Km");*/
+		
+		
+
+	}
+
+	public void init() {
+		txt_mbatteryPercentage = (TextView) findViewById(R.id.txt_batteryPercentage);
+		txt_mdistance = (TextView) findViewById(R.id.txt_distance);
+		img_mrefresh = (ImageView) findViewById(R.id.img_Refresh);
+
+		txt_Date = (TextView) findViewById(R.id.txt_date);
+		obj_mJsonParser = new JsonParser();
+		obj_mConnection = new Connection();
+		obj_mlocationParser = new LocationParser();
+		img_mrefresh.setOnClickListener(this);
+
+	}
+
+	public class LoadData extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected void onPreExecute() {
+
+			mProgressDialolg = new ProgressDialog(HomeActivity.this);
+			mProgressDialolg.setTitle("Loadling");
+			mProgressDialolg.setMessage("Please wait...");
+			mProgressDialolg.setCancelable(false);
+			mProgressDialolg.show();
+
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			mStr = obj_mConnection
+					.GET("https://dl.dropboxusercontent.com/u/7409975/findmybike.json");
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			if (mProgressDialolg.isShowing()) {
+				mProgressDialolg.dismiss();
+
+			}
+
+			obj_mJsonParser.JsonParser(mStr);
+			String str_battry = obj_mJsonParser.obj_MainModel.getCharge();
+			txt_mbatteryPercentage.setText(str_battry);
+			String str_distance = obj_mJsonParser.obj_MainModel.getDistance();
+			float distance_float = Float.parseFloat(str_distance);
+			float convertedDistance = distance_float / 1000;
+
+			String finalDistance = String.valueOf(convertedDistance);
+			txt_mdistance.setText(finalDistance + "Km");
+
+			String str_date = obj_mJsonParser.obj_MainModel.getDatetime();
+
+			String delimiter = "T";
+
+			String[] Str_Format = str_date.split("T");
+			txt_Date.setText("Date:: " + Str_Format[0].trim() + "\nTime:: "
+					+ str_date.format(Str_Format[1].trim()));
+
+			getDestinationMarker();
+			getRouteLocationPath();
+
+			DownloadTask downloadTask = new DownloadTask();
+
+			// Start downloading json data from Google Directions API
+
+			downloadTask.execute(mPath);
+
+			super.onPostExecute(result);
+		}
+	}
+
+	private class DownloadTask extends AsyncTask<String, Void, String> {
+
+		// Downloading data in non-ui thread
+		@Override
+		protected String doInBackground(String... url) {
+
+			// For storing data from web service
+			String data = "";
+
+			try {
+				// Fetching the data from web service
+				data = obj_mlocationParser.downloadUrl(url[0]);
+
+			} catch (Exception e) {
+				Log.d("Background Task", e.toString());
+			}
+			return data;
+		}
+
+		// Executes in UI thread, after the execution of
+		// doInBackground()
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
+
+			ParserTask parserTask = new ParserTask();
+
+			// Invokes the thread for parsing the JSON data
+			parserTask.execute(result);
+		}
+	}
+
+	private class ParserTask extends
+			AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
+
+		// Parsing the data in non-ui thread
+		@Override
+		protected List<List<HashMap<String, String>>> doInBackground(
+				String... jsonData) {
+
+			JSONObject jObject;
+			List<List<HashMap<String, String>>> routes = null;
+
+			try {
+				jObject = new JSONObject(jsonData[0]);
+
+				// Starts parsing data
+				routes = obj_mlocationParser.parse(jObject);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return routes;
+		}
+
+		// Executes in UI thread, after the parsing process
+		@Override
+		protected void onPostExecute(List<List<HashMap<String, String>>> result) {
+			ArrayList<LatLng> points = null;
+			PolylineOptions lineOptions = null;
+			MarkerOptions markerOptions = new MarkerOptions();
+
+			// Traversing through all the routes
+			for (int i = 0; i < result.size(); i++) {
+				points = new ArrayList<LatLng>();
+				lineOptions = new PolylineOptions();
+
+				// Fetching i-th route
+				List<HashMap<String, String>> path = result.get(i);
+
+				// Fetching all the points in i-th route
+				for (int j = 0; j < path.size(); j++) {
+					HashMap<String, String> point = path.get(j);
+
+					double lat = Double.parseDouble(point.get("lat"));
+					double lng = Double.parseDouble(point.get("lng"));
+					LatLng position = new LatLng(lat, lng);
+
+					points.add(position);
+				}
+
+				// Adding all the points in the route to LineOptions
+				lineOptions.addAll(points);
+				lineOptions.width(2);
+				lineOptions.color(Color.BLUE);
+			}
+
+			// Drawing polyline in the Google Map for the i-th route
+			mgoogleMap.addPolyline(lineOptions);
+		}
+	}
+
+	public void getDestinationMarker() {
+
+		mgoogleMap.addMarker(new MarkerOptions().position(
+				new LatLng(Double.parseDouble(obj_mJsonParser.obj_MainModel
+						.getLatitude()), Double
+						.parseDouble(obj_mJsonParser.obj_MainModel
+								.getLongitude()))).icon(
+				BitmapDescriptorFactory.fromResource(R.drawable.ic_smallflag)));
+	}
+
+	public void getRouteLocationPath() {
+		mPath = "http://maps.googleapis.com/maps/api/directions/json?origin="
+				+ mlocation.getLatitude() + "," + mlocation.getLongitude()
+				+ "&destination=" + obj_mJsonParser.obj_MainModel.getLatitude()
+				+ "," + obj_mJsonParser.obj_MainModel.getLongitude();
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.img_Refresh:
+
+			Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+			startActivity(intent);
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+	
+
+}

@@ -1,0 +1,70 @@
+package com.zaptech.wallpapermanager;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class CustomGrid extends BaseAdapter {
+
+	private Context mContext;
+
+	String[] web = { "One", "Two", "Three", "Four", "Five", "Six", "Quora",
+	// "Twitter", "Vimeo", "WordPress", "Youtube", "Stumbleupon",
+	// "SoundCloud", "Reddit", "Blogger"
+
+	};
+	int[] imageId = { R.drawable.one, R.drawable.two, R.drawable.six,
+			R.drawable.five, R.drawable.fore, R.drawable.index, R.drawable.two };
+
+	public CustomGrid(Context context) {
+		// TODO Auto-generated constructor stub
+		mContext = context;
+
+	}
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return web.length;
+	}
+
+	@Override
+	public Object getItem(int position) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+
+		View grid;
+
+		LayoutInflater inflater = (LayoutInflater) mContext
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+		// if(convertView==null)
+		{
+			convertView = inflater.inflate(R.layout.grid_single, null);
+			TextView textView = (TextView) convertView
+					.findViewById(R.id.grid_text);
+			ImageView imageView = (ImageView) convertView
+					.findViewById(R.id.grid_image);
+			textView.setText(web[position]);
+			imageView.setImageResource(imageId[position]);
+
+		}
+
+		return convertView;
+
+	}
+}

@@ -1,0 +1,30 @@
+package com.zaptech.placesmap;
+
+import com.google.android.gms.maps.GoogleMap;
+
+import android.os.AsyncTask;
+
+public class GooglePlacesReadTask extends AsyncTask<Object, Integer, String>{
+
+	String googlePlacesData = null;
+    GoogleMap googleMap;
+    
+	@Override
+	protected String doInBackground(Object... params) {
+		
+		googleMap = (GoogleMap) params[0];
+        String googlePlacesUrl = (String) params[1];
+        Http http = new Http();
+        googlePlacesData = http.read(googlePlacesUrl);
+		
+		
+		return null;
+	}
+
+	@Override
+	protected void onPostExecute(String result) {
+		
+		
+		super.onPostExecute(result);
+	}
+}

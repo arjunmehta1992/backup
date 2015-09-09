@@ -1,0 +1,30 @@
+package com.zaptech.religiousapp;
+
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class HomeActivity extends ActionBarActivity {
+
+	int[] flag;
+	ViewPager viewPager;
+PagerAdapter adapter;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		flag = new int[] { R.drawable.one, R.drawable.two, R.drawable.six,
+				R.drawable.index, R.drawable.five };
+
+		viewPager = (ViewPager) findViewById(R.id.pager);
+		// Pass results to ViewPagerAdapter Class
+		adapter = new ViewPagerAdapter(HomeActivity.this,flag);
+		// Binds the Adapter to the ViewPager
+		viewPager.setAdapter(adapter);
+	}
+
+}

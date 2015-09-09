@@ -1,0 +1,162 @@
+package com.zaptech.livestreamingdemo;
+
+import java.net.URL;
+
+import android.app.Activity;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnErrorListener;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.MediaController;
+import android.widget.Toast;
+import android.widget.VideoView;
+
+public class HomeActivity extends Activity {
+
+	private VideoView mVideoview;
+	/*
+	 * private String mHttpLiveUrl =
+	 * "http://hlsstr02.svc.iptv.rt.ru/hls/CH_TNT/bw480000/variant.m3u8";
+	 */
+	private String mHttpLiveUrl = "http://playertest.longtailvideo.com/adaptive/oceans_aes/oceans_aes.m3u8";
+	private String urlStream;
+	private VideoView myVideoView;
+	private URL url;
+	int stopPosition;
+
+	final static int REQUEST_VIDEO_CAPTURED = 1;
+	Uri uriVideo = null;
+
+	Button btn_play, btn_pause;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		init();
+		btn_play = (Button) findViewById(R.id.btn_resume);
+		btn_pause = (Button) findViewById(R.id.btn_pause);
+		MediaController mediacontroller = new MediaController(HomeActivity.this);
+		mediacontroller.setAnchorView(mVideoview);
+
+		mVideoview.setVideoURI(Uri.parse(mHttpLiveUrl));
+		mVideoview.setMediaController(new MediaController(HomeActivity.this));
+		mVideoview.requestFocus();
+		mVideoview.setOnPreparedListener(new OnPreparedListener() {
+
+			@Override
+			public void onPrepared(MediaPlayer mp) {
+				// TODO Auto-generated method stub
+
+				mVideoview.start();
+
+			}
+		});
+
+		mVideoview.setOnErrorListener(new OnErrorListener() {
+
+			@Override
+			public boolean onError(MediaPlayer mp, int what, int extra) {
+
+				/* Alert_No_Video_Play("Something wrong with this channel"); */
+				Toast.makeText(HomeActivity.this,
+						"Something wrong with this channel", Toast.LENGTH_LONG)
+						.show();
+
+				return true;
+			}
+		});
+
+		btn_pause.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+
+				Toast.makeText(HomeActivity.this, "Paused ", Toast.LENGTH_SHORT)
+						.show();
+				
+				stopPosition = mVideoview.getCurrentPosition();
+				mVideoview.pause();
+
+			}
+		});
+
+		btn_play.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Toast.makeText(HomeActivity.this, "Resume.. ", Toast.LENGTH_SHORT)
+						.show();
+				mVideoview.seekTo(stopPosition);
+				mVideoview.resume();
+			}
+		});
+
+		/*
+		 * mVideoview.setMediaController(new MediaController(this));
+		 * mVideoview.setVideoURI(Uri.parse(
+		 * "http://pilatus.d1.comp.nus.edu.sg/~a0095695/video_repo/playlist.m3u8"
+		 * )); mVideoview.requestFocus(); mVideoview.setOnPreparedListener(new
+		 * OnPreparedListener() {
+		 * 
+		 * @Override public void onPrepared(MediaPlayer mp) { // TODO
+		 * Auto-generated method stub
+		 * 
+		 * 
+		 * mp.start(); } });
+		 */
+		/*
+		 * MediaController mc = new MediaController(this);
+		 * mVideoview.setMediaController(mc); urlStream =
+		 * "http://jorgesys.net/i/irina_delivery@117489/master.m3u8";
+		 * runOnUiThread(new Runnable() {
+		 * 
+		 * @Override public void run() {
+		 * mVideoview.setVideoURI(Uri.parse(urlStream)); } });
+		 */
+	}
+
+	public void init() {
+		mVideoview = (VideoView) findViewById(R.id.video_view);
+
+	}
+
+	@Override
+	public void onPause() {
+
+		super.onPause();
+		Toast.makeText(HomeActivity.this, "Paused ", Toast.LENGTH_SHORT).show();
+		stopPosition = mVideoview.getCurrentPosition(); // stopPosition is an
+														// int
+		mVideoview.pause();
+		Log.d(">>>>>>>>>>>>>>>>>>>>", "onPause called");
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		Toast.makeText(HomeActivity.this, "Resumed---- ", Toast.LENGTH_SHORT)
+				.show();
+
+		mVideoview.seekTo(stopPosition);
+		mVideoview.start(); // Or use resume() if it doesn't work. I'm not sure
+		Log.d("Debugggggg>>>>>>>>>>", "onResume called");
+	}
+
+	// This gets called before onPause so pause video here.
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		stopPosition = mVideoview.getCurrentPosition();
+		mVideoview.pause();
+		outState.putInt("position", stopPosition);
+	}
+
+}

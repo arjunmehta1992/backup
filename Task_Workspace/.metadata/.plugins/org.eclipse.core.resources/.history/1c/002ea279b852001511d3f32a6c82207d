@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ratingbartask.MainActivity" >
+
+    <Button
+        android:id="@+id/btn_One"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Ratings1" />
+
+    <RatingBar
+        android:id="@+id/firstRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn_One" />
+
+    <Button
+        android:id="@+id/btn_Two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_One"
+        android:text="Set Ratings2" />
+
+    <RatingBar
+        android:id="@+id/secondRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstRating"
+        android:layout_toRightOf="@+id/btn_Two"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btn_Three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Two"
+        android:text="Set Ratings2" />
+
+    <RatingBar
+        android:id="@+id/thirdRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondRating"
+        android:layout_toRightOf="@+id/btn_Three"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/txtResultone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="result" />
+
+    <TextView
+        android:id="@+id/txtResulttwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="result" />
+
+    <TextView
+        android:id="@+id/txtResultthree"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@+id/res"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="result" />
+
+</RelativeLayout>

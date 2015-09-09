@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CustomGridview/res/drawable/Wheather.png&apos; to &apos;wheather.png&apos;" description="Rename resource &apos;Wheather.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable/Wheather.png" name="wheather.png" stamp="1436875192620" updateReferences="true"/>
+</session>

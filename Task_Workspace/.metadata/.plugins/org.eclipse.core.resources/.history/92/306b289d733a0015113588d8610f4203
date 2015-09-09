@@ -1,0 +1,13 @@
+package com.zaptech.wallpapermanager;
+
+import java.security.PublicKey;
+
+public class ArrayWallpaper {
+
+	public static int[] ImageCarsArray = { R.drawable.one, R.drawable.two,
+			R.drawable.six, R.drawable.five, R.drawable.fore, R.drawable.index,
+			R.drawable.two };
+	
+	public static int[] ImageCategoryArray={};
+
+}

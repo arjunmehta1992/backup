@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F3352F"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/progressBarLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" >
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="@style/CustomProgressBar"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp" />
+
+        <TextView
+            android:id="@+id/progressStatus"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
+            android:textStyle="bold|italic" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/goButton"
+            android:layout_toRightOf="@+id/favicon"
+            android:background="@android:drawable/editbox_background_normal"
+            android:ems="10"
+            android:inputType="textUri"
+            android:selectAllOnFocus="true"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/goButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/url"
+            android:layout_alignBottom="@+id/url"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/url"
+            android:background="@drawable/search_browser"
+            android:onClick="go" />
+
+        <Button
+            android:id="@+id/micButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/mic_search_icon"
+            android:onClick="micSearch" />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_toLeftOf="@+id/goButton"
+            android:background="@drawable/cancel"
+            android:onClick="stop" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/url"
+            android:background="@drawable/browserback"
+            android:onClick="back"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/forwardButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/url"
+            android:layout_toRightOf="@+id/backButton"
+            android:background="@drawable/forward"
+            android:onClick="forward"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/goButton"
+            android:background="@drawable/history"
+            android:onClick="history"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/bookmarkStar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_below="@+id/url"
+            android:layout_toLeftOf="@+id/historyButton"
+            android:background="@drawable/star_empty"
+            android:onClick="bookmarkStar" />
+
+        <ImageView
+            android:id="@+id/favicon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignBottom="@+id/url"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/goButton"
+            android:background="@drawable/favicon_default"
+            android:contentDescription="@string/favicon" />
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/webkit"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/white" />
+
+</LinearLayout>

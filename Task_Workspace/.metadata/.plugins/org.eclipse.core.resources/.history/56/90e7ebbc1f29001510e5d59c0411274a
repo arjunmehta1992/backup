@@ -1,0 +1,60 @@
+package com.zaptech.lazyload;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+public class LazyImageLoadAdapter extends BaseAdapter implements OnClickListener{
+
+	private Activity activity;
+    private String[] data;
+    private static LayoutInflater inflater=null;
+    public ImageLoader imageLoader;
+     
+    public LazyImageLoadAdapter(Activity a, String[] d) {
+        activity = a;
+        data=d;
+        inflater = (LayoutInflater)activity.
+                            getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+         
+        // Create ImageLoader object to download and show image in list
+        // Call ImageLoader constructor to initialize FileCache
+        imageLoader = new ImageLoader();
+    }
+	
+	
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object getItem(int position) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.zaptech.religiousapp;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+
+public class HomeActivity extends Activity {
+
+	int[] flag = new int[] { R.drawable.one, R.drawable.two, R.drawable.six,
+			R.drawable.index, R.drawable.five };
+
+	ViewPager viewPager;
+	PagerAdapter adapter;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		viewPager = (ViewPager) findViewById(R.id.pager);
+		// Pass results to ViewPagerAdapter Class
+		adapter = new ViewPagerAdapter(HomeActivity.this, flag);
+		// Binds the Adapter to the ViewPager
+		viewPager.setAdapter(adapter);
+	}
+
+}

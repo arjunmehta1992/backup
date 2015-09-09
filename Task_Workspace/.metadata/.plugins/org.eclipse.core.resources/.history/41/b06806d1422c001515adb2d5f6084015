@@ -1,0 +1,84 @@
+package com.zaptech.tabfragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
+import android.app.Activity;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.Window;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class HomeActivity extends FragmentActivity {
+
+	ActionBar.Tab firstTab, secondTab, thirdTab;
+
+	Fragment firstFragmentTab = new FirstActivity();
+	Fragment secondFragmentTab = new SecondActivity();
+	Fragment thirdFragmentTab = new ThirdActivity();
+
+	ViewPager viewPager;
+	TabsPagerAdapter obj_pagerAdapter;
+
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+		setContentView(R.layout.activity_home);
+
+		ActionBar actionBar = getActionBar();
+
+		if (android.os.Build.VERSION.SDK_INT < 11) {
+			requestWindowFeature(Window.FEATURE_NO_TITLE);
+		}
+		actionBar.setHomeButtonEnabled(false);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+		firstTab = actionBar.newTab().setIcon(R.drawable.ic_launcher)
+				.setText("First Tab");
+		secondTab = actionBar.newTab().setIcon(R.drawable.ic_launcher)
+				.setText("Second Tab");
+		thirdTab = actionBar.newTab().setIcon(R.drawable.ic_launcher)
+				.setText("Third Tab");
+
+		firstTab.setTabListener(new TabListener(firstFragmentTab));
+		secondTab.setTabListener(new TabListener(secondFragmentTab));
+		thirdTab.setTabListener(new TabListener(thirdFragmentTab));
+
+		actionBar.addTab(firstTab);
+		actionBar.addTab(secondTab);
+		actionBar.addTab(thirdTab);
+
+		viewPager = (ViewPager) findViewById(R.id.pager);
+		List<Fragment> fragments = getFragments();
+
+		obj_pagerAdapter = new TabsPagerAdapter(getSupportFragmentManager() ,  );
+
+		ViewPager pager = (ViewPager) findViewById(R.id.pager);
+
+		pager.setAdapter(obj_pagerAdapter);
+	}
+
+	private List<Fragment> getFragments() {
+
+		List<Fragment> fList = new ArrayList<Fragment>();
+
+		fList.add(firstFragmentTab);
+
+		fList.add(secondFragmentTab);
+
+		fList.add(thirdFragmentTab);
+
+		return fList;
+
+	}
+}

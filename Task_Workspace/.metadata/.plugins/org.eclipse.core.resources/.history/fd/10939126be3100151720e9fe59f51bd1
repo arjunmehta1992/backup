@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.localnotification.HomeActivity" >
+
+    <TextView
+        android:id="@+id/tv_txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="@string/textName" />
+
+    <EditText
+        android:id="@+id/edt_Time"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@+id/t"
+        android:layout_height="wrap_content" />
+    
+    
+
+</RelativeLayout>

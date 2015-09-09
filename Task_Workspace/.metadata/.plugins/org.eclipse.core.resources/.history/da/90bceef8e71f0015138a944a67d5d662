@@ -1,0 +1,58 @@
+package com.zaptech.maptask.MapUtils;
+
+import org.json.JSONObject;
+
+import com.zaptech.maptask.model_class.MainModel;
+
+public class JsonParser {
+
+	 MainModel obj_MainModel=new MainModel();
+	
+	public void JsonParser(String str) {
+
+		String time = "";
+		String latitute = "";
+		String longitude = "";
+		String charge = "";
+		String batteryDistance = "";
+		String warning;
+
+		String active;
+
+		try {
+
+			JSONObject mainObj = new JSONObject(str);
+			time = mainObj.getString("datetime");
+			System.err.println("Datetime=" + time);
+
+			JSONObject locationObj = new JSONObject(
+					mainObj.getString("location"));
+			latitute = locationObj.getString("latitude");
+			longitude = locationObj.getString("longitude");
+			System.err.println("lat" + latitute);
+			System.err.println("long" + longitude);
+
+			JSONObject batteryObj = new JSONObject(mainObj.getString("battery"));
+			charge = batteryObj.getString("charge");
+			batteryDistance = batteryObj.getString("distance");
+			JSONObject alarmObj = new JSONObject(mainObj.getString("alarm"));
+			warning = alarmObj.getString("warning");
+			active = alarmObj.getString("active");
+
+			obj_MainModel.setDatetime(time);
+			obj_MainModel.setLatitude(latitute);
+			obj_MainModel.setLongitude(longitude);
+			obj_MainModel.setCharge(charge);
+			obj_MainModel.setDistance(batteryDistance);
+			obj_MainModel.setActive(active);
+			obj_MainModel.setWarning(warning);
+
+			// Getting URL to the Google Directions API
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+}

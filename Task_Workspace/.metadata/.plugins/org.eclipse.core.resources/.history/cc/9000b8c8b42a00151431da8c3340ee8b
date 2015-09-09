@@ -1,0 +1,21 @@
+package com.zaptech.tabfragment;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.app.Fragment;
+
+public class SecondActivity extends Fragment {
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		String strtext = getArguments().getString("YourKey");
+		System.err.println("Data Rec===" + strtext);
+		View rootView = inflater.inflate(R.layout.second_layout, container,
+				false);
+
+		return rootView;
+	}
+}

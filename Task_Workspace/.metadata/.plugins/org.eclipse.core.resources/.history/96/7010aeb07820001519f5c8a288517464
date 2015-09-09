@@ -1,0 +1,8 @@
+package snippet;
+
+public class Snippet {
+	LatLng latLng = new LatLng(latitude, longitude);
+	        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+	        googleMap.animateCamera(CameraUpdateFactory.zoomTo(12));
+}
+

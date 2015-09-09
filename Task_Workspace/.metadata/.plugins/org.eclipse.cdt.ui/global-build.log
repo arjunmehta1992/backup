@@ -1,0 +1,90 @@
+09:44:05 **** Build of configuration Default for project OpenCV Sample - face-detection ****
+"\"/ndk-build.cmd\"" 
+Cannot run program ""/ndk-build.cmd"": Unknown reason
+
+Error: Program ""/ndk-build.cmd"" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:44:06 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+"\"/ndk-build.cmd\"" 
+Cannot run program ""/ndk-build.cmd"": Unknown reason
+
+Error: Program ""/ndk-build.cmd"" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:44:07 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+"\"/ndk-build.cmd\"" 
+Cannot run program ""/ndk-build.cmd"": Unknown reason
+
+Error: Program ""/ndk-build.cmd"" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:45:04 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+"\"/ndk-build.cmd\"" 
+Cannot run program ""/ndk-build.cmd"": Unknown reason
+
+Error: Program ""/ndk-build.cmd"" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:45:06 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+"\"/ndk-build.cmd\"" 
+Cannot run program ""/ndk-build.cmd"": Unknown reason
+
+Error: Program ""/ndk-build.cmd"" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+15:48:47 **** Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+15:48:49 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+15:48:51 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+15:49:52 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:25:09 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:25:46 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+10:26:25 **** Incremental Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:45:15 **** Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:45:44 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+09:46:05 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]

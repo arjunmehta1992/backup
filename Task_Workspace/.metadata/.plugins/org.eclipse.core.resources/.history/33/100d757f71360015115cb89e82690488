@@ -1,0 +1,30 @@
+package com.zaptech.wallpapermanager;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.GridView;
+
+public class HomeActivity extends Activity {
+
+	GridView grid;
+	String[] web = { "One", "Two", "Three", "Four", "Five", "Six", "Quora",
+	// "Twitter", "Vimeo", "WordPress", "Youtube", "Stumbleupon",
+	// "SoundCloud", "Reddit", "Blogger"
+
+	};
+	int[] imageId = { R.drawable.one, R.drawable.two, R.drawable.six,
+			R.drawable.five, R.drawable.fore, R.drawable.index,
+			R.drawable.tiger };
+
+	CustomGrid adapter;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		adapter = new CustomGrid(HomeActivity.this, web, imageId);
+		grid = (GridView) findViewById(R.id.grid);
+		grid.setAdapter(adapter);
+	}
+
+}

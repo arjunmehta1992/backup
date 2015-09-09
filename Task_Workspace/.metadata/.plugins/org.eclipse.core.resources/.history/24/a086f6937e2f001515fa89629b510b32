@@ -1,0 +1,38 @@
+package com.example.youtubeintegration;
+
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayer.Provider;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class HomeActivity extends YouTubeBaseActivity implements
+YouTubePlayer.OnInitializedListener {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		
+		
+	}
+
+	@Override
+	public void onInitializationFailure(Provider arg0,
+			YouTubeInitializationResult arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onInitializationSuccess(Provider arg0, YouTubePlayer arg1,
+			boolean arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,100 @@
+package com.zaptech.religiousapp;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import android.app.Activity;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.widget.Toast;
+
+public class HomeActivity extends Activity {
+
+	int[] flag = new int[] { R.drawable.h_one, R.drawable.h_two,
+			R.drawable.h_three, R.drawable.h_four, R.drawable.h_five };
+
+	Timer timer;
+	int seconds;
+	int page = 1;
+	ViewPager viewPager;
+	PagerAdapter adapter;
+
+	MediaPlayer mPlayer;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		viewPager = (ViewPager) findViewById(R.id.pager);
+		// Pass results to ViewPagerAdapter Class
+		adapter = new ViewPagerAdapter(HomeActivity.this, flag);
+		// Binds the Adapter to the ViewPager
+		viewPager.setAdapter(adapter);
+		// pageSwitcher(seconds);
+
+		mPlayer = MediaPlayer.create(HomeActivity.this,
+				R.raw.maha_mrityunjaya_mantra);
+		
+
+		final Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+			int item_count = 0;
+
+			@Override
+			public void run() {
+				viewPager.setCurrentItem(item_count);
+				if (item_count == 5) {
+					item_count = 0;
+				} else {
+					item_count++;
+				}
+				handler.postDelayed(this, 3000);
+			}
+		}, 3000);
+		
+	//	mPlayer.start();
+
+	}
+
+	// public void pageSwitcher(int seconds) {
+	// timer = new Timer(); // At this line a new Thread will be created
+	// timer.scheduleAtFixedRate(new RemindTask(), 0, seconds * 1000); // delay
+	// // in
+	//
+	// }
+	//
+	// // this is an inner class...
+	// class RemindTask extends TimerTask {
+	//
+	// @Override
+	// public void run() {
+	//
+	// // As the TimerTask run on a seprate thread from UI thread we have
+	// // to call runOnUiThread to do work on UI thread.
+	// runOnUiThread(new Runnable() {
+	// public void run() {
+	//
+	// if (page > 4) { // In my case the number of pages are 5
+	// timer.cancel();
+	// // Showing a toast for just testing purpose
+	// Toast.makeText(getApplicationContext(), "Timer stoped",
+	// Toast.LENGTH_LONG).show();
+	// } else {
+	// viewPager.setCurrentItem(page++);
+	// }
+	// }
+	// });
+	//
+	// }
+	// }
+
+	@Override
+	protected void onDestroy() {
+		mPlayer.stop();
+		super.onDestroy();
+	}
+}

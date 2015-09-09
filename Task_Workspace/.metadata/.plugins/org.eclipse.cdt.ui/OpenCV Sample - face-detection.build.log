@@ -1,0 +1,9 @@
+09:46:05 **** Auto Build of configuration Default for project OpenCV Sample - face-detection ****
+/ndk-build.cmd 
+Cannot run program "/ndk-build.cmd": Unknown reason
+
+Error: Program "/ndk-build.cmd" not found in PATH
+PATH=[/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:-/android-sdk-linux/tools:-/android-sdk-linux/platform-tools]
+
+09:46:05 Build Finished (took 4ms)
+

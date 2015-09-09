@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ViewPagerDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    
+    
+    <!--  Strings for fragment two -->
+    
+    
+    <string  name="txtView_msg">Hiii Welcome to the new fragment</string>
+    <color name="txtView_msg_color">#E7100C</color>
+    
+    
+    <!--  -->
+
+</resources>

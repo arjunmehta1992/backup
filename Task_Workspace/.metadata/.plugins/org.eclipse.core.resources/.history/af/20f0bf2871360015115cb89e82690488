@@ -1,0 +1,63 @@
+package com.zaptech.wallpapermanager;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.widget.GridView;
+
+public class HomeActivity extends ActionBarActivity {
+
+	GridView grid;
+	String[] web = { "One", "Two", "Three", "Four", "Five", "Six", "Quora",
+//			"Twitter", "Vimeo", "WordPress", "Youtube", "Stumbleupon",
+//			"SoundCloud", "Reddit", "Blogger"
+
+	};
+	int[] imageId = { R.drawable.one, R.drawable.two, R.drawable.six,
+			R.drawable.five, R.drawable.fore, R.drawable.index,
+			R.drawable.tiger };
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+	}
+
+	// public class CustomAdapter extends BaseAdapter
+	// {
+	//
+	// @Override
+	// public int getCount() {
+	// // TODO Auto-generated method stub
+	// return 0;
+	// }
+	//
+	// @Override
+	// public Object getItem(int position) {
+	// // TODO Auto-generated method stub
+	// return null;
+	// }
+	//
+	// @Override
+	// public long getItemId(int position) {
+	// // TODO Auto-generated method stub
+	// return 0;
+	// }
+	//
+	// @Override
+	// public View getView(int position, View convertView, ViewGroup parent) {
+	// // TODO Auto-generated method stub
+	//
+	// LayoutInflater inflater = (LayoutInflater) HomeActivity.this
+	// .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	//
+	// convertView=inflater.inflate(R.layout.grid_single, null);
+	//
+	//
+	//
+	// return null;
+	// }
+	//
+	// }
+
+}

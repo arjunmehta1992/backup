@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="DB_NAME">BUSROUTE.sqlite</string>
+    <string name="DB_PATH">data/data/com.example.locationalarm/databases/</string>
+    <string name="app_name">BRTS APPLICATION</string>
+    <string name="hello">Hello World, Chinese Corner!</string>
+    
+    <string-array name="place_type">
+        <item>airport</item>
+        <item>atm</item>
+        <item>bank</item>
+        <item>bus_station</item>
+        <item>church</item>
+        <item>doctor</item>
+        <item>hospital</item>
+        <item>mosque</item>
+        <item>movie_theater</item>
+        <item>hindu_temple</item>
+        <item>restaurant</item>
+    </string-array>
+
+    <string-array name="placeArray">
+        <item>RTO Circle</item>
+        <item>Ranip Cross Road</item>
+        <item>Bhavsar Hostel</item>
+        <item>Akhbarnagar</item>
+        <item>Pragatinagar</item>
+        <item>Shastrinagar</item>
+        <item>Jaimangal</item>
+        <item>Sola Cross Road</item>
+        <item>Valinath Chowk</item>
+        <item>Memnagar</item>
+        <item>University</item>
+        <item>Andhajan Mandal</item>
+        <item>Himatlal Park</item>
+        <item>Shivaranjani</item>
+        <item>Jhansi-ki-rani</item>
+        <item>Nehrunagar</item>
+        <item>Manekbaug</item>
+        <item>Dharnidhar</item>
+        <item>Anjali</item>
+        <item>Chandarnagar</item>
+        <item>Khodiyarnagar</item>
+        <item>Danilimda C. Rasta</item>
+        <item>V. Mandir</item>
+        <item>S.N. College</item>
+        <item>Kankriya T. Ex.</item>
+        <item>Kankaria Lake</item>
+        <item>Rambaug</item>
+        <item>Maninagar C.Road</item>
+        <item>Maninagar R.S</item>
+        <item>Swaminarayan M.</item>
+        <item>Jawahar Chawk</item>
+        <item>Bhairavnath</item>
+        <item>Mira Cinema</item>
+        <item>Danilimda Road</item>
+        <item>Chhipa</item>
+        <item>Chandola Lake</item>
+        <item>BRTS Workshop</item>
+        <item>Kashiram</item>
+        <item>Narol</item>
+        <item>Mukesh Ind.</item>
+        <item>Isanpur</item>
+        <item>Ghodasar</item>
+        <item>Jashodanagar</item>
+        <item>Express Way</item>
+        <item>C.T.M</item>
+        <item>Purvadeep</item>
+        <item>Jogeshwari Soc.</item>
+        <item>Rabari Colony</item>
+        <item>Ramrajya Soc.</item>
+        <item>Rameshwar Park</item>
+        <item>Geeta Gauri</item>
+        <item>Soni Ni Chali</item>
+        <item>Viratnagar</item>
+        <item>Bapunagar</item>
+        <item>Leelanagar</item>
+        <item>Thakkarnagar</item>
+        <item>Hirawadi</item>
+        <item>Vijay Park</item>
+        <item>Krishnanagar</item>
+        <item>Dhanush Dhari</item>
+        <item>Naroda</item>
+        <item>NR Patel</item>
+        <item>Ramapir no teka</item>
+        <item>Junavadaj</item>
+        <item>Gurudwara</item>
+        <item>Hanumanpura</item>
+        <item>Sarkari Litho Press</item>
+        <item>Jodhpur Char Rasta</item>
+        <item>Star Bazaar</item>
+        <item>ISRO</item>
+        <item>Ramdev Nagar</item>
+        <item>ISKCON Cross Road</item>
+        <item>Grid Station</item>
+        <item>Odhav Fire Station</item>
+        <item>Vallabhh Nagar</item>
+        <item>Chhotalal ni Chali</item>
+        <item>Morlidhar Society</item>
+        <item>Odhav Talav (Gam)</item>
+        <item>S P Ring Road Approach</item>
+        <item>Soni Ni Chali B</item>
+        <item>AJIT Mill</item>
+        <item>Paras nagar</item>
+        <item>Parshwanath Jain mandir</item>
+        <item>BhuyangDev</item>
+        <item>Sattadhar char Rasta</item>
+        <item>Sola Bridge</item>
+        <item>science city appraoch</item>
+        <item>Power House</item>
+        <item>Rathi Apartment</item>
+        <item>Municipal Swimming Pool</item>
+        <item>Sabarmati Police Station</item>
+        <item>Motera Cross road</item>
+        <item>Visat Junction</item>
+        <item>RTO Circle Extension</item>
+        <item>Lokmanya Tilak Bag</item>
+        <item>Raikhad Char Rasta</item>
+        <item>AMC office</item>
+        <item>Aastodia Chakla</item>
+        <item>Aastodia Darwaja</item>
+        <item>Raipur Darwaja</item>
+        <item>Karnmukteshwar Mahadev</item>
+        <item>Sarangpur Darwaja</item>
+        <item>Kalupur Railway Station</item>
+        <item>Townhall</item>
+        <item>Iskcon Mandir</item>
+        <item>Antarix Colony</item>
+        <item>Ashok Vatika</item>
+        <item>Jayantilal Park</item>
+        <item>Swagat Bunglow</item>
+        <item>Ambali Gam</item>
+        <item>Bopal Approach</item>
+        <item>Station 1</item>
+        <item>Jantanagar</item>
+        <item>Shiv Shaktinagar</item>
+        <item>Chandkheda Gam</item>
+        <item>Soma Textiles</item>
+        <item>L colony</item>
+        <item>Panjrapole Char Rasta</item>
+        <item>Gulbai Tekra</item>
+        <item>LD engineering clg</item>
+        <item>MunicipalNothZoneOffice</item>
+        <item>Memco Cross Road</item>
+        <item>Naroda Fruit Market</item>
+        <item>Ashok Mill</item>
+        <item>Geening Press</item>
+        <item>Arvind Mill</item>
+        <item>GCS Hospital</item>
+    </string-array>
+
+  
+</resources>

@@ -1,0 +1,30 @@
+package com.example.demo;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MainActivity extends ActionBarActivity {
+
+	private TextView tvBookName;
+	private ImageView imgViewBookPoster;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		init();
+
+	}
+
+	void init() {
+
+		tvBookName = (TextView) findViewById(R.id.tvBookName);
+		imgViewBookPoster = (ImageView) findViewById(R.id.imgBook);
+
+	}
+
+}

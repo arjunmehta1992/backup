@@ -1,0 +1,19 @@
+package com.zaptech.wallpapermanager;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.widget.GridView;
+
+public class Activity_Category extends ActionBarActivity {
+
+	private GridView grid_category;
+	private TextView;
+	private ImageView;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_category);
+	}
+
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/item1"
+        android:showAsAction="ifRoom|withText"
+        android:title="Bookmark History"/>
+    <item
+        android:id="@+id/item2"
+        android:showAsAction="ifRoom|withText"
+        android:title="Clear Cacshe"/>
+    <item
+        android:id="@+id/item3"
+        android:showAsAction="ifRoom|withText"
+        android:title="Remove Cookies"/>
+    <item
+        android:id="@+id/item4"
+        android:showAsAction="ifRoom|withText"
+        android:title="Settings"/>
+
+</menu>

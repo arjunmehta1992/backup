@@ -1,0 +1,22 @@
+package com.example.widgetdemo;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
+public class MyWidgetIntentReceiver extends BroadcastReceiver {
+
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		// TODO Auto-generated method stub
+		if (intent.getAction()
+				.equals("pl.looksok.intent.action.CHANGE_PICTURE")) {
+			updateWidgetPictureAndButtonListener(context);
+		}
+	}
+
+	private void updateWidgetPictureAndButtonListener(Context context) {
+
+	}
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PlacesMap</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="spinner_text">Select Category</string>
+
+    <string-array name="spinner_category">
+        <item>Hotel</item>
+        <item>Hospital</item>
+        <item>ATM</item>
+        <item>Restaurants</item>
+        <item>PetrolPump</item>
+    </string-array>
+
+</resources>

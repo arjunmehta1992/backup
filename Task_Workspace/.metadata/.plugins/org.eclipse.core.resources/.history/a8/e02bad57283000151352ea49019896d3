@@ -1,0 +1,48 @@
+package com.example.saxparser.util;
+
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+
+import com.example.saxparser.model.PostValue;
+
+import android.os.DeadObjectException;
+import android.util.Log;
+
+public class XMLHelper extends DefaultHandler {
+
+	private String URL_MAIN = "http://pcsalt.com/postservice/?format=xml";
+	String TAG = "XMLHelper";
+
+	Boolean currTag = false;
+	String currTagVal = "";
+	private PostValue post = null;
+	private ArrayList<PostValue> posts = new ArrayList<PostValue>();
+
+	public void get() {
+		try {
+			SAXParserFactory factory = SAXParserFactory.newInstance();
+			SAXParser mSaxParser = factory.newSAXParser();
+			XMLReader mXmlReader = mSaxParser.getXMLReader();
+			mXmlReader.setContentHandler(this);
+			InputStream mInputStream = new URL(URL_MAIN).openStream();
+			mXmlReader.parse(new InputSource(mInputStream));
+		} catch (Exception e) {
+			// Exceptions can be handled for different types
+			// But, this is about XML Parsing not about Exception Handling
+			Log.e(TAG, "Exception: " + e.getMessage());
+		}
+	}
+	
+	
+	
+	
+
+}

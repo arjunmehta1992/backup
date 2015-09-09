@@ -1,0 +1,32 @@
+package com.example.widgetdemo;
+
+import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
+import android.content.Context;
+import android.widget.RemoteViews;
+
+public class MyWidgetProvider extends AppWidgetProvider {
+
+	@Override
+	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+			int[] appWidgetIds) {
+
+		RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
+				R.layout.activity_home);
+		remoteViews.setOnClickPendingIntent(R.id.widget_button,
+				buildButtonPendingIntent(context));
+
+		pushWidgetUpdate(context, remoteViews);
+
+	}
+
+	private void pushWidgetUpdate(Context context, RemoteViews remoteViews) {
+
+		ComponentName myWidget = new ComponentName(context,
+				MyWidgetProvider.class);
+		AppWidgetManager manager = AppWidgetManager.getInstance(context);
+		manager.updateAppWidget(myWidget, remoteViews);
+	}
+
+}

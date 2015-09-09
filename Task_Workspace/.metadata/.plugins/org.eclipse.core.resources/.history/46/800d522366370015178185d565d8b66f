@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.placesmap.PlaceInfo" >
+
+    <RelativeLayout
+        android:id="@+id/rel_Info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
+
+        <ImageView
+            android:id="@+id/img_PlaceImage"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/txt_PlaceDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_PlaceImage"
+            android:text="Name:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_PlaceAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_PlaceDetails"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/img_PlaceImage"
+            android:text="Address:"
+            android:textSize="15dp"
+            android:textStyle="bold|italic" />
+
+        <View
+            android:id="@+id/view_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_PlaceImage"
+            android:layout_marginLeft="10dp"
+            android:text="Show Details"
+            android:textAllCaps="false" />
+
+        <!-- <Button -->
+        <!-- android:id="@+id/btn_HideMe" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_below="@+id/img_PlaceImage" -->
+        <!-- android:layout_marginLeft="10dp" -->
+        <!-- android:layout_toRightOf="@+id/view_one" -->
+        <!-- android:text="Hide Me" -->
+        <!-- android:textAllCaps="false" /> -->
+
+    </RelativeLayout>
+
+</RelativeLayout>

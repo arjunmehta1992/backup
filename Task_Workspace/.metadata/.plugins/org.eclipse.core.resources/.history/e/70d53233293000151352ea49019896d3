@@ -1,0 +1,49 @@
+package com.example.saxparser;
+
+import java.util.ArrayList;
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ListView;
+
+import com.example.saxparser.model.PostValue;
+
+public class HomeActivity extends ActionBarActivity {
+
+	
+	ListView lvPcsPost;
+    ArrayList<PostValue> postValueArrayList;
+    
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		
+		lvPcsPost = (ListView) findViewById(R.id.lv_listDetails);
+		lvPcsPost.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// 
+				
+				
+			}
+		});
+		
+	}
+	
+	
+	
+	class PostAsync extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	
+}

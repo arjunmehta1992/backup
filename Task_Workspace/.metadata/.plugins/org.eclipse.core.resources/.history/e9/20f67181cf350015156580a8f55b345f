@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.placesmap.HomeActivity" >
+
+    <RelativeLayout
+        android:id="@+id/rel_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_Header"
+        android:background="#134F32" >
+
+        <TextView
+            android:id="@+id/txt_textCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Category:" />
+
+        <Spinner
+            android:id="@+id/spinner_Category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt_textCategory"
+            android:entries="@array/place_type" />
+
+        <TextView
+            android:id="@+id/txt_textKilometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/spinner_Kilometer"
+            android:text="Select Kilometer:" />
+
+        <Spinner
+            android:id="@+id/spinner_Kilometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:entries="@array/place_kilometer" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_mapFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/rel_main" >
+
+        <fragment
+            android:id="@+id/googleMap"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            class="com.google.android.gms.maps.SupportMapFragment" />
+    </RelativeLayout>
+
+</RelativeLayout>

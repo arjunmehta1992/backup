@@ -1,0 +1,64 @@
+package com.zaptech.wallpapermanager;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.nineoldandroids.view.ViewHelper;
+
+public class MyFragment extends Fragment {
+	public int[] imageId = { R.drawable.one, R.drawable.two, R.drawable.six,
+			R.drawable.five, R.drawable.fore, R.drawable.index, R.drawable.two };
+
+	String[] web = { "One", "Two", "Three", "Four", "Five", "Six", "Quora",
+
+	};
+
+	public static Fragment newInstance(SelectedImage context, int pos,
+			float scale, boolean IsBlured, int[] imgResource) {
+
+		Bundle b = new Bundle();
+		b.putInt("pos", pos);
+		b.putFloat("scale", scale);
+		b.putBoolean("IsBlured", IsBlured);
+		b.putIntArray("image", imgResource);
+		return Fragment.instantiate(context, MyFragment.class.getName(), b);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		if (container == null) {
+			return null;
+		}
+
+		LinearLayout l = (LinearLayout) inflater.inflate(R.layout.mf,
+				container, false);
+
+		int pos = this.getArguments().getInt("pos");
+
+		int posImg = this.getArguments().getInt("image");
+
+		TextView tv = (TextView) l.findViewById(R.id.viewID);
+		ImageView img = (ImageView) l.findViewById(R.id.content);
+
+		tv.setText("Position = " + pos);
+
+		img.setImageResource(imageId[posImg]);
+
+		MyLinearLayout root = (MyLinearLayout) l.findViewById(R.id.root);
+		float scale = this.getArguments().getFloat("scale");
+		root.setScaleBoth(scale);
+		boolean isBlured = this.getArguments().getBoolean("IsBlured");
+		if (isBlured) {
+			ViewHelper.setAlpha(root, MyPagerAdapter.getMinAlpha());
+			ViewHelper.setRotationY(root, MyPagerAdapter.getMinDegree());
+		}
+		return l;
+	}
+}

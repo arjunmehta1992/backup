@@ -1,0 +1,29 @@
+package com.zaptech.localnotification;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+
+public class HomeActivity extends ActionBarActivity {
+	
+	EditText edt_Time,edt_Date;
+	Button btn_NotifyMe;
+	ImageView img_Date,img_Time;
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		
+		
+		
+		
+		
+	}
+
+}

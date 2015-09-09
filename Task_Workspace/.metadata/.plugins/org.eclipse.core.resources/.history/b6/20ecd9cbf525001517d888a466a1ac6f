@@ -1,0 +1,39 @@
+package com.zaptech.tabfragment;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.Window;
+
+public class HomeActivity extends Activity {
+
+	ActionBar.Tab firstTab, secondTab, thirdTab;
+
+	Fragment firstFragmentTab = new FirstActivity();
+	Fragment secondFragmentTab = new SecondActivity();
+	Fragment thirdFragmentTab = new ThirdActivity();
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		  getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+		setContentView(R.layout.activity_home);
+
+		ActionBar actionBar = getActionBar();
+//		actionBar.setTitle("");
+//		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+		firstTab = actionBar.newTab().setIcon(R.drawable.ic_launcher);
+		secondTab = actionBar.newTab().setIcon(R.drawable.ic_launcher);
+		thirdTab = actionBar.newTab().setIcon(R.drawable.ic_launcher);
+
+		firstTab.setTabListener(new TabListener(firstFragmentTab));
+		secondTab.setTabListener(new TabListener(secondFragmentTab));
+		thirdTab.setTabListener(new TabListener(thirdFragmentTab));
+
+		actionBar.addTab(firstTab);
+		actionBar.addTab(secondTab);
+		actionBar.addTab(thirdTab);
+	}
+}
