@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.example.ramsizememorysize"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_setTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="startTime" >
+    </Button>
+
+    <TimePicker
+        android:id="@+id/tmPicker_TimeClock"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_setTime"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/txt_selectedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn_setTime"
+        android:layout_below="@+id/tmPicker_TimeClock"
+        android:text="Time" />
+
+</RelativeLayout>

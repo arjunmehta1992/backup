@@ -1,0 +1,301 @@
+package com.zaptech.json;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.zaptech.json.DBmodel.DBModel;
+
+public class HomeActivity extends Activity {
+
+	ProgressDialog mProgress;
+	ListView lv_HomeItem;
+	ListView lv_title;
+	Context context;
+	DBModel dbObj;
+	ArrayList<HomeItemModel> arraylistData;
+	DBModel onj;
+	TextView mTextview;
+	String appMetaDataStr, versionNumberStr, tABVersionNUmberStr,
+			webServicesURLStr, appNameStr;
+
+	HomeItemModel homeItemModel_obj;
+
+	JSONArray homeitems = null;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		init();
+
+		context = HomeActivity.this;
+		lv_title.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Intent go = new Intent(HomeActivity.this,
+						HomeItems_Description.class);
+				go.putExtra("TITLE", arraylistData.get(position)
+						.getHomeItem_title());
+				startActivity(go);
+			}
+		});
+	}
+
+	public void init() {
+		arraylistData = new ArrayList<HomeItemModel>();
+		arraylistData = onj.getHomeItemsData();
+		onj = new DBModel(HomeActivity.this);
+		homeItemModel_obj = new HomeItemModel();
+		lv_title = (ListView) findViewById(R.id.lst_itemshome);
+
+		lv_title.setAdapter(new CustomData());
+		// new GetImage().execute();
+
+	}
+
+	/*public String GET(String url) {
+		InputStream inputStream = null;
+		String result = "";
+		try {
+
+			// create HttpClient
+			HttpClient httpclient = new DefaultHttpClient();
+
+			// make GET request to the given URL
+			HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
+
+			// receive response as inputStream
+			inputStream = httpResponse.getEntity().getContent();
+
+			// convert inputstream to string
+			if (inputStream != null)
+				result = convertInputStreamToString(inputStream);
+			else
+				result = "Did not work!";
+
+		} catch (Exception e) {
+			Log.d("InputStream", e.getLocalizedMessage());
+		}
+
+		return result;
+	}
+*/
+	// convert inputstream to String
+/*	private static String convertInputStreamToString(InputStream inputStream)
+			throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(inputStream));
+		String line = "";
+		String result = "";
+		while ((line = bufferedReader.readLine()) != null)
+			result += line;
+
+		inputStream.close();
+		return result;
+
+	}*/
+
+	/*
+	 * class GetImage extends AsyncTask<Void, Void, Void> {
+	 * 
+	 * String str = "";
+	 * 
+	 * @Override protected void onPreExecute() {
+	 * 
+	 * mProgress = new ProgressDialog(HomeActivity.this);
+	 * mProgress.setTitle("Image Loader"); mProgress.setMessage("Loading...");
+	 * mProgress.setCancelable(false); mProgress.show();
+	 * 
+	 * super.onPreExecute(); }
+	 * 
+	 * @Override protected Void doInBackground(Void... params) {
+	 * 
+	 * str = GET("http://80.93.28.24/json/autoexpress.json");
+	 * 
+	 * Log.i("Response", ">>>" + str); return null; }
+	 * 
+	 * @Override protected void onPostExecute(Void result) {
+	 * 
+	 * if (mProgress.isShowing()) { mProgress.dismiss(); }
+	 * 
+	 * if (mBitmap!=null) { mImageview.setImageBitmap(mBitmap); }
+	 * 
+	 * 
+	 * JsonParser(str); arraylistData = onj.getHomeItemsData();
+	 * 
+	 * super.onPostExecute(result); }
+	 * 
+	 * }
+	 */
+
+	/*
+	 * public void JsonParser(String str) {
+	 * 
+	 * String data = "";
+	 * 
+	 * try {
+	 * 
+	 * ArrayList<HomeItemModel> listData = new ArrayList<HomeItemModel>();
+	 * 
+	 * String includeImageInLayou = null; String includeTitleInLayout = null;
+	 * String includeTextInLayout = null; String imagePosition = null; String
+	 * titlePosition = null; String textPosition = null; String title = null;
+	 * String text = null; String textHtml = null; String idImage, tabIcon,
+	 * tabText, tabPosition, tabItem, dateChanged, isDirtyTwo, tempUniqeUID,
+	 * type, useTabIcon, sortPosition, archievedTwo, listIcon;
+	 * 
+	 * String width, height, originalName, locationLocal, typeTwo, baseURL,
+	 * mimeType, base64Version, isDirty, archieved, id, name;
+	 * 
+	 * JSONObject mainObj = new JSONObject(str); appMetaDataStr =
+	 * mainObj.getString("AppMetaData"); versionNumberStr =
+	 * mainObj.getString("versionNumber"); tABVersionNUmberStr =
+	 * mainObj.getString("tABVersionNumber"); webServicesURLStr =
+	 * mainObj.getString("webServicesURL"); appNameStr =
+	 * mainObj.getString("appName");
+	 * 
+	 * homeitems = mainObj.getJSONArray("homeItems");
+	 * 
+	 * for (int i = 0; i < homeitems.length(); i++) { JSONObject c =
+	 * homeitems.getJSONObject(i); includeImageInLayou =
+	 * c.getString("includeImageInLayout"); includeTitleInLayout =
+	 * c.getString("includeTitleInLayout"); includeTextInLayout =
+	 * c.getString("includeTextInLayout"); imagePosition =
+	 * c.getString("imagePosition"); titlePosition =
+	 * c.getString("titlePosition"); textPosition = c.getString("textPosition");
+	 * text = c.getString("text"); title = c.getString("title"); textHtml =
+	 * c.getString("textHTML");
+	 * 
+	 * idImage = c.getString("id"); tabPosition = c.getString("tabPosition");
+	 * tabText = c.getString("tabText"); tabIcon = c.getString("tabIcon");
+	 * dateChanged = c.getString("dateChanged"); isDirtyTwo =
+	 * c.getString("isDirty"); tempUniqeUID = c.getString("tempUniqueUID");
+	 * typeTwo = c.getString("type"); useTabIcon = c.getString("useTabIcon");
+	 * sortPosition = c.getString("sortPosition"); archievedTwo =
+	 * c.getString("archived"); listIcon = c.getString("listIcon");
+	 * 
+	 * homeItemModel_obj.setHomeItem_id(idImage); homeItemModel_obj
+	 * .setHomeItem_includeImageInLayout(includeImageInLayou); homeItemModel_obj
+	 * .setHomeItem_includeTitleInLayout(includeTitleInLayout);
+	 * homeItemModel_obj .setHomeItem_includeTextInLayout(includeTextInLayout);
+	 * homeItemModel_obj.setHomeItem_imagePosition(imagePosition);
+	 * homeItemModel_obj.setHomeItem_titlePosition(titlePosition);
+	 * homeItemModel_obj.setHomeItem_textPosition(textPosition);
+	 * homeItemModel_obj.setHomeItem_title(title);
+	 * homeItemModel_obj.setHomeItem_text(text);
+	 * homeItemModel_obj.setHomeItem_textHTML(textHtml);
+	 * homeItemModel_obj.setHomeItem_tabPosition(tabPosition);
+	 * homeItemModel_obj.setHomeItem_tabText(tabText);
+	 * homeItemModel_obj.setHomeItem_tabIcon(tabIcon);
+	 * homeItemModel_obj.setHomeItem_dateChanged(dateChanged);
+	 * homeItemModel_obj.setHomeItem_isDirty(isDirtyTwo);
+	 * homeItemModel_obj.setHomeItem_tempUniqueUID(tempUniqeUID);
+	 * homeItemModel_obj.setHomeItem_Type(typeTwo);
+	 * homeItemModel_obj.setHomeItem_useTabIcon(useTabIcon);
+	 * homeItemModel_obj.setHomeItem_sortPosition(sortPosition);
+	 * homeItemModel_obj.setHomeItem_archived(archievedTwo);
+	 * homeItemModel_obj.setHomeItem_listIcon(listIcon);
+	 * 
+	 * JSONObject objImage = c.getJSONObject("image"); width =
+	 * objImage.getString("width"); height = objImage.getString("height");
+	 * originalName = objImage.getString("originalName"); locationLocal =
+	 * objImage.getString("locationLocal"); type = objImage.getString("type");
+	 * baseURL = objImage.getString("baseURL"); mimeType =
+	 * objImage.getString("mimeType"); base64Version =
+	 * objImage.getString("base64Version"); isDirty =
+	 * objImage.getString("isDirty"); archieved =
+	 * objImage.getString("archived"); id = objImage.getString("Id"); name =
+	 * objImage.getString("name");
+	 * 
+	 * homeItemModel_obj.setHomeItem_Image_width(width);
+	 * homeItemModel_obj.setHomeItem_Image_height(height);
+	 * homeItemModel_obj.setHomeItem_Image_originaleName(originalName);
+	 * homeItemModel_obj .setHomeItem_Image_locationLocal(locationLocal);
+	 * homeItemModel_obj.setHomeItem_Image_type(type);
+	 * homeItemModel_obj.setHomeItem_Image_baseURL(baseURL);
+	 * homeItemModel_obj.setHomeItem_Image_MIMEType(mimeType); homeItemModel_obj
+	 * .setHomeItem_Image_base64Version(base64Version);
+	 * homeItemModel_obj.setHomeItem_Image_isDirty(isDirty);
+	 * homeItemModel_obj.setHomeItem_Image_Archived(archieved);
+	 * homeItemModel_obj.setHomeItem_Image_id(id);
+	 * homeItemModel_obj.setHomeItem_Image_Name(name);
+	 * 
+	 * onj.insertHomeItemsRecord(homeItemModel_obj);
+	 * 
+	 * onj.insertHomeItems_Image_Record(homeItemModel_obj); }
+	 * 
+	 * data="Appname="+appMetaDataStr;
+	 * 
+	 * } catch (Exception e) { // TODO: handle exception }
+	 * 
+	 * }
+	 */
+
+	public class CustomData extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return arraylistData.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return arraylistData.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+			convertView = inflater.inflate(R.layout.raw_layout_homeitems, null);
+
+			TextView title = (TextView) convertView
+					.findViewById(R.id.tv_HomeItemName);
+
+			title.setText(arraylistData.get(position).getHomeItem_title());
+
+			return convertView;
+		}
+
+	}
+}

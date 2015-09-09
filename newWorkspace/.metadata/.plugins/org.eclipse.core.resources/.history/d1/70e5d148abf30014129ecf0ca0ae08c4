@@ -1,0 +1,50 @@
+package com.example.loginsession;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class Login extends Activity implements OnClickListener {
+
+	EditText username, password;
+	Button login, clear;
+	SharedPreferences pref;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login);
+		init();
+
+	}
+
+	public void init() {
+		username = (EditText) findViewById(R.id.Username_Edittext);
+		password = (EditText) findViewById(R.id.Password_Edittext);
+		login = (Button) findViewById(R.id.Login_btn);
+		clear = (Button) findViewById(R.id.Clear_btn);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.Clear_btn:
+
+			break;
+
+		case R.id.Login_btn:
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

@@ -1,0 +1,69 @@
+package com.example.jsonparser;
+
+import org.json.JSONObject;
+
+import android.webkit.JsPromptResult;
+
+public class HandlerXML {
+
+	private String country = "county";
+	private String temperature = "temperature";
+	private String humidity = "humidity";
+	private String pressure = "pressure";
+	private String urlString = null;
+
+	public volatile boolean parsingComplete = true;
+
+	public HandlerXML(String url) {
+		this.urlString = url;
+	}
+
+	public String getTempreture() {
+		return temperature;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public String getHumidity() {
+		return humidity;
+	}
+
+	public String getPressure() {
+		return pressure;
+	}
+
+	public void readAndParseJSON(String in) {
+		try {
+
+			JSONObject reader = new JSONObject(in);
+
+			JSONObject sys = reader.getJSONObject("sys");
+			country = sys.getString("sys");
+
+			JSONObject main = reader.getJSONObject("main");
+			temperature = main.getString("temp");
+			pressure = main.getString("pressure");
+			humidity = main.getString("humidity");
+			parsingComplete = false;
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+	public void fetchJSON() {
+		Thread thread = new Thread(new Runnable() {
+
+			@Override
+			public void run() 
+			{
+					
+			}
+		});
+
+	}
+
+}

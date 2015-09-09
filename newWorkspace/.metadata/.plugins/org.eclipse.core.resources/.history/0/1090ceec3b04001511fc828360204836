@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Relative_Layout_Demo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Struins for home screens -->
+
+    <string name="btn_firstScreen">First Screen</string>
+    <string name="btn_firstScreen">Second Screen</string>
+    <string name="btn_firstScreen">Third Screen</string>
+    <string name="btn_firstScreen">Fourth Screen</string>
+    <string name="btn_firstScreen">Fifth Screen</string>
+
+    <!--  -->
+
+</resources>

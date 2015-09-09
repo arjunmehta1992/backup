@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.framelayoutdemo.ActivityFifth" >
+
+    <FrameLayout
+        android:id="@+id/FifthScreen_frameOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#57BA42" >
+
+        <TextView
+            android:id="@+id/txtView_FifthScreen_first"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/Hello_Text"
+            android:textColor="@color/color_red" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/FifthScreen_frameTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FifthScreen_frameOne"
+        android:background="@color/color_red" >
+
+        <TextView
+            android:id="@+id/txtView_FifthScreen_second"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/Hello_Text"
+            android:textColor="#57BA42" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/FifthScreen_frameThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FifthScreen_frameTwo"
+        android:background="#0000F9" >
+
+        <TextView
+            android:id="@+id/txtView_FifthScreen_three"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/Hello_Text"
+            android:textColor="@color/color_red" />
+    </FrameLayout>
+    
+    <FrameLayout
+        android:id="@+id/FifthScreen_frameFour"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/FifthScreen_frameThree"
+        android:background="#0000F9" >
+
+        <TextView
+            android:id="@+id/txtView_FifthScreen_Four"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/Hello_Text"
+            android:textColor="@color/color_red" />
+    </FrameLayout>
+    
+    
+    
+    
+    
+
+</RelativeLayout>

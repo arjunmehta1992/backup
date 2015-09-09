@@ -1,0 +1,62 @@
+package com.example.relative_layout_demo;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class Activity_Home extends Activity implements OnClickListener {
+
+	Button btn_FirstScreen, btn_SecondScreen, btn_ThirdScreen,
+			btn_FourthScreen, btn_FifthScreen;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+	}
+
+	public void init() {
+
+		btn_FifthScreen = (Button) findViewById(R.id.btn_Home_FifthScreen);
+		btn_FourthScreen = (Button) findViewById(R.id.btn_Home_FourthScreen);
+		btn_ThirdScreen = (Button) findViewById(R.id.btn_Home_ThirdScreen);
+		btn_SecondScreen = (Button) findViewById(R.id.btn_Home_SecondScreen);
+		btn_FirstScreen = (Button) findViewById(R.id.btn_Home_FirstScreen);
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.btn_Home_FirstScreen:
+			
+			
+			
+			break;
+
+		case R.id.btn_Home_SecondScreen:
+
+			break;
+
+		case R.id.btn_Home_ThirdScreen:
+
+			break;
+
+		case R.id.btn_Home_FourthScreen:
+
+			break;
+
+		case R.id.btn_Home_FifthScreen:
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

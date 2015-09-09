@@ -1,0 +1,90 @@
+package com.example.musicshare;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class LoadFiles extends Activity implements OnClickListener {
+
+	ListView fileList;
+	ArrayList<String> list;
+	File file;
+	
+	List<String> myList;
+
+	ArrayList<String> msqlist;
+	File listFile[];
+	ArrayList<String> absolutepath;
+
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_load_files);
+		//getFiles();
+		walkdir(Environment.getExternalStorageDirectory());
+	}
+
+	void init() {
+		fileList = (ListView) findViewById(R.id.ListOfFiles);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+
+		default:
+			break;
+		}
+	}
+
+	public void getFiles()
+	{
+		  list = new ArrayList<String>();   
+
+		  myList = new ArrayList<String>();   
+
+		    String root_sd = Environment.getExternalStorageDirectory().toString();
+		    file = new File( root_sd + "/sdcard" ) ;       
+		    File list[] = file.listFiles();
+
+		    for( int i=0; i< list.length; i++)
+		    {
+		            myList.add( list[i].getName() );
+		    }
+		    
+		    ArrayAdapter<String> adpt=new ArrayAdapter<String>(LoadFiles.this,android.R.layout.simple_list_item_1,myList);
+		    fileList.setAdapter(adpt);
+		    
+	}
+	
+	public void walkdir(File dir) {
+	    String msqPattern = ".mp3";// Can include more strings for more extensions and check it.
+
+	    File[] listFile = dir.listFiles();
+
+	    if (listFile != null) {
+	        for (int i = 0; i < listFile.length; i++) {
+
+	            if (listFile[i].isDirectory()) {
+	                walkdir(listFile[i]);
+	            } else {
+	              if (listFile[i].getName().endsWith(msqPattern)){
+	                msqlist.add(listFile[i].getName());
+	                absolutepath.add(listFile[i].getAbsolutePath());
+
+	              }
+	            }
+	        }
+	    }    }
+}

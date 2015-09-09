@@ -1,0 +1,236 @@
+package com.zaptech.taskapp;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.zaptech.taskapp.model_class.MainModel;
+import com.zaptech.taskapp.model_class.ModelAlarm;
+import com.zaptech.taskapp.model_class.ModelBattery;
+import com.zaptech.taskapp.model_class.ModelLocation;
+
+import android.support.v7.app.ActionBarActivity;
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.Window;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class HomeActivity extends ActionBarActivity {
+
+	TextView txt_batteryPercentage;
+	TextView txt_distance, txt_Date;
+	LocationManager locationManager;
+	
+	ProgressDialog mProgressDialolg;
+
+	MainModel obj_MainModel;
+	ModelLocation obj_LocationModel;
+	ModelBattery obj_BatteryModel;
+	ModelAlarm obj_Alarm;
+
+	
+	private GoogleMap googleMap;
+	String str;
+
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		init();
+		new LoadData().execute();
+
+		googleMap = ((MapFragment) getFragmentManager().findFragmentById(
+				R.id.map)).getMap();
+		googleMap.setMyLocationEnabled(true);
+		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		Criteria criteria = new Criteria();
+		String bestProvider = locationManager.getBestProvider(criteria, true);
+		Location location = locationManager.getLastKnownLocation(bestProvider);
+		
+		
+		
+		
+	}
+
+	public void init() {
+		txt_batteryPercentage = (TextView) findViewById(R.id.txt_batteryPercentage);
+		txt_distance = (TextView) findViewById(R.id.txt_distance);
+		txt_Date = (TextView) findViewById(R.id.txt_date);
+		obj_MainModel = new MainModel();
+		obj_BatteryModel = new ModelBattery();
+		obj_LocationModel = new ModelLocation();
+		obj_Alarm = new ModelAlarm();
+
+	}
+
+	public String GET(String url) {
+		InputStream inputStream = null;
+		String result = "";
+		try {
+
+			// create HttpClient
+			HttpClient httpclient = new DefaultHttpClient();
+
+			// make GET request to the given URL
+			HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
+
+			// receive response as inputStream
+			inputStream = httpResponse.getEntity().getContent();
+
+			// convert inputstream to string
+			if (inputStream != null)
+				result = convertInputStreamToString(inputStream);
+			else
+				result = "Did not work!";
+
+		} catch (Exception e) {
+			Log.d("InputStream", e.getLocalizedMessage());
+		}
+
+		return result;
+	}
+
+	private static String convertInputStreamToString(InputStream inputStream)
+			throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(inputStream));
+		String line = "";
+		String result = "";
+		while ((line = bufferedReader.readLine()) != null)
+			result += line;
+
+		inputStream.close();
+		return result;
+
+	}
+
+	public void JsonParser(String str) {
+
+		String time = "";
+		String latitute = "";
+		String longitude = "";
+		String charge = "";
+		String batteryDistance = "";
+		String warning;
+
+		String active;
+
+		try {
+
+			JSONObject mainObj = new JSONObject(str);
+			time = mainObj.getString("datetime");
+			System.err.println("Datetime=" + time);
+
+			JSONObject locationObj = new JSONObject(
+					mainObj.getString("location"));
+			latitute = locationObj.getString("latitude");
+			longitude = locationObj.getString("longitude");
+			System.err.println("lat" + latitute);
+			System.err.println("long" + longitude);
+
+			JSONObject batteryObj = new JSONObject(mainObj.getString("battery"));
+			charge = batteryObj.getString("charge");
+			batteryDistance = batteryObj.getString("distance");
+			JSONObject alarmObj = new JSONObject(mainObj.getString("alarm"));
+			warning = alarmObj.getString("warning");
+			active = alarmObj.getString("active");
+
+			obj_MainModel.setDatetime(time);
+			obj_LocationModel.setLatitude(latitute);
+			obj_LocationModel.setLongitude(longitude);
+			obj_BatteryModel.setCharge(charge);
+			obj_BatteryModel.setDistance(batteryDistance);
+			obj_Alarm.setActive(active);
+			obj_Alarm.setWarning(warning);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+	public class LoadData extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected void onPreExecute() {
+
+			mProgressDialolg = new ProgressDialog(HomeActivity.this);
+			mProgressDialolg.setTitle("Loadling");
+			mProgressDialolg.setMessage("Please wait...");
+			mProgressDialolg.setCancelable(false);
+			mProgressDialolg.show();
+
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			str = GET("https://dl.dropboxusercontent.com/u/7409975/findmybike.json");
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			if (mProgressDialolg.isShowing()) {
+				mProgressDialolg.dismiss();
+
+			}
+
+			JsonParser(str);
+			String str_battry = obj_BatteryModel.getCharge();
+			txt_batteryPercentage.setText(str_battry);
+			String str_distance = obj_BatteryModel.getDistance();
+			float distance_float = Float.parseFloat(str_distance);
+			float convertedDistance = distance_float / 1000;
+
+			String finalDistance = String.valueOf(convertedDistance);
+			txt_distance.setText(finalDistance + "Km");
+
+			String str_date = obj_MainModel.getDatetime();
+
+			Toast.makeText(HomeActivity.this, "date in float" + str_date,
+					Toast.LENGTH_SHORT).show();
+
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			Date convertedDate = new Date();
+
+			try {
+				convertedDate = dateFormat.parse(str_date);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			txt_Date.setText(String.valueOf(convertedDate));
+
+			super.onPostExecute(result);
+		}
+	}
+
+}

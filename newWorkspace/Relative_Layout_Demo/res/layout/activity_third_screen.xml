@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.relative_layout_demo.Activity_ThirdScreen" >
+
+    <RelativeLayout
+        android:id="@+id/rel_ThirdScreen_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header_color" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+        </TextView>
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/imgBtn_ThirdScreen_First"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_ThirdScreen_header"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_ThirdScreen_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/rel_ThirdScreen_header"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_ThirdScreen_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rel_ThirdScreen_footer"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_ThirdScreen_four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rel_ThirdScreen_footer"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_ThirdScreen_Five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_launcher" />
+
+    <RelativeLayout
+        android:id="@+id/rel_ThirdScreen_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/header_color" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_ThirdScreen_NextScreen" 
+            android:textAllCaps="false"
+            android:layout_centerInParent="true"
+            android:id="@+id/btn_ThirdScreen_next"
+            
+            
+            >
+        </Button>
+    </RelativeLayout>
+
+</RelativeLayout>

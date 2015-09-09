@@ -1,0 +1,89 @@
+package com.example.exapandablelistviewdemo;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import android.app.Activity;
+import android.database.DataSetObserver;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
+
+public class MainActivity extends Activity {
+
+	ExpandableListAdapter listAdapter;
+	ExpandableListView expListView;
+	List<String> listDataHeader;
+	HashMap<String, List<String>> listDataChild;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		init();
+
+	}
+
+	public void init() {
+
+		expListView = (ExpandableListView) findViewById(R.id.lvExp);
+
+		listData();
+		listAdapter = new ExpandableAdapter(this, listDataHeader, listDataChild);
+		expListView.setAdapter(listAdapter);
+		
+		
+		
+		
+	}
+
+	
+	
+	
+	public void listData() {
+
+		listDataHeader = new ArrayList<String>();
+		listDataChild = new HashMap<String, List<String>>();
+
+		listDataHeader.add("Men");
+		listDataHeader.add("Women");
+		listDataHeader.add("Children");
+
+		// Adding child data
+		List<String> man = new ArrayList<String>();
+		man.add("Clothing");
+		man.add("Footware");
+		man.add("Watch");
+		man.add("Bags");
+		man.add("Wallets");
+		man.add("Belts");
+		man.add("Sunglasses");
+
+		List<String> woman = new ArrayList<String>();
+		woman.add("Clothing");
+		woman.add("Footware");
+		woman.add("Watch");
+		woman.add("Bags");
+		woman.add("Wallets");
+		woman.add("Belts");
+		woman.add("Sunglasses");
+
+		List<String> child = new ArrayList<String>();
+		child.add("Clothing");
+		child.add("Footware");
+		child.add("Watch");
+		child.add("Bags");
+		child.add("Wallets");
+		child.add("Belts");
+		child.add("Sunglasses");
+
+		listDataChild.put(listDataHeader.get(0), man); // Header, Child data
+		listDataChild.put(listDataHeader.get(1), woman);
+		listDataChild.put(listDataHeader.get(2), child);
+
+	}
+}

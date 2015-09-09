@@ -1,0 +1,81 @@
+package com.example.imageretrivegallary;
+
+import java.util.ArrayList;
+
+import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class ListImage extends ActionBarActivity {
+
+	DbHelper helper;
+	ImageModel model;
+	ListView listImage;
+	ArrayList<ImageModel> listOfImage;
+	Context context;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_list_image);
+		init();
+		context=ListImage.this;
+		helper=new DbHelper(ListImage.this);
+		listOfImage=new ArrayList<ImageModel>();
+		listOfImage=helper.getAllIMage();
+		
+	}
+
+	public void init() {
+		listImage = (ListView) findViewById(R.id.listImage);
+
+	}
+	
+	class CustomAdapter extends BaseAdapter
+	{
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return listOfImage.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return listOfImage.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			
+			LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			convertView=inflater.inflate(R.layout.list, null);
+			
+			ImageView image=(ImageView)convertView.findViewById(R.id.img);
+			TextView imgName=(TextView)convertView.findViewById(R.id.imageName);
+			
+			/*imgName.setText();*/
+			
+			
+			
+			
+			return convertView;
+		}
+		
+	}
+}

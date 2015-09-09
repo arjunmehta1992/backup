@@ -1,0 +1,51 @@
+package com.example.jsonpost;
+
+import android.app.Activity;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class HomeActivity extends Activity {
+
+	TextView tvIsConnected;
+	EditText etName, etCountry, etTwitter;
+	Button btnPost;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		init();
+
+	}
+
+	public void init() {
+		tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
+		etName = (EditText) findViewById(R.id.etName);
+		etCountry = (EditText) findViewById(R.id.etCountry);
+		etTwitter = (EditText) findViewById(R.id.etTwitter);
+		btnPost = (Button) findViewById(R.id.btnPost);
+
+		if (isConnected()) {
+			tvIsConnected.setBackgroundColor(0xFF00CC00);
+			tvIsConnected.setText("You are conncted");
+		} else {
+			tvIsConnected.setText("You are NOT conncted");
+		}
+	}
+
+	public boolean isConnected() {
+
+		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isConnected())
+			return true;
+		else
+			return false;
+
+	}
+
+}

@@ -1,0 +1,46 @@
+package com.zaptech.json;
+
+import java.util.ArrayList;
+
+import com.zaptech.json.DBmodel.DBModel;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class NewsItemDescription extends ActionBarActivity {
+
+	
+	
+	TextView titleName, subDiscription, descripiton;
+	DBModel obj;
+	ArrayList<HomeItemModel> list;
+	ArrayList<HomeItemModel> listImage;
+	ImageView newsImage;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_news_item_description);
+		
+		
+		
+	}
+	
+	void init() {
+		titleName = (TextView) findViewById(R.id.titleName_newsitem);
+		subDiscription = (TextView) findViewById(R.id.subDiscription_newsitem);
+		descripiton = (TextView) findViewById(R.id.description_newsitem);
+		String DB_NAME=getResources().getString(R.string.DB_NAME);
+		String DB_PATH=getResources().getString(R.string.DB_PATH);
+		obj = new DBModel(NewsItemDescription.this,DB_NAME,DB_PATH);
+		list = new ArrayList<HomeItemModel>();
+		listImage = new ArrayList<HomeItemModel>();
+		newsImage = (ImageView) findViewById(R.id.newsImage);
+	}
+
+	
+	
+}

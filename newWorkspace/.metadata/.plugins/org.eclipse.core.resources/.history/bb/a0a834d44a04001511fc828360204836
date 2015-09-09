@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Relative_Layout_Demo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Struins for home screens -->
+
+    <string name="btn_firstScreen">First Screen</string>
+    <string name="btn_SecondScreen">Second Screen</string>
+    <string name="btn_ThirdScreen">Third Screen</string>
+    <string name="btn_FourScreen">Fourth Screen</string>
+    <string name="btn_FifthScreen">Fifth Screen</string>
+
+    <color name="header_color">#52A8D1</color>
+    <!--  -->
+
+    <string name="title_activity_activity__first_screen">Activity_FirstScreen</string>
+    <string name="title_activity_activity__second_screen">Activity_SecondScreen</string>
+    <string name="title_activity_activity__third_screen">Activity_ThirdScreen</string>
+    <string name="title_activity_activity__fourth_screen">Activity_FourthScreen</string>
+    <string name="title_activity_activity__fifth_screen">Activity_FifthScreen</string>
+
+    <!-- Strings for  First screen -->
+
+    <string name="txt_FirstScreen_Title">Welcome to the First Screen</string>
+    <string name="txt_FirstScreen_Spinner_Text">Select the city:</string>
+    <string name="txt_FirstScreen_Gender_Text">Select the gender:</string>
+	<string name="txt_FirstScreen_RadioGrp_Hobby_Cricket">Cricket</string>
+	<string name="txt_FirstScreen_Gender_Hobby_Reading">Reading</string>
+	<string name="txt_FirstScreen_Gender_Hobby_PlayingGames">Playing Games</string>
+	<string name="btn_FirstScreen_Submit">Submit Data</string>
+	<string name="btn_FirstScreen_NextScreen">Next Screen</string>
+	
+    <!--  -->
+
+</resources>

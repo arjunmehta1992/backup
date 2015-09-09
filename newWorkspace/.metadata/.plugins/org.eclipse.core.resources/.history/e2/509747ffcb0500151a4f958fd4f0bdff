@@ -1,0 +1,143 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbg"
+    tools:context="com.zaptech.taskone.ActivtyFirst" >
+
+    <RelativeLayout
+        android:id="@+id/rel_Player_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topbar" >
+
+        <TextView
+            android:id="@+id/txt_FirstTask_PlayerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/text_playername"
+            android:textColor="@color/color_white" />
+
+        <ImageView
+            android:id="@+id/img_PlayerLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/tocalogo" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/rel_trackDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_Player_header"
+        android:background="@color/color_track_bgcolor" >
+
+        <ImageView
+            android:id="@+id/img_trackImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logopage1" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_trackDetailChild"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_Player_header"
+        android:layout_toRightOf="@+id/rel_trackDetail" >
+
+        <TextView
+            android:id="@+id/txt_trackName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_trackName"
+            android:textColor="@color/color_track_bgcolor"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_rating_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_trackName"
+            android:src="@drawable/rating_star" />
+
+        <ImageView
+            android:id="@+id/img_rating_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_trackName"
+            android:layout_toRightOf="@+id/img_rating_one"
+            android:src="@drawable/rating_star" />
+
+        <ImageView
+            android:id="@+id/img_rating_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_trackName"
+            android:layout_toRightOf="@+id/img_rating_two"
+            android:src="@drawable/rating_star" />
+
+        <ImageView
+            android:id="@+id/img_rating_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_trackName"
+            android:layout_toRightOf="@+id/img_rating_three"
+            android:src="@drawable/rating_star" />
+
+        <ImageView
+            android:id="@+id/img_rating_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_trackName"
+            android:layout_toRightOf="@+id/img_rating_four"
+            android:src="@drawable/rating_star" />
+
+        <TextView
+            android:id="@+id/txt_songName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_rating_five"
+            android:layout_marginTop="15dp"
+            android:text="@string/text_songName"
+            android:textColor="@color/color_white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_geners"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_songName"
+            android:layout_marginTop="5dp"
+            android:text="@string/text_geners"
+            android:textColor="@color/color_white" />
+
+        <TextView
+            android:id="@+id/txt_bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_geners"
+            android:layout_marginTop="5dp"
+            android:text="@string/text_bpm"
+            android:textColor="@color/color_bpm"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_playerButtonsBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_trackDetailChild"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp" >
+        
+        
+        
+        
+    </RelativeLayout>
+
+</RelativeLayout>

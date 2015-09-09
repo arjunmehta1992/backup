@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.shoppingcart.Admin_Home" >
+
+    <!-- Header Part -->
+
+    <RelativeLayout
+        android:id="@+id/Admin_Home_Header"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:background="@color/headerfootercolor" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/registerheadertext"
+            android:textColor="@color/headerfooterfontcolor"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Footer Part -->
+
+    <RelativeLayout
+        android:id="@+id/Admin_Home_Footer"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/headerfootercolor" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/adminHomeFootertext"
+            android:textColor="@color/headerfooterfontcolor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Body Part -->
+
+    <RelativeLayout
+        android:id="@+id/homeBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/Admin_Home_Footer"
+        android:layout_below="@+id/Admin_Home_Header"
+        android:background="@color/bodycolor"
+        >
+
+        <TabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+             >
+
+            <LinearLayout
+                android:id="@+id/LinearLayout01"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    >
+                </TabWidget>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">"ShoppingKart "</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- APPLICATION COLOR CODES -->
+    <color name="headerfootercolor">#6F4E37</color>
+    <color name="headerfooterfontcolor">#FFFFCC</color>
+    <color name="bodycolor">#FFFFCC</color>
+    <color name="bodyfontcolor">#6F4E37</color>
+
+    <!-- APPLICATION STRING VALUES -->
+
+
+    <!-- Home Avtivity -->
+    <string name="homeheadertext">Wel-Come to Shopping Cart</string>
+    <string name="homeFootertext">Home Screen</string>
+    <string name="homeadmintext">Administrator</string>
+    <string name="homecustomertext">Customer</string>
+
+    <!-- Login Avtivity -->
+    <string name="title_activity_login">Login</string>
+    <string name="loginheadertext">Wel-Come to Shopping Cart</string>
+    <string name="loginFootertext">Login Screen </string>
+    <string name="loginusername">User Name</string>
+    <string name="loginpassword">Password</string>
+    <string name="loginregistration">Registration</string>
+    <string name="btnlogin">Login</string>
+    <string name="btncancel">Cancel</string>
+
+    <!-- Register Activity -->
+    <string name="title_activity_register">Register</string>
+    <string name="registerheadertext">Wel-Come to Shopping Cart</string>
+    <string name="registerFootertext">Registration Screen </string>
+    <string name="customername">Name </string>
+    <string name="customerbirthdate">BirthDate </string>
+    <string name="customerusername">User Name</string>
+    <string name="customeremail">Email Id </string>
+    <string name="customerpassword">Password </string>
+    <string name="customerconfirmpassword">Confirm Password </string>
+    <string name="customercontact">ContactNo </string>
+    <string name="btnsave">Save </string>
+    <string name="btnclear">Clear </string>
+    <string name="title_activity_customer__home">Customer_Home</string>
+
+    <!-- Admin Home Activity -->
+    <string name="title_activity_admin__home">Admin_Home</string>
+    <string name="adminHomeFootertext">Administrator Task</string>
+    <string name="title_activity_order_list">OrderList</string>
+
+    <!-- Add Item -->
+    <string name="title_activity_manage_item">ManageItem</string>
+    <string name="itemname">Item Name </string>
+    <string name="itempurchaseprice">Purchase Price</string>
+    <string name="itemsellprice">Sell Price</string>
+    <string name="itemcategory">Category</string>
+    <string name="itemimage">Item Image</string>
+    <string name="itemquantity">Quantity</string>
+    <string name="additemcategory">Add Category</string>
+
+</resources>

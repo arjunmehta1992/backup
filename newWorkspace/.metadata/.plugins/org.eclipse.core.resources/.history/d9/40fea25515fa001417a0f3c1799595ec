@@ -1,0 +1,43 @@
+package com.example.imageretrivegallary;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DbHelper extends SQLiteOpenHelper {
+
+	public static final String DATABASE_NAME = "image_collection";
+	public static final String TABLENAME = "image";
+	public static final String IMAGE_COLUMN_NAME = "image_name";
+	public static final String IMAGE_COLUMN_Source = "image_source";
+
+	public DbHelper(Context context) {
+		super(context, DATABASE_NAME, null, 1);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		db.execSQL("create table " + TABLENAME + " ( id integer primary key, "
+				+ IMAGE_COLUMN_NAME + " text, " + IMAGE_COLUMN_Source + " blob");
+
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Auto-generated method stub
+
+	}
+
+	void insertImage(String name, byte[] img) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(IMAGE_COLUMN_NAME, name);
+		values.put(IMAGE_COLUMN_Source, img);
+		db.insert(TABLENAME, null, values);
+
+	}
+
+}

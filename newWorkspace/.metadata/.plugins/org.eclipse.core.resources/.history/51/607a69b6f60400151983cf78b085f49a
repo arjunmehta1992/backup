@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.framelayoutdemo.ActivityFifth" >
+
+    <FrameLayout
+        android:id="@+id/FifthScreen_frameOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#57BA42" >
+
+        <TextView
+            android:id="@+id/txtView_FifthScreen_first"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/Hello_Text"
+            android:textColor="@color/color_red" />
+    </FrameLayout>
+
+    
+    
+    <FrameLayout
+        android:id="@+id/FifthScreen_frameTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_red" 
+        android:layout_below="@+id/FifthScreen_frameOne">
+
+        <TextView
+            android:id="@+id/txtView_FifthScreen_second"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/Hello_Text"
+            android:textColor="#57BA42" />
+    </FrameLayout>
+    
+    
+    
+    <FrameLayout
+        android:id="@+id/FifthScreen_frameThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0000F9" 
+        android:layout_below="@+id/FifthScreen_frameOne">
+
+        <TextView
+            android:id="@+id/txtView_FifthScreen_three"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/Hello_Text"
+            android:textColor="#5" />
+    </FrameLayout>
+    
+    
+</RelativeLayout>

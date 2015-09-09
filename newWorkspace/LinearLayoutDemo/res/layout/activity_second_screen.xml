@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:context=".LinearLayout" >
+                
+                    <Button
+                        android:text="BUTTON"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"  
+                        android:id="@+id/btn_next_screen"
+                    />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Text 1"
+                        android:paddingTop="10px"
+                        android:paddingLeft="10px"/>
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Text 2"
+                        android:paddingTop="10px"
+                        android:paddingLeft="10px"/>
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Text 3"
+                        android:paddingTop="10px"
+                        android:paddingLeft="10px"/>
+        
+    </LinearLayout>

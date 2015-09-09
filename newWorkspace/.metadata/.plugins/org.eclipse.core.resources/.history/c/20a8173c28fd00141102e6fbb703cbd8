@@ -1,0 +1,173 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.shoppingcart.Login" >
+
+    <!-- Header Part -->
+
+    <RelativeLayout
+        android:id="@+id/loginHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:background="@color/headerfootercolor" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/loginheadertext"
+            android:textColor="@color/headerfooterfontcolor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Footer Part -->
+
+    <RelativeLayout
+        android:id="@+id/loginFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/headerfootercolor" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/loginFootertext"
+            android:textColor="@color/headerfooterfontcolor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Body Part -->
+
+    <RelativeLayout
+        android:id="@+id/homeBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/loginFooter"
+        android:layout_below="@+id/loginHeader"
+        android:background="@color/bodycolor"
+        android:padding="20sp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round"
+            android:orientation="vertical"
+            android:padding="10sp" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:ems="5"
+                    android:text="@string/loginusername"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/userName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5sp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:hint="User Name"
+                    android:maxLength="255"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:ems="5"
+                    android:text="@string/loginpassword"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/userPassword"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5sp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:maxLength="10"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/loginregister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="80sp"
+                    android:clickable="true"
+                    android:text="@string/loginregistration"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="120sp"
+                    android:layout_height="30sp"
+                    android:background="@color/headerfooterfontcolor"
+                    android:text="@string/btnlogin"
+                    android:textColor="@color/headerfootercolor" />
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="120sp"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="5sp"
+                    android:background="@color/headerfooterfontcolor"
+                    android:text="@string/btncancel"
+                    android:textColor="@color/headerfootercolor" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+   
+
+</RelativeLayout>

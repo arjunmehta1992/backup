@@ -1,0 +1,55 @@
+package com.example.loginsession;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DBHelper extends SQLiteOpenHelper {
+
+	public static final String DATABASE_NAME = "Login";
+	public static final String TABLENAME = "login";
+	public static final String LOGIN_ID = "id";
+	public static final String LOGIN_USERNAME = "username";
+	public static final String LOGIN_PASSWORD = "password";
+
+	LoginModel modeldb_login;
+
+	public DBHelper(Context context) {
+
+		super(context, DATABASE_NAME, null, 1);
+
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		db.execSQL("create table if not exists " + TABLENAME + " ( " + LOGIN_ID
+				+ "integer ," + LOGIN_USERNAME + " text primary key, "
+				+ LOGIN_PASSWORD + " text)");
+
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void open() {
+		SQLiteDatabase db = this.getWritableDatabase();
+
+	}
+
+	public void registerUser(LoginModel db_model) {
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+
+		values.put(LOGIN_USERNAME, db_model.getUsername());
+		values.put(LOGIN_PASSWORD, db_model.getPassword());
+		db.insert(TABLENAME, null, values);
+
+	}
+
+}

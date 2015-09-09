@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.HomeActivity" >
+
+    <RelativeLayout
+        android:id="@+id/homeHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#48CCCD" >
+
+        <TextView
+            android:id="@+id/homeHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/homeFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#48CCCD" >
+
+        <TextView
+            android:id="@+id/homeFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/homeFooter"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/homeBody"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/homeFooter"
+        android:layout_below="@+id/homeHeader"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:paddingBottom="10sp" >
+
+        <Button
+            android:id="@+id/btnHomeAdd"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:background="#4EE2EC"
+            android:text="@string/btnHomeAdd"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnHomeUpdate"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnHomeAdd"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@+id/btnHomeAdd"
+            android:background="#4EE2EC"
+            android:text="@string/btnHomeUpdate"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnHomeDisplay"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnHomeUpdate"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_toLeftOf="@+id/btnHomeUpdate"
+            android:background="#4EE2EC"
+            android:text="@string/btnHomeDisplay"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnHomeSearch"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnHomeDisplay"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@+id/btnHomeDisplay"
+            android:background="#4EE2EC"
+            android:text="@string/btnHomeSearch"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnHomeDelete"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnHomeSearch"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_toLeftOf="@+id/btnHomeSearch"
+            android:background="#4EE2EC"
+            android:text="@string/btnHomeDelete"
+            android:textColor="#000000" />
+    </RelativeLayout>
+
+</RelativeLayout>

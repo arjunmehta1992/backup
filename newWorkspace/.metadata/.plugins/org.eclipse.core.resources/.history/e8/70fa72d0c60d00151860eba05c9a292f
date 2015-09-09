@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.showactivityonce.Index" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="second screeen" />
+
+    <Button
+        android:id="@+id/btn_startService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Service"
+        android:textAllCaps="false" />
+
+
+<Button
+        android:id="@+id/btn_stopService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Service"
+        android:layout_toRightOf="@+id/btn_startService"
+        android:textAllCaps="false" />
+    
+
+
+</RelativeLayout>

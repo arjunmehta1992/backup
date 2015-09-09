@@ -1,0 +1,34 @@
+package com.zaptech.viewflipperdemo;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MotionEvent;
+import android.widget.ViewFlipper;
+
+public class HomeActivity extends ActionBarActivity {
+
+	
+	 private ViewFlipper viewFlipper;
+	 
+	 private float lastX;
+	 
+	 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		viewFlipper = (ViewFlipper) findViewById(R.id.viewflipper);
+	}
+
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+	
+		
+		
+		
+		
+		return super.onTouchEvent(event);
+	}
+	
+}

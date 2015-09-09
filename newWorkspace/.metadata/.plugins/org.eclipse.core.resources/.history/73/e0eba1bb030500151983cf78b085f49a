@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.imageviewdemo.HomeActivity" >
+
+    <ImageView
+        android:id="@+id/Home_img_First"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_london" />
+
+    <ImageView
+        android:id="@+id/Home_img_Second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Home_img_First"
+        android:layout_toRightOf="@+id/Home_img_First"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_london" />
+
+    <ImageView
+        android:id="@+id/Home_img_Third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Home_img_Second"
+        android:layout_toLeftOf="@+id/Home_img_Second"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_london" />
+
+    <ImageView
+        android:id="@+id/Home_img_Fourth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Home_img_Third"
+        android:layout_toLeftOf="@+id/Home_img_Third"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_london" />
+
+    <ImageView
+        android:id="@+id/Home_IMage"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitEnd"
+        android:src="@drawable/london" />
+
+</RelativeLayout>

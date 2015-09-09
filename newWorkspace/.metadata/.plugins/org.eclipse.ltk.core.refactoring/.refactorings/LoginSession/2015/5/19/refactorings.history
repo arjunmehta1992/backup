@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;LoginSession/res/drawable/Buttonxml.xml&apos; to &apos;Button.xml&apos;" description="Rename resource &apos;Buttonxml.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable/Buttonxml.xml" name="Button.xml" stamp="1431077275733" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;LoginSession/res/drawable/Button.xml&apos; to &apos;button.xml&apos;" description="Rename resource &apos;Button.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable/Button.xml" name="button.xml" stamp="1431077283313" updateReferences="true"/>
+</session>

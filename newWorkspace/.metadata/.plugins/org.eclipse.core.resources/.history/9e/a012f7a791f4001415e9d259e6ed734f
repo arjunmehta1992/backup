@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MusicShare</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Home activity strings -->
+
+    <string name="load_btn">Load Files</string>
+    <string name="title_activity_load_files">LoadFiles</string>
+
+</resources>

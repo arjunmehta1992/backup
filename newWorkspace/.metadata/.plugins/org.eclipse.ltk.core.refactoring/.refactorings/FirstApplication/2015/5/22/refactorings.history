@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;drawable&apos;&#x0A;- Original project: &apos;FirstApplication&apos;&#x0A;- Destination element: &apos;drawable&apos;&#x0A;- Original elements:&#x0A;     five.jpeg&#x0A;     six.jpeg&#x0A;     two.jpeg" description="Copy files" element1="res/drawable-mdpi/five.jpeg" element2="res/drawable-mdpi/six.jpeg" element3="res/drawable-mdpi/two.jpeg" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1432723605487" target="/Relative_Layout_Demo/res/drawable" units="0" version="1.0"/>
+</session>

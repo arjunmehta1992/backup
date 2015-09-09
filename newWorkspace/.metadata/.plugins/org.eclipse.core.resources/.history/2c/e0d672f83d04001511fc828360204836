@@ -1,0 +1,54 @@
+package com.example.relative_layout_demo;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class Activity_Home extends Activity implements OnClickListener {
+
+	Button btn_FirstScreen, btn_SecondScreen, btn_ThirdScreen,
+			btn_FourthScreen, btn_FifthScreen;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+	}
+
+	public void init() {
+
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.btn_Home_FirstScreen:
+
+			break;
+
+		case R.id.btn_Home_SecondScreen:
+
+			break;
+
+		case R.id.btn_Home_ThirdScreen:
+
+			break;
+
+		case R.id.btn_Home_FourthScreen:
+
+			break;
+
+		case R.id.btn_Home_FifthScreen:
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

@@ -1,0 +1,75 @@
+package com.example.webservicecalling;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends Activity implements OnClickListener {
+
+	Button GetServerData;
+	String ServerURL;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		init();
+		GetServerData.setOnClickListener(this);
+
+	}
+
+	private void init() {
+		GetServerData = (Button) findViewById(R.id.GetServerData);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.GetServerData:
+
+			ServerURL = "http://androidexample.com/media/webservice/JsonReturn.php";
+
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	class LongOperation extends AsyncTask<String, Void, Void> {
+
+		@SuppressWarnings("deprecation")
+		HttpClient client = new DefaultHttpClient();
+		String content;
+		ProgressDialog Dialog = new ProgressDialog(MainActivity.this);
+		String data="";
+		TextView uiUpdate=(TextView)findViewById(R.id.output);
+		TextView jsonParsed=(TextView)findViewById(R.id.jsonParsed);
+		TextView serverText=(TextView)findViewById(R.id.serverText);
+		
+		@Override
+		protected void onPreExecute() {
+
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Void doInBackground(String... urls) {
+
+			return null;
+		}
+
+	}
+}

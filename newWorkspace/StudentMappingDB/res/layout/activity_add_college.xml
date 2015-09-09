@@ -1,0 +1,206 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.AddCollege" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/addClgHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#48CCCD" >
+
+        <TextView
+            android:id="@+id/addClgHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/addClgFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#48CCCD" >
+
+        <TextView
+            android:id="@+id/addClgFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/addClgFooter"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/addClgBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/addClgFooter"
+        android:layout_below="@+id/addClgHeader"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:paddingTop="50dp" >
+
+        <TextView
+            android:id="@+id/addClgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:ems="7"
+            android:text="@string/addClgName" />
+
+        <EditText
+            android:id="@+id/edClgName"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/addClgName"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/addClgName"
+            android:background="@android:drawable/editbox_background_normal"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ., "
+            android:hint="@string/addClgName" />
+
+        <TextView
+            android:id="@+id/addClgAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addClgName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="22dp"
+            android:ems="7"
+            android:text="@string/addClgAddress" />
+
+        <EditText
+            android:id="@+id/edClgAddress"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/addClgAddress"
+            android:layout_below="@+id/edClgName"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/addClgAddress"
+            android:background="@android:drawable/editbox_background_normal"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.-/ "
+            android:hint="@string/addClgAddress" />
+
+        <TextView
+            android:id="@+id/addClgContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addClgAddress"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="22dp"
+            android:ems="7"
+            android:text="@string/addClgContact" />
+
+        <EditText
+            android:id="@+id/edClgContact"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/addClgContact"
+            android:layout_below="@+id/edClgAddress"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/addClgContact"
+            android:background="@android:drawable/editbox_background_normal"
+            android:digits="1234567890"
+            android:hint="@string/addClgContact" />
+
+        <TextView
+            android:id="@+id/addClgLongitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addClgContact"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="22dp"
+            android:ems="7"
+            android:text="@string/addClgLongitude" />
+
+        <EditText
+            android:id="@+id/edClgLongitude"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/addClgLongitude"
+            android:layout_below="@+id/edClgContact"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/addClgLongitude"
+            android:background="@android:drawable/editbox_background_normal"
+            android:digits="1234567890."
+            android:hint="@string/addClgLongitude" />
+
+        <TextView
+            android:id="@+id/addClgLatitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addClgLongitude"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="22dp"
+            android:ems="7"
+            android:text="@string/addClgLatitude" />
+
+        <EditText
+            android:id="@+id/edClgLatitude"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/addClgLatitude"
+            android:layout_below="@+id/edClgLongitude"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/addClgLatitude"
+            android:background="@android:drawable/editbox_background_normal"
+            android:digits="1234567890."
+            android:hint="@string/addClgLatitude" />
+
+        <Button
+            android:id="@+id/btnClgAdd"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/addClgLatitude"
+            android:layout_marginLeft="10dp"
+            android:background="#4EE2EC"
+            android:text="@string/btnClgAdd"
+            android:textColor="#000000" />
+        
+        <Button
+            android:id="@+id/btnClgClear"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/addClgLatitude"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnClgAdd"
+            android:background="#4EE2EC"
+            android:text="@string/btnClgClear"
+            android:textColor="#000000" />
+        
+        <Button
+            android:id="@+id/btnClgHome"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/addClgLatitude"
+            android:layout_marginLeft="13dp"
+            android:layout_toRightOf="@+id/btnClgClear"
+            android:background="#4EE2EC"
+            android:text="@string/btnHome"
+            android:textColor="#000000" />
+        
+    </RelativeLayout>
+
+</RelativeLayout>

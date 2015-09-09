@@ -1,0 +1,312 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.shoppingcart.Register" >
+
+    <!-- Header Part -->
+
+    <RelativeLayout
+        android:id="@+id/registerHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:background="@color/headerfootercolor" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/registerheadertext"
+            android:textColor="@color/headerfooterfontcolor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Footer Part -->
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/registerHeader"
+        android:background="@android:color/transparent"
+        android:fillViewport="true" >
+
+        <!-- Body Part -->
+
+        <RelativeLayout
+            android:id="@+id/homeBody"
+            android:layout_width="match_parent"
+            android:layout_height="419dp"
+            android:layout_above="@+id/registerFooter"
+            android:layout_below="@+id/registerHeader"
+            android:background="@color/bodycolor"
+            android:padding="20sp" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/round"
+                android:orientation="vertical"
+                android:padding="10sp" 
+               
+                >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5sp"
+                        android:ems="5"
+                        android:text="@string/customername"
+                        android:textColor="@color/headerfooterfontcolor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/customerName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5sp"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:hint="Customer Name"
+                        android:maxLength="100"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5sp"
+                        android:ems="5"
+                        android:text="@string/customerbirthdate"
+                        android:textColor="@color/headerfooterfontcolor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/customerBirthdate"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5sp"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:clickable="true"
+                        android:hint="Birthdate(DD/MM/YY)"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5sp"
+                        android:ems="5"
+                        android:text="@string/customercontact"
+                        android:textColor="@color/headerfooterfontcolor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/customerContact"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5sp"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:digits="0123456789+"
+                        android:hint="Mobile No."
+                        android:maxLength="12"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5sp"
+                        android:ems="5"
+                        android:text="@string/customeremail"
+                        android:textColor="@color/headerfooterfontcolor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/customerEmail"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5sp"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:hint="Email ID"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="255"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5sp"
+                        android:ems="5"
+                        android:text="@string/customerusername"
+                        android:textColor="@color/headerfooterfontcolor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/customerUserName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5sp"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:hint="User Name"
+                        android:maxLength="25"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5sp"
+                        android:ems="5"
+                        android:text="@string/customerpassword"
+                        android:textColor="@color/headerfooterfontcolor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/customerPassword"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5sp"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:maxLength="10"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5sp"
+                        android:ems="5"
+                        android:text="@string/customerconfirmpassword"
+                        android:textColor="@color/headerfooterfontcolor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/customerConfirmPassword"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15sp"
+                        android:layout_marginRight="5sp"
+                        android:layout_marginTop="5sp"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:gravity="bottom"
+                        android:hint="Confirm Password"
+                        android:inputType="textPassword"
+                        android:maxLength="10"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/btnSave"
+                        android:layout_width="120sp"
+                        android:layout_height="30sp"
+                        android:layout_marginLeft="20sp"
+                        android:background="@color/headerfooterfontcolor"
+                        android:text="@string/btnsave"
+                        android:textColor="@color/headerfootercolor" />
+
+                    <Button
+                        android:id="@+id/btnCancel"
+                        android:layout_width="120sp"
+                        android:layout_height="30sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@color/headerfooterfontcolor"
+                        android:text="@string/btncancel"
+                        android:textColor="@color/headerfootercolor" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/registerFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/headerfootercolor" 
+        android:layout_marginTop="10sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/registerFootertext"
+            android:textColor="@color/headerfooterfontcolor"
+            android:textSize="25sp"
+            android:textStyle="bold"
+             />
+    </RelativeLayout>
+
+</RelativeLayout>

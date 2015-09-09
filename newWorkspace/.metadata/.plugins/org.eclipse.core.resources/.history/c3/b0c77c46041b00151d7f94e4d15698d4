@@ -1,0 +1,191 @@
+package com.example.rotateimage;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+
+public class HomeActivity extends ActionBarActivity {
+
+	ImageView image;
+	Button btn_rotate,btn_rotate_legy;
+	int count=0;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		
+		btn_rotate = (Button) findViewById(R.id.btn_rotate);
+		image = (ImageView) findViewById(R.id.img);
+		
+		btn_rotate_legy=(Button)findViewById(R.id.btn_rotate_left);
+		
+		btn_rotate.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				/*
+				 * Matrix matrix = new Matrix();
+				 * img_Image.setScaleType(ScaleType.MATRIX); //required
+				 * matrix.postRotate((float) 90, 0f, 0f);
+				 * img_Image.setImageMatrix(matrix);
+				 * img_Image.setImageResource(R.drawable.ic_launcher);
+				 */
+
+				RotateImage();
+
+			}
+		});
+		
+		
+		btn_rotate_legy.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+				RotateImageLeft();
+				
+				
+			}
+		});
+
+	}
+
+	public void RotateImage() {
+		
+		Bitmap bMap;
+		Matrix matrix;
+		float []val={(float) 45.0,(float) 90.0,(float) 135.0,(float) 180.0};
+		if(count==0)
+		{
+			if(count>0)
+			{
+				count--;
+			}
+			else
+			{
+				count++;
+			}
+			
+		}
+		else {
+			count++;
+		}
+		
+		
+
+		// Decode Image using Bitmap factory.
+		bMap = BitmapFactory.decodeResource(getResources(),
+				R.drawable.ic_launcher);
+
+		// Create object of new Matrix.
+		matrix = new Matrix();
+
+		// set image rotation value to 45 degrees in matrix.
+		
+		//matrix.postRotate( 90f, image.getDrawable().getBounds().width()/2, image.getDrawable().getBounds().height()/2);
+		
+			switch (count) {
+			case 1:
+				matrix.postRotate(90);
+				
+				break;
+			case 2:
+				matrix.postRotate(180);
+				
+				break;
+			case 3:
+				matrix.postRotate(270);
+			
+				break;
+			case 4:
+				matrix.postRotate(360);
+				count=1;
+				break;
+
+			default:
+				break;
+			}
+			
+		
+			
+			
+		
+		// Create bitmap with new values.
+		Bitmap bMapRotate = Bitmap.createBitmap(bMap, 0, 0, bMap.getWidth(),
+				bMap.getHeight(), matrix, true);
+
+		// put rotated image in ImageView.
+		image.setImageBitmap(bMapRotate);
+	}
+
+	
+	
+public void RotateImageLeft() {
+		
+		Bitmap bMap;
+		Matrix matrix;
+		float []val={(float) 45.0,(float) 90.0,(float) 135.0,(float) 180.0};
+		if(count>0)
+		{
+			count--;
+		}
+		else {
+			count++;
+		}
+		
+
+		// Decode Image using Bitmap factory.
+		bMap = BitmapFactory.decodeResource(getResources(),
+				R.drawable.ic_launcher);
+
+		// Create object of new Matrix.
+		matrix = new Matrix();
+
+		// set image rotation value to 45 degrees in matrix.
+		
+		//matrix.postRotate( 90f, image.getDrawable().getBounds().width()/2, image.getDrawable().getBounds().height()/2);
+		
+			switch (count) {
+			case 1:
+				matrix.postRotate(270);
+				
+				break;
+			case 2:
+				matrix.postRotate(180);
+				
+				break;
+			case 3:
+				matrix.postRotate(90);
+				
+				break;
+			case 4:
+				matrix.postRotate(360);
+				count=4;
+				break;
+
+			default:
+				break;
+			}
+			
+		
+			
+			
+		
+		// Create bitmap with new values.
+		Bitmap bMapRotate = Bitmap.createBitmap(bMap, 0, 0, bMap.getWidth(),
+				bMap.getHeight(), matrix, true);
+
+		// put rotated image in ImageView.
+		image.setImageBitmap(bMapRotate);
+	}
+}

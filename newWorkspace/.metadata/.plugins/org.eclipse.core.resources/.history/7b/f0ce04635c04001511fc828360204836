@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.relative_layout_demo.Activity_FifthScreen" >
+
+    <RelativeLayout
+        android:id="@+id/rel_FifthScreen_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header_color" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_FifthScreen_leftSide"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header_color" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_FifthScreen_right"
+        android:layout_width="40dp"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/rel_FifthScreen_header"
+        android:background="@color/header_color" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_FifthScreen_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/header_color" >
+    </RelativeLayout>
+
+</RelativeLayout>

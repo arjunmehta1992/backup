@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;XMLParser.java&apos; to &apos;AnimatioActivity/src/com.zaptech.animatioactivity&apos;&#x0A;- Original project: &apos;XmlDom&apos;&#x0A;- Destination element: &apos;AnimatioActivity/src/com.zaptech.animatioactivity&apos;&#x0A;- Original element: &apos;com.zaptech.xmldom.XMLParser.java&apos;" description="Copy compilation unit" destination="=AnimatioActivity/src&lt;com.zaptech.animatioactivity" element1="/src&lt;com.zaptech.xmldom{XMLParser.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1435312258448" units="1" version="1.0"/>
+</session>

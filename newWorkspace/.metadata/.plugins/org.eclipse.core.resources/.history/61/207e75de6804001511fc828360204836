@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.linearlayoutdemo.Activity_Home" >
+
+    <LinearLayout
+        android:id="@+id/lin_FirstScreen_box"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_FirstScreen_frstNo" />
+
+            <EditText
+                android:id="@+id/edt_FirstScreen_frstNo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/txt_FirstScreen_frstNo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_FirstScreen_secondNo" />
+
+            <EditText
+                android:id="@+id/edt_FirstScreen_secndNo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/txt_FirstScreen_secondNo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_FirstScreen_Add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/txt_FirstScreen_btnPlus" />
+
+            <Button
+                android:id="@+id/btn_FirstScreen_Minus"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:hint="@string/txt_FirstScreen_btnMinus" />
+
+            <Button
+                android:id="@+id/btn_FirstScreen_Devid"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:hint="@string/txt_FirstScreen_btnDevide"
+                android:text="@string/txt_FirstScreen_btnDevide" />
+
+            <Button
+                android:id="@+id/btn_FirstScreen_Multiply"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:hint="@string/txt_FirstScreen_btnMulti"
+                android:text="@string/txt_FirstScreen_btnMulti" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

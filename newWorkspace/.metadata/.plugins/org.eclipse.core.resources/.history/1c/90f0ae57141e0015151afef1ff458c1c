@@ -1,0 +1,19 @@
+package com.zaptech.gsondemo;
+
+import java.io.Reader;
+
+public class API {
+
+	
+	private static Reader reader=null;
+	
+	public static Reader getData(String URL) {
+		
+		
+		
+		
+		return reader;
+		
+		
+	}
+}

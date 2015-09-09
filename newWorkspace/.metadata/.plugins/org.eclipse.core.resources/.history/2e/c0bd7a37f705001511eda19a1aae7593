@@ -1,0 +1,233 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.example.tasktwo.HomeActivity" >
+
+    <RelativeLayout
+        android:id="@+id/rel_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topbar" >
+
+        <TextView
+            android:id="@+id/txt_Today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:text="@string/tv_today"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/img_leftArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/arrow_btn" />
+
+        <ImageView
+            android:id="@+id/img_rightArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/arrow_nosl" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_Iconbox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_header" >
+
+        <ImageView
+            android:id="@+id/img_chatIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/comment_icon" />
+
+        <ImageView
+            android:id="@+id/img_infoIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/i_icon" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_Footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <ImageView
+            android:id="@+id/Footer_img_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/graph" />
+
+        <ImageView
+            android:id="@+id/Footer_img_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/share" />
+
+        <ImageView
+            android:id="@+id/Footer_img_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/setting_icon" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_Iconbox"
+        android:layout_centerInParent="true" >
+
+        <FrameLayout
+            android:id="@+id/frameFirstAngle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/red" >
+
+            <ImageView
+                android:id="@+id/img_Red_Smile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/smile_5" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameSecondAngle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/frameFirstAngle"
+            android:background="@drawable/blue" >
+
+            <ImageView
+                android:id="@+id/img_blue_Smile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/smile_1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameThirdAngle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/frameSecondAngle"
+            android:layout_alignRight="@+id/frameSecondAngle"
+            android:background="@drawable/green" >
+
+            <ImageView
+                android:id="@+id/img_green_smile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="35dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/smile_3" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <!--
+    <FrameLayout
+        android:id="@+id/frameThirdAngle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rel_Footer"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="44dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/green" >
+
+        <ImageView
+            android:id="@+id/img_green_Smile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/smile_2" />
+    </FrameLayout>
+
+     <FrameLayout
+         android:id="@+id/frameFourthAngle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/rel_Footer"
+         android:layout_alignParentLeft="true"
+         android:layout_marginBottom="22dp"
+         android:layout_marginLeft="47dp"
+         android:background="@drawable/yellow" >
+
+         <ImageView
+             android:id="@+id/img_yellow_Smile"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="60dp"
+             android:layout_marginTop="35dp"
+             android:src="@drawable/smile_3" />
+
+     </FrameLayout>
+
+     <FrameLayout
+         android:id="@+id/frameFifthAngle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignTop="@+id/frameThirdAngle"
+         android:background="@drawable/orange" >
+
+         <ImageView
+             android:id="@+id/img_orange_Smile"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_marginLeft="25dp"
+             android:layout_marginTop="40dp"
+             android:src="@drawable/smile_4" />
+     </FrameLayout>
+
+     <FrameLayout
+         android:id="@+id/frameSixAngle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignRight="@+id/frameFourthAngle"
+         android:layout_alignTop="@+id/frameThirdAngle"
+         android:layout_marginRight="30dp"
+         android:background="@drawable/blue_center" >
+
+         <ImageView
+             android:id="@+id/img_Circle_Smile"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="21dp"
+             android:layout_marginTop="20dp"
+             android:src="@drawable/smile_1" />
+
+     </FrameLayout>
+    -->
+
+</RelativeLayout>

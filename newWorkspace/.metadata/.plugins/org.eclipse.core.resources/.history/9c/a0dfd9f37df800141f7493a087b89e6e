@@ -1,0 +1,5 @@
+package com.example.broadcastrecdemo;
+
+public class MyReciever {
+
+}

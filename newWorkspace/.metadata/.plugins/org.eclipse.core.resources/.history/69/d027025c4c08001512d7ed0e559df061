@@ -1,0 +1,253 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbg"
+    tools:context="com.zaptech.layouttask29052015.HomeActivity" >
+
+    <!-- Header Part -->
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topbar" >
+
+        <TextView
+            android:id="@+id/Player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60sp"
+            android:text="Player"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/tocalogo" />
+    </RelativeLayout>
+    <!-- Body Part -->
+
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+       
+        android:paddingTop="10sp" >
+
+        <FrameLayout
+            android:id="@+id/bodyLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_track_bgcolor" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logopage1" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/songName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bodyLogo"
+            android:paddingLeft="5sp"
+            android:text="songName"
+            android:textColor="@color/color_bpm"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/songRating1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/songName"
+            android:layout_toRightOf="@+id/bodyLogo"
+            android:paddingLeft="5sp"
+            android:src="@drawable/rating_star" />
+
+        <ImageView
+            android:id="@+id/songRating2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/songName"
+            android:layout_toRightOf="@+id/songRating1"
+            android:paddingLeft="5sp"
+            android:src="@drawable/rating_star" />
+
+        <ImageView
+            android:id="@+id/songRating3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/songName"
+            android:layout_toRightOf="@+id/songRating2"
+            android:paddingLeft="5sp"
+            android:src="@drawable/rating_star" />
+
+        <ImageView
+            android:id="@+id/songRating4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/songName"
+            android:layout_toRightOf="@+id/songRating3"
+            android:paddingLeft="5sp"
+            android:src="@drawable/rating_star" />
+
+        <ImageView
+            android:id="@+id/songRating5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/songName"
+            android:layout_toRightOf="@+id/songRating4"
+            android:paddingLeft="5sp"
+            android:src="@drawable/rating_star" />
+
+        <TextView
+            android:id="@+id/trakName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/songRating1"
+            android:layout_marginTop="10sp"
+            android:layout_toRightOf="@+id/bodyLogo"
+            android:paddingLeft="5sp"
+            android:text="trakName"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/geners"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trakName"
+            android:layout_marginTop="5sp"
+            android:layout_toRightOf="@+id/bodyLogo"
+            android:paddingLeft="5sp"
+            android:text="geners"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/geners"
+            android:layout_marginTop="5sp"
+            android:layout_toRightOf="@+id/bodyLogo"
+            android:paddingLeft="5sp"
+            android:text="bpm"
+            android:textColor="@color/bpmColor"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/body"
+        android:paddingTop="30sp" 
+        android:paddingLeft="15sp"
+        android:paddingRight="15sp"
+      >
+
+        <FrameLayout
+            android:id="@+id/Player_Leftbg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/player_leftbg" >
+
+            <ImageView
+                android:id="@+id/Volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30sp"
+                android:paddingTop="20sp"
+                android:src="@drawable/mute" />
+
+            <ImageView
+                android:id="@+id/Repeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30sp"
+                android:paddingTop="80sp"
+                android:src="@drawable/repeat" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/TimeIndication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/Player_Leftbg"
+            android:src="@drawable/timeindi" />
+
+        <ImageView
+            android:id="@+id/TimeIndication2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_toRightOf="@+id/TimeIndication"
+            android:src="@drawable/indicator2_bg" />
+
+        <FrameLayout
+            android:id="@+id/Player_rightbg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/TimeIndication2"
+            android:background="@drawable/bpmbtn" >
+
+            <ImageView
+                android:id="@+id/Plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50sp"
+                android:paddingTop="20sp"
+                android:src="@drawable/bmp_plus" />
+
+            <ImageView
+                android:id="@+id/Minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50sp"
+                android:paddingTop="100sp"
+                android:src="@drawable/bmp_minus" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/Preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Player_Leftbg"
+            android:layout_marginTop="10sp"
+            android:src="@drawable/preview_btn" />
+
+        <ImageView
+            android:id="@+id/Next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           
+            android:layout_below="@+id/Player_rightbg"
+            android:layout_toRightOf="@+id/Play"
+            android:layout_marginTop="10sp"
+            android:src="@drawable/next_btn" />
+
+        <ImageView
+            android:id="@+id/Play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/Player_Leftbg" 
+           android:layout_toLeftOf="@+id/Player_rightbg"
+           android:layout_below="@+id/TimeIndication"
+            android:src="@drawable/playbtn1" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

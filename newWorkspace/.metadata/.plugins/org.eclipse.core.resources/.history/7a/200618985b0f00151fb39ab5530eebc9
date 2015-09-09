@@ -1,0 +1,75 @@
+package com.example.customseekbar;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+import android.widget.TimePicker.OnTimeChangedListener;
+
+public class ActivityHome extends Activity {
+
+	AlarmManager alarmMgr;
+	Button btn_StartTime;
+	TimePicker tmp_Time;
+	TextView txt_getTime;
+	Calendar calendar;
+	Date inTime, outTime;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		btn_StartTime = (Button) findViewById(R.id.btn_setTime);
+		tmp_Time = (TimePicker) findViewById(R.id.tmPicker_TimeClock);
+		txt_getTime = (TextView) findViewById(R.id.txt_selectedTime);
+
+		tmp_Time.setOnTimeChangedListener(new OnTimeChangedListener() {
+
+			@Override
+			public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+				// TODO Auto-generated method stub
+
+				txt_getTime.setText(hourOfDay + ":" + minute);
+
+				calendar = Calendar.getInstance();
+				calendar.setTimeInMillis(System.currentTimeMillis());
+				calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+				calendar.set(calendar.MINUTE, minute);
+
+			}
+		});
+
+		btn_StartTime.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+
+				long timeInMillis = System.currentTimeMillis();
+				Calendar cal1 = Calendar.getInstance();
+				Calendar cal2 = Calendar.getInstance();
+
+				cal2.setTimeInMillis(timeInMillis);
+
+				cal1.setTimeInMillis(timeInMillis);
+				SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a");
+
+				String dateforrow = dateFormat.format(cal1.getTime());
+				Toast.makeText(ActivityHome.this, dateforrow,
+						Toast.LENGTH_SHORT).show();
+
+			}
+		});
+
+	}
+}

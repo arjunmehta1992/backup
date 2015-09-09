@@ -1,0 +1,55 @@
+package com.zaptech.jsonconnectionparsing;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.widget.TextView;
+
+public class HomeActivity extends Activity {
+
+	ProgressDialog mProgress;
+	TextView tv_getData;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		tv_getData = (TextView) findViewById(R.id.txt_Data);
+
+	}
+
+	class GetJsonData extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected void onPreExecute() {
+			mProgress = new ProgressDialog(HomeActivity.this);
+			mProgress.setTitle("Data loading");
+			mProgress.setMessage("loading...");
+			mProgress.setCancelable(false);
+			mProgress.show();
+
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+
+			if (mProgress.isShowing()) {
+
+				mProgress.dismiss();
+			}
+
+			super.onPostExecute(result);
+		}
+
+	}
+
+}

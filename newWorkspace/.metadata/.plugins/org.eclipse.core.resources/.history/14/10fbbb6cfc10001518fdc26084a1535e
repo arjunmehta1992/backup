@@ -1,0 +1,195 @@
+package com.zaptech.json;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+public class HomeActivity extends Activity {
+
+	ProgressDialog mProgress;
+	TextView mTextview;
+	String appMetaDataStr, versionNumberStr, tABVersionNUmberStr,
+			webServicesURLStr, appNameStr;
+
+	JSONArray homeitems = null;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		mTextview = (TextView) findViewById(R.id.txt_Data);
+
+		new GetImage().execute();
+	}
+
+	public String GET(String url) {
+		InputStream inputStream = null;
+		String result = "";
+		try {
+
+			// create HttpClient
+			HttpClient httpclient = new DefaultHttpClient();
+
+			// make GET request to the given URL
+			HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
+
+			// receive response as inputStream
+			inputStream = httpResponse.getEntity().getContent();
+
+			// convert inputstream to string
+			if (inputStream != null)
+				result = convertInputStreamToString(inputStream);
+			else
+				result = "Did not work!";
+
+		} catch (Exception e) {
+			Log.d("InputStream", e.getLocalizedMessage());
+		}
+
+		return result;
+	}
+
+	// convert inputstream to String
+	private static String convertInputStreamToString(InputStream inputStream)
+			throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(inputStream));
+		String line = "";
+		String result = "";
+		while ((line = bufferedReader.readLine()) != null)
+			result += line;
+
+		inputStream.close();
+		return result;
+
+	}
+
+	class GetImage extends AsyncTask<Void, Void, Void> {
+
+		String str = "";
+
+		@Override
+		protected void onPreExecute() {
+
+			mProgress = new ProgressDialog(HomeActivity.this);
+			mProgress.setTitle("Image Loader");
+			mProgress.setMessage("Loading...");
+			mProgress.setCancelable(false);
+			mProgress.show();
+
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			str = GET("http://80.93.28.24/json/autoexpress.json");
+
+			Log.i("Response", ">>>" + str);
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+
+			if (mProgress.isShowing()) {
+				mProgress.dismiss();
+			}
+			/*
+			 * if (mBitmap!=null) { mImageview.setImageBitmap(mBitmap); }
+			 */
+
+			String d = JsonParser(str);
+			mTextview.setText(d);
+
+			super.onPostExecute(result);
+		}
+
+	}
+
+	public String JsonParser(String str) {
+		String data = "";
+
+		try {
+
+			String includeImageInLayou = null;
+			String includeTitleInLayout = null;
+			String includeTextInLayout = null;
+			String imagePosition = null;
+			String titlePosition = null;
+			String textPosition = null;
+			String title = null;
+			String text = null;
+			String textHtml = null;
+			
+
+			ArrayList<String> list = new ArrayList<String>();
+
+			JSONObject mainObj = new JSONObject(str);
+			appMetaDataStr = mainObj.getString("AppMetaData");
+			versionNumberStr = mainObj.getString("versionNumber");
+			tABVersionNUmberStr = mainObj.getString("tABVersionNumber");
+			webServicesURLStr = mainObj.getString("webServicesURL");
+			appNameStr = mainObj.getString("appName");
+
+			homeitems = mainObj.getJSONArray("homeItems");
+
+			for (int i = 0; i < homeitems.length(); i++) {
+
+				JSONObject c = homeitems.getJSONObject(i);
+				includeImageInLayou = c.getString("includeImageInLayout");
+				includeTitleInLayout = c.getString("includeTitleInLayout");
+				includeTextInLayout = c.getString("includeTextInLayout");
+				imagePosition = c.getString("imagePosition");
+				titlePosition = c.getString("titlePosition");
+				textPosition = c.getString("textPosition");
+				
+				
+				JSONObject objImage=c.getJSONObject(String.valueOf(i));
+				objImage.getString("title");
+				
+					
+				
+				
+				
+
+				data = "Meta data=" + appMetaDataStr + "\n VersionNumber="
+						+ versionNumberStr + "\nTabversion Number="
+						+ tABVersionNUmberStr + "\nWebservices URL="
+						+ webServicesURLStr + "\nApp name=" + appNameStr
+
+						+ "\nIncludeImageInLayout=" + includeImageInLayou
+						+ "\nInclude image in textview=" + includeTextInLayout
+						+ "\ninclude title in layout" + includeTitleInLayout
+						+ "image position=" + imagePosition + "title position="
+						+ titlePosition + "text position=" + textPosition;
+
+			}
+
+			/* data="Appname="+appMetaDataStr; */
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return data;
+
+	}
+
+}

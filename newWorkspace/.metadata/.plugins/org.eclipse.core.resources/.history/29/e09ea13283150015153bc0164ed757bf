@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JsoN</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity_home_items">ActivityHomeItems</string>
+    <string name="title_activity_home_items__description">HomeItems_Description</string>
+
+</resources>

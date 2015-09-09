@@ -1,0 +1,153 @@
+package com.example.jsonpost;
+
+import java.io.IOException;
+
+import org.apache.http.HttpHost;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.HttpContext;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class HomeActivity extends Activity implements OnClickListener {
+
+	TextView tvIsConnected;
+	EditText etName, etCountry, etTwitter;
+	Button btnPost;
+	ProgressDialog mProgressDialog;
+	Person personObj;
+	String str;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		init();
+
+	}
+
+	public void init() {
+		tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
+		etName = (EditText) findViewById(R.id.etName);
+		etCountry = (EditText) findViewById(R.id.etCountry);
+		etTwitter = (EditText) findViewById(R.id.etTwitter);
+		btnPost = (Button) findViewById(R.id.btnPost);
+
+		if (isConnected()) {
+			tvIsConnected.setBackgroundColor(0xFF00CC00);
+			tvIsConnected.setText("You are conncted");
+		} else {
+			tvIsConnected.setText("You are NOT conncted");
+		}
+
+		mProgressDialog = new ProgressDialog(HomeActivity.this);
+
+	}
+
+	public boolean isConnected() {
+
+		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isConnected())
+			return true;
+		else
+			return false;
+
+	}
+
+	private boolean validate() {
+		if (etName.getText().toString().trim().equals(""))
+			return false;
+		else if (etCountry.getText().toString().trim().equals(""))
+			return false;
+		else if (etTwitter.getText().toString().trim().equals(""))
+			return false;
+		else
+			return true;
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.btnPost:
+			Toast.makeText(getBaseContext(), "Enter some data!",
+					Toast.LENGTH_SHORT).show();
+
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	class HttpAsyncTask extends AsyncTask<Void, Void, Void> {
+		@Override
+		protected void onPreExecute() {
+			mProgressDialog.setTitle("Data is upload");
+			mProgressDialog.setMessage("loading...");
+
+			mProgressDialog.setCancelable(false);
+			mProgressDialog.show();
+
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			personObj = new Person();
+			personObj.setName(etName.getText().toString());
+			personObj.setTwitter(etTwitter.getText().toString());
+			personObj.setCountry(etCountry.getText().toString());
+			str = POST();
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			if (mProgressDialog.isShowing()) {
+				mProgressDialog.dismiss();
+			}
+
+			super.onPostExecute(result);
+		}
+
+	}
+
+	public static String POST(Person person, String url) {
+		String result = "";
+
+		try {
+
+			HttpClient hhtpClient = new DefaultHttpClient();
+
+			HttpPost httpPost = new HttpPost(url);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return;
+	}
+
+}

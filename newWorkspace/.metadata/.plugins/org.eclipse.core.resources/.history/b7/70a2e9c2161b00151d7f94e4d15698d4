@@ -1,0 +1,157 @@
+package com.example.rotateimage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class HomeActivity extends ActionBarActivity {
+
+	ImageView image;
+	Button btn_rotate;
+	int count=1,countLeft=1;
+	Button btn_SaveToSdcard;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		
+		btn_rotate = (Button) findViewById(R.id.btn_rotate);
+		image = (ImageView) findViewById(R.id.img);
+		
+		btn_SaveToSdcard=(Button)findViewById(R.id.saveTOSD_card);
+		btn_SaveToSdcard.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				BitmapDrawable drawable = (BitmapDrawable) image.getDrawable();
+			    Bitmap bitmap = drawable.getBitmap();
+				File sdCardDirectory = Environment.getExternalStorageDirectory();
+				
+				File image = new File(sdCardDirectory, "image.jpeg");
+				boolean success = false;
+
+			    // Encode the file as a PNG image.
+			    FileOutputStream outStream;
+			    try {
+
+			        outStream = new FileOutputStream(image);
+			        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream); 
+			        /* 100 to keep full quality of the image */
+
+			        outStream.flush();
+			        outStream.close();
+			        success = true;
+			    } catch (FileNotFoundException e) {
+			        e.printStackTrace();
+			    } catch (IOException e) {
+			        e.printStackTrace();
+			    }
+			    if (success) {
+			        Toast.makeText(getApplicationContext(), "Image saved with success",
+			                Toast.LENGTH_LONG).show();
+			    } else {
+			        Toast.makeText(getApplicationContext(),
+			                "Error during image saving", Toast.LENGTH_LONG).show();
+			    }
+			}
+			 
+		});
+		
+		
+		btn_rotate.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				/*
+				 * Matrix matrix = new Matrix();
+				 * img_Image.setScaleType(ScaleType.MATRIX); //required
+				 * matrix.postRotate((float) 90, 0f, 0f);
+				 * img_Image.setImageMatrix(matrix);
+				 * img_Image.setImageResource(R.drawable.ic_launcher);
+				 */
+
+				RotateImage();
+
+			}
+		});
+		
+		
+	
+
+	}
+
+	public void RotateImage() {
+		
+		Bitmap bMap;
+		Matrix matrix;
+		float []val={(float) 45.0,(float) 90.0,(float) 135.0,(float) 180.0};
+		
+		
+		
+
+		// Decode Image using Bitmap factory.
+		bMap = BitmapFactory.decodeResource(getResources(),
+				R.drawable.ic_launcher);
+
+		// Create object of new Matrix.
+		matrix = new Matrix();
+
+		// set image rotation value to 45 degrees in matrix.
+		
+		//matrix.postRotate( 90f, image.getDrawable().getBounds().width()/2, image.getDrawable().getBounds().height()/2);
+		
+			switch (count) {
+			case 1:
+				matrix.postRotate(90);
+				count++;
+				break;
+			case 2:
+				matrix.postRotate(180);
+				count++;
+				break;
+			case 3:
+				matrix.postRotate(270);
+				count++;
+				break;
+			case 4:
+				matrix.postRotate(360);
+				count=1;
+				break;
+
+			default:
+				break;
+			}
+			
+		
+			
+			
+		
+		// Create bitmap with new values.
+		Bitmap bMapRotate = Bitmap.createBitmap(bMap, 0, 0, bMap.getWidth(),
+				bMap.getHeight(), matrix, true);
+
+		// put rotated image in ImageView.
+		image.setImageBitmap(bMapRotate);
+	}
+
+	
+	
+
+}

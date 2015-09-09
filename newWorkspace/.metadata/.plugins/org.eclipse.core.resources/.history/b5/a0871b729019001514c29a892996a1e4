@@ -1,0 +1,54 @@
+package com.zaptech.json;
+
+import java.util.ArrayList;
+
+import com.zaptech.json.DBmodel.DBModel;
+import com.zaptech.json.NewsItemActivity.AdapterCategory;
+import com.zaptech.json.NewsItem_model.NewsItem_Model;
+
+import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class NewsItme_SubCategory extends ActionBarActivity {
+
+	
+	ListView lv_categoryname;
+	DBModel helper_obj;
+	ArrayList<NewsItem_Model> list_newsItem;
+	Context context;
+	ArrayAdapter<String> adpt_listCategory;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_news_itme__sub_category);
+		inti();
+		Intent get = getIntent();
+		String data = get.getStringExtra("TITLE");
+		Toast.makeText(NewsItme_SubCategory.this,""+data, Toast.LENGTH_SHORT).show();
+		
+	}
+
+	public void inti() {
+
+		lv_categoryname = (ListView) findViewById(R.id.lv_newsCategory);
+		helper_obj = new DBModel(NewsItme_SubCategory.this, getResources()
+				.getString(R.string.DB_NAME), getResources().getString(
+				R.string.DB_PATH));
+		list_newsItem = new ArrayList<NewsItem_Model>();
+		list_newsItem = helper_obj.getNewsItemCategory();
+		context=NewsItme_SubCategory.this;
+		//lv_categoryname.setAdapter(new AdapterCategory());
+
+	}
+	
+	
+	
+}

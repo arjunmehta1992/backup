@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dfcade"
+    tools:context="com.example.loginsession.Welcome" >
+
+    <RelativeLayout
+        android:id="@+id/Header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/Header" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="5dp"
+            android:text="Welcome"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/Header" >
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/Header"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="@string/logout" />
+
+    <TextView 
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logout"
+        android:text="hi"
+        android:layout_alignLeft="50sp"
+        
+        />
+</RelativeLayout>

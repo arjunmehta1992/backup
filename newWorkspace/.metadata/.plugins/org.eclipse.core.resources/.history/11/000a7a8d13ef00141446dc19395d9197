@@ -1,0 +1,46 @@
+package com.example.webservicecalling;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Button;
+
+public class MainActivity extends Activity implements OnClickListener{
+
+	
+	Button GetServerData;
+	String ServerURL;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		init();
+		GetServerData.setOnClickListener(this);
+			
+			
+			
+	}
+	
+	private void init() {
+		GetServerData = (Button) findViewById(R.id.GetServerData);
+
+	}	
+	@Override
+	public void onClick(View v) {
+		
+		switch (v.getId()) {
+		case R.id.GetServerData:
+			
+			ServerURL="http://androidexample.com/media/webservice/JsonReturn.php";
+			
+			break;
+
+		default:
+			break;
+		}
+	}
+
+}

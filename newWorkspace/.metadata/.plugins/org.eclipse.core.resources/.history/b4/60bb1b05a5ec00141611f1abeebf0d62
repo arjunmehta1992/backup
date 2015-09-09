@@ -1,0 +1,41 @@
+package com.example.jsonparser;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.EditText;
+
+public class MainActivity extends Activity implements OnClickListener{
+
+	
+	
+	private String url1 = "http://api.openweathermap.org/data/2.5/weather?q=";
+	
+	private EditText location,country,temperature,humidity,pressure;
+	 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		
+		
+		
+		
+		
+		
+	}
+
+	
+	
+	
+	
+}

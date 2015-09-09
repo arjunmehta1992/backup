@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.UpdateActivity" >
+    
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/updateHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#48CCCD" >
+
+        <TextView
+            android:id="@+id/updateHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/updateFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#48CCCD" >
+
+        <TextView
+            android:id="@+id/updateFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="footer"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/updateBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/updateFooter"
+        android:layout_below="@+id/updateHeader"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="60dp"
+        android:background="@android:color/transparent" >
+
+        <Button
+            android:id="@+id/btnUpdateCollege"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="25dp"
+            android:background="#4EE2EC"
+            android:text="@string/btnUpdateClg"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnUpdateStudent"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnUpdateCollege"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="30dp"
+            android:background="#4EE2EC"
+            android:text="@string/btnUpdateStd"
+            android:textColor="#000000" />
+        
+        <Button
+            android:id="@+id/btnUpdateHome"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnUpdateStudent"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="30dp"
+            android:background="#4EE2EC"
+            android:text="@string/btnHome"
+            android:textColor="#000000" />
+    </RelativeLayout>
+
+</RelativeLayout>

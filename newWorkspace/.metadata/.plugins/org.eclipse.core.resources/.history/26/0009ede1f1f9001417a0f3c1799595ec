@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.imageretrivegallary.Home" >
+
+    <RelativeLayout
+        android:id="@+id/Header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#5BCDB8"
+        android:layout_alignParentTop="true" >
+
+        <RelativeLayout
+            android:id="@+id/Footer"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="#5BCDB8" 
+           	android:layout_alignParentBottom="true"
+            >
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/Box"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Header"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="6"
+                    android:text="Select Image"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/select_img_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Image"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/setImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_launcher" />
+
+        <Button
+            android:id="@+id/insertBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/setImage"
+            android:layout_centerInParent="true"
+            android:text="InsertImage"
+            android:textAllCaps="false" />
+    </RelativeLayout>

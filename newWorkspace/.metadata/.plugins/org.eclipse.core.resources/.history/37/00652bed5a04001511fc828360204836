@@ -1,0 +1,33 @@
+package com.example.relative_layout_demo;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class Activity_FifthScreen extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_fifth_screen);
+		
+		
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+	        Date date = new Date(27, 05, 2015);
+	        
+	        
+	    	String nowDate = dateFormat.format(date);
+	    	TextView dateView =  (TextView)findViewById(R.id.dates);
+	    	dateView.setText(nowDate);
+	    	
+	        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+	    	String nowTime = timeFormat.format(date);
+	    	TextView timeView =  (TextView)findViewById(R.id.times);
+	    	timeView.setText(nowTime);
+	
+	}
+
+}

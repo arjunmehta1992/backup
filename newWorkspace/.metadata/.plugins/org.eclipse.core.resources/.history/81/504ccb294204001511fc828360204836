@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Relative_Layout_Demo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Struins for home screens -->
+
+    <string name="btn_firstScreen">First Screen</string>
+    <string name="btn_SecondScreen">Second Screen</string>
+    <string name="btn_ThirdScreen">Third Screen</string>
+    <string name="btn_FourScreen">Fourth Screen</string>
+    <string name="btn_FifthScreen">Fifth Screen</string>
+
+    <color name="header_color">#52A8D1</color>
+    <!--  -->
+
+    <string name="title_activity_activity__first_screen">Activity_FirstScreen</string>
+    <string name="title_activity_activity__second_screen">Activity_SecondScreen</string>
+
+</resources>

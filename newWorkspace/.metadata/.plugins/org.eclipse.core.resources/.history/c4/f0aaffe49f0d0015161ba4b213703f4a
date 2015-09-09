@@ -1,0 +1,30 @@
+package com.example.xmlparsing;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class ACtivityHome extends Activity {
+
+	static final String URL = "http://api.androidhive.info/pizza/?format=xml";
+
+	static final String KEY_ITEM = "item";
+	static final String KEY_ID = "id";
+	static final String KEY_NAME = "name";
+	static final String KEY_COST = "cost";
+	static final String KEY_DESC = "description";
+	ArrayList<HashMap<String, String>> menuItems;
+
+	/* XMLParser parser; */
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		menuItems = new ArrayList<HashMap<String, String>>();
+		
+	}
+
+}

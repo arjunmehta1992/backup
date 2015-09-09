@@ -1,0 +1,52 @@
+package com.example.linearlayoutdemo;
+
+
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class SecondScreen extends ActionBarActivity {
+
+	TextView t1, t4;
+	SeekBar seekbar1;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_second_screen);
+
+	seekbar1 = (SeekBar) findViewById(R.id.seekBar1);
+		/*t4 = (TextView) findViewById(R.id.textView5);
+		seekbar1.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				// TODO Auto-generated method stub
+
+				t4.setTextSize(progress);
+				Toast.makeText(getApplicationContext(),
+						String.valueOf(progress), Toast.LENGTH_SHORT).show();
+
+			}
+		});
+*/
+	}
+
+}

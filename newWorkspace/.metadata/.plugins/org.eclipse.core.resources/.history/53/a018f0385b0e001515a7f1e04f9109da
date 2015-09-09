@@ -1,0 +1,17 @@
+package com.zaptech.jsonhive;
+
+public class ServiceHandler {
+	 
+    static String response = null;
+    public final static int GET = 1;
+    public final static int POST = 2;
+ 
+    public ServiceHandler() {
+ 
+    }
+ 
+  
+    public String makeServiceCall(String url, int method) {
+        return this.makeServiceCall(url, method);
+    }
+}

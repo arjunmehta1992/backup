@@ -1,0 +1,42 @@
+package com.zaptech.secondxmlparsing;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.zaptech.xmldom.HomeActiivity;
+import com.zaptech.xmldom.R;
+
+import android.support.v7.app.ActionBarActivity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ListView;
+
+public class HomeActivity extends ActionBarActivity {
+
+ListView lv_ListOfPizza;
+
+	
+	public static final String Url = "http://www.androidbegin.com/tutorial/XMLParseTutorial.xml";
+	Context context;
+
+	ArrayList<HashMap<String, String>> list_Pizza = new ArrayList<HashMap<String, String>>();
+
+	ProgressDialog mProgress;
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+	}
+	
+	public void init() {
+		lv_ListOfPizza = (ListView) findViewById(R.id.lv_ListData);
+		context = HomeActivity.this;
+
+	}
+
+}

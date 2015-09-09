@@ -1,0 +1,63 @@
+package com.example.imageretrivegallary;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class Home extends ActionBarActivity implements OnClickListener {
+
+	Button btn_load, insertImage;
+	private static int RESULT_LOAD = 1;
+	String img_Decodable_Str;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		init();
+
+	}
+
+	public void init() {
+		btn_load = (Button) findViewById(R.id.select_img_btn);
+		insertImage = (Button) findViewById(R.id.insertBtn);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.select_img_btn:
+
+			Intent galleryIntent = new Intent(
+					Intent.ACTION_PICK,
+					android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+			startActivityForResult(galleryIntent, RESULT_LOAD);
+			break;
+
+		case R.id.insertBtn:
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		
+		
+		
+		
+	}
+}

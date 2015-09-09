@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Registration Form</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings for main home screen -->
+    <string name="Back">Back</string>
+    <string name="Profile">Profile</string>
+    <string name="Name">Name</string>
+    <string name="Email">E-mail</string>
+    <string name="Password">Password</string>
+    <string name="ConfirmPass">Confirm Password</string>
+    <string name="Address">Address</string>
+    
+    <string name="Submit">Submit</string>
+    <string name="Cancle">Cancle</string>
+    <string-array name="City">
+        <item >Ahmedabad</item>
+        <item >Baroda</item>
+        <item >Jamnagar</item>
+        <item >Rajkot</item>
+        <item >Bhavnagar</item>
+        <item >Surat</item>
+    </string-array>
+    
+    
+	
+</resources>

@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.mycall.Contact" 
+    android:background="@android:color/black">
+     <EditText
+        android:id="@+id/ContactName"
+        android:layout_marginTop="155sp"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:layout_width="fill_parent"
+        
+        android:layout_height="35sp"
+        android:layout_marginBottom="20sp"
+        android:layout_marginLeft="9sp"
+        android:layout_marginRight="9sp"
+        android:hint="Name"
+        
+        />
+    <EditText
+        android:id="@+id/phonenumber"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="35sp"
+        android:layout_marginLeft="9sp"
+        android:layout_marginRight="9sp"
+        android:hint="Number"
+        android:digits="0123456789"
+        android:layout_below="@+id/ContactName"
+        />
+     <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:text="Save"   
+        android:layout_below="@+id/phonenumber" 
+        android:layout_marginLeft="9sp"
+        android:layout_marginTop="20sp"
+        android:background="@android:drawable/button_onoff_indicator_on"/>
+     <Button
+        android:id="@+id/buttonCall"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:text="Call"
+        android:layout_toRightOf="@+id/buttonSave"
+        android:layout_below="@+id/phonenumber" 
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="9sp"
+        android:background="@android:drawable/button_onoff_indicator_on"/>
+     <Button
+        android:id="@+id/buttonList"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:text="Contact List"
+        android:layout_toRightOf="@+id/buttonCall"
+        android:layout_below="@+id/phonenumber" 
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="9sp"
+        android:background="@android:drawable/button_onoff_indicator_on"/>
+    
+</RelativeLayout>

@@ -1,0 +1,263 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zaptech.shoppingcart.AddItem" >
+
+    <!-- Body Part -->
+<ScrollView 
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:scrollbars="vertical">
+    <RelativeLayout
+        android:id="@+id/homeBody"
+        android:layout_width="fill_parent"
+        android:layout_height="419dp"
+        android:layout_above="@+id/homeFooter"
+        android:layout_below="@+id/homeHeader"
+        android:background="@color/bodycolor"
+        android:padding="10sp" >
+
+    
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round"
+            android:orientation="vertical"
+            android:padding="10sp" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:ems="7"
+                    android:text="@string/itemname"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/itemName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5sp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:hint="@string/itemname"
+                    android:maxLength="100"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:ems="7"
+                    android:text="@string/itemcategory"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/itemCategory"
+                    android:layout_width="150sp"
+                    android:layout_height="30sp"
+                    android:layout_marginRight="5sp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:hint="@string/itemcategory"
+                    android:maxLength="100"
+                    android:singleLine="true" />
+
+                <ImageButton
+                    android:id="@+id/addItemCategory"
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    android:layout_marginRight="5sp"
+                    android:background="@drawable/addcategory" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:ems="7"
+                    android:text="@string/itemimage"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/addItemImageOpen"
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    android:layout_marginRight="5sp"
+                    android:background="@drawable/open" />
+
+                <ImageButton
+                    android:id="@+id/addItemImageCamera"
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="25sp"
+                    android:background="@drawable/camera" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/itemImage"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp" 
+                    android:src="@drawable/ic_launcher"
+                    android:layout_marginLeft="130dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:ems="7"
+                    android:text="@string/itempurchaseprice"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/itemPurchasePrice"
+                    android:inputType="number"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5sp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:digits="0123456789."
+                    android:hint="@string/itempurchaseprice"
+                    android:maxLength="10"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:ems="7"
+                    android:text="@string/itemsellprice"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/itemSellPrice"
+                    android:layout_width="fill_parent"
+                    android:inputType="number"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5sp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:digits="0123456789."
+                    android:hint="@string/itemsellprice"
+                    android:maxLength="10"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:ems="7"
+                    android:text="@string/itemquantity"
+                    android:textColor="@color/headerfooterfontcolor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/itemQuantity"
+                    android:inputType="number"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5sp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:digits="0123456789."
+                    android:hint="@string/itemquantity"
+                    android:maxLength="100"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10sp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btnItemSave"
+                    android:layout_width="140sp"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:background="@color/bodycolor"
+                    android:text="@string/btnsave"
+                    android:textColor="@color/bodyfontcolor" />
+
+                <Button
+                    android:id="@+id/btnItemClear"
+                    android:layout_width="140sp"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20sp"
+                    android:background="@color/bodycolor"
+                    android:text="@string/btnclear"
+                    android:textColor="@color/bodyfontcolor" />
+            </LinearLayout>
+        </LinearLayout>
+        
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

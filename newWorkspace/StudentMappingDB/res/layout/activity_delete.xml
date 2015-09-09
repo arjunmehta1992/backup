@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.studentmappingdb.DeleteActivity" >
+
+     <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/delHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#48CCCD" >
+
+        <TextView
+            android:id="@+id/delHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/header"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/delFooter"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#48CCCD" >
+
+        <TextView
+            android:id="@+id/delFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/delFooter"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <!-- Body -->
+
+    <RelativeLayout
+        android:id="@+id/addBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/delFooter"
+        android:layout_below="@+id/delHeader"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="60dp"
+        android:background="@android:color/transparent" >
+
+        <Button
+            android:id="@+id/btnDelCollege"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="25dp"
+            android:background="#4EE2EC"
+            android:text="@string/btnDelClg"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnDelStudent"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnDelCollege"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="30dp"
+            android:background="#4EE2EC"
+            android:text="@string/btnDelStd"
+            android:textColor="#000000" />
+        
+        <Button
+            android:id="@+id/btnDelHome"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btnDelStudent"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="30dp"
+            android:background="#4EE2EC"
+            android:text="@string/btnHome"
+            android:textColor="#000000" />
+    </RelativeLayout>
+
+</RelativeLayout>

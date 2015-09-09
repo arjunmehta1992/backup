@@ -1,0 +1,56 @@
+package com.example.loginsession;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class ChangePassword extends Activity implements OnClickListener {
+
+	Button changePassword, Clear;
+	EditText username, newPassword, confirmPassword;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.activity_change_password);
+		init();
+		changePassword.setOnClickListener(this);
+		Clear.setOnClickListener(this);
+	}
+
+	public void init() {
+
+		changePassword=(Button)findViewById(R.id.ChangePassword_btn);
+		Clear=(Button)findViewById(R.id.ChangePassword_btnClear);
+		username=(EditText)findViewById(R.id.changePasswordUsername);
+		newPassword=(EditText)findViewById(R.id.ChangePasswordNewpassword);
+		confirmPassword=(EditText)findViewById(R.id.ChangePasswordConfirmPassword);
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		
+		case R.id.ChangePassword_btn:
+			
+			break;
+
+		case R.id.ChangePassword_btnClear:
+			
+			break;
+		
+		default:
+			
+			break;
+		}
+		
+	}
+
+}

@@ -1,0 +1,37 @@
+package com.example.flipviewdemo;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MotionEvent;
+import android.widget.ViewFlipper;
+
+public class MainActivity extends ActionBarActivity {
+
+	ViewFlipper viewFlipper;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+	}
+	
+	public void init()
+	{
+		viewFlipper=(ViewFlipper)findViewById(R.id.Flipper);
+		
+	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		switch (event.getAction()) {
+		case R.id.Flipper:
+			
+			break;
+
+		default:
+			break;
+		}
+		
+		
+		return super.onTouchEvent(event);
+	}
+}

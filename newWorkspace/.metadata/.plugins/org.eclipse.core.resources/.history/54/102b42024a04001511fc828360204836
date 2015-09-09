@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.relative_layout_demo.Activity_FirstScreen" >
+
+    <RelativeLayout
+        android:id="@+id/rel_FirstScreen_header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/header_color" >
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_FirstScreen_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_FirstScreen_header"
+        android:layout_centerInParent="true"
+        android:text="@string/txt_FirstScreen_Title"
+        android:textAllCaps="false"
+        android:textStyle="bold|italic" />
+
+    <RelativeLayout
+        android:id="@+id/rel_FirstScreen_Itembox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_FirstScreen_Title" >
+
+        <ImageView
+            android:id="@+id/img_FirstScreen_Banner"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/banner" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_FirstScreen_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/header_color" >
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_FirstScreen_SpinnerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rel_FirstScreen_Itembox"
+        android:layout_marginLeft="5sp"
+        android:layout_marginTop="10dp"
+        android:text="@string/txt_FirstScreen_Spinner_Text" />
+
+    <Spinner
+        android:id="@+id/spinner_FirstScreen_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_FirstScreen_Itembox"
+        android:layout_toRightOf="@+id/txt_FirstScreen_SpinnerText" >
+    </Spinner>
+
+    <RadioGroup
+        android:id="@+id/myRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner_FirstScreen_city"
+        android:layout_toRightOf="@+id/txt_gender"
+        android:checkedButton="@+id/sound" >
+
+        <RadioButton
+            android:id="@+id/radioBtn_Reading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_FirstScreen_Gender_Hobby_Reading" />
+
+        <RadioButton
+            android:id="@+id/radioBtn_PlayingGames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_FirstScreen_Gender_Hobby_PlayingGames" />
+
+        <RadioButton
+            android:id="@+id/radioBtn_Cricket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_FirstScreen_RadioGrp_Hobby_Cricket" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txt_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/myRadioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="38dp"
+        android:text="@string/txt_FirstScreen_Gender_Text" />
+
+    <Button
+        android:id="@+id/btn_FirstScreen_Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_gender"
+        android:layout_marginLeft="10dp"
+        android:text="@string/btn_FirstScreen_Submit"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_FirstScreen_NextScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/myRadioGroup"
+        android:text="@string/btn_FirstScreen_NextScreen"
+        android:textAllCaps="false"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

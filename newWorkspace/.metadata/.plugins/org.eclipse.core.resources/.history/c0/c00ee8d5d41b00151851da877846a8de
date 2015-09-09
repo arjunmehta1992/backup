@@ -1,0 +1,49 @@
+package com.zaptech.xmldom;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ListView;
+
+public class HomeActiivity extends ActionBarActivity implements OnClickListener{
+
+	ListView lv_ListOfPizza;
+	
+	public static final String Url="http://api.androidhive.info/pizza/?format=xml";
+	
+	
+	ArrayList<HashMap<String,String>> list_Pizza=new ArrayList<HashMap<String,String>>();
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		init();
+			
+		XMLParser parser = new XMLParser();
+		
+		
+	}
+
+	public void init()
+	{
+		lv_ListOfPizza=(ListView)findViewById(R.id.lv_ListOfPizza);
+		
+	}
+	
+
+	@Override
+	public void onClick(View v) {
+		
+		
+		
+	}
+
+}

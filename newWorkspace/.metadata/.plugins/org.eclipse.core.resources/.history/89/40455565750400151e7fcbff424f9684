@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LinearLayoutDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- First Screen -->
+
+    <string name="txt_FirstScreen_frstNo">FirstNumber</string>
+    <string name="txt_FirstScreen_secondNo">SecondNumber</string>
+    <string name="txt_FirstScreen_btnPlus">Add Numbers</string>
+    <string name="txt_FirstScreen_btnMinus">Subtract Numbers</string>
+    <string name="txt_FirstScreen_btnDevide">Devide Number</string>
+    <string name="txt_FirstScreen_btnMulti">Multiply Number</string>
+
+    <!--  -->
+
+    <string name="title_activity_second_screen">SecondScreen</string>
+    <string name="title_activity_activity_third">ActivityThird</string>
+    <string name="title_activity_activity_four">ActivityFour</string>
+
+</resources>

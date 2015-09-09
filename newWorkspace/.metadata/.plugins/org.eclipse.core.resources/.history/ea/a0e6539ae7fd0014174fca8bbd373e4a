@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5EEF6"
+    tools:context="com.example.mrmanagement.Activity_Home" >
+
+    <RelativeLayout
+        android:id="@+id/rel_HomeHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#B1CEE6" >
+
+        <ImageView
+            android:id="@+id/img_List"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/img_list_blue" />
+    </RelativeLayout>
+
+</RelativeLayout>

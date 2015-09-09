@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;MyService.java&apos; to &apos;ShowActivityOnce/src/com.example.showactivityonce&apos;&#x0A;- Original project: &apos;XmlParsing&apos;&#x0A;- Destination element: &apos;ShowActivityOnce/src/com.example.showactivityonce&apos;&#x0A;- Original element: &apos;com.example.xmlparsing.MyService.java&apos;" description="Copy compilation unit" destination="=ShowActivityOnce/src&lt;com.example.showactivityonce" element1="/src&lt;com.example.xmlparsing{MyService.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1433752716862" units="1" version="1.0"/>
+</session>

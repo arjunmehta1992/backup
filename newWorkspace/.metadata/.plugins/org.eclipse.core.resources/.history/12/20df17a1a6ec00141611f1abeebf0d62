@@ -1,0 +1,17 @@
+package com.example.jsonparser;
+
+public class HandlerXML {
+
+	private String country = "county";
+	private String temperature = "temperature";
+	private String humidity = "humidity";
+	private String pressure = "pressure";
+	private String urlString = null;
+
+	public volatile boolean parsingComplete = true;
+
+	public HandlerXML(String url) {
+
+	}
+
+}

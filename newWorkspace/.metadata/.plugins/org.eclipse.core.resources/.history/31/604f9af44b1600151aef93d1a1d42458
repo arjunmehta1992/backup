@@ -1,0 +1,631 @@
+package com.zaptech.json;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.zaptech.json.DBmodel.DBModel;
+import com.zaptech.json.NewsItem_model.DescriptionHTML_Model;
+import com.zaptech.json.NewsItem_model.Description_Model;
+import com.zaptech.json.NewsItem_model.Headline_Model;
+import com.zaptech.json.NewsItem_model.Items_Model;
+import com.zaptech.json.NewsItem_model.NewsImage_Model;
+import com.zaptech.json.NewsItem_model.NewsItem_Model;
+
+public class ActivityHomeItems extends Activity implements OnClickListener,
+		OnItemClickListener {
+
+	ListView drawer;
+	ProgressDialog mProgress;
+	DrawerLayout mydrawer;
+
+	String[] colorlist;
+	View v;
+	Context context;
+	Button btn;
+	ImageView imgBtnList;
+	ArrayList<String> arraylist_Drawer;
+	DBModel dbObj;
+	ArrayList<HomeItemModel> arraylistData;
+	NewsItem_Model newsItemModel_obj;
+	NewsImage_Model newsImageModel_obj;
+
+	ArrayList<MenuItem_Model> list_MenuItems;
+
+	MenuItem_Model menuItemModel_obj;
+
+	String appMetaDataStr, versionNumberStr, tABVersionNUmberStr,
+			webServicesURLStr, appNameStr;
+	DBModel onj;
+
+	JSONArray homeitems = null;
+	JSONArray newsItems = null;
+
+	HomeItemModel homeItemModel_obj;
+	Items_Model newsitem_ItemModel_obj;
+
+	Headline_Model headline_model_obj;
+	Description_Model description_model_obj;
+	DescriptionHTML_Model descriptionhtml_model_obj;
+
+	HomeItemModel homeitemModelObj;
+	private String[] navMenuTitles = { "ContactItems", "NewsItems",
+			"GallaryItems", "YoutubeItems", "TwitterItems", "RssItems",
+			"WebItems", "HomeItems", "FeedbackItems", "GeoLocationItems",
+			"DataGraphics", "VideoItems", "inAppSettings" };
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_activity_home_items);
+		
+		init();
+
+		
+
+	}
+
+	void init() {
+		list_MenuItems = new ArrayList<MenuItem_Model>();
+		context = ActivityHomeItems.this;
+		menuItemModel_obj = new MenuItem_Model();
+		headline_model_obj = new Headline_Model();
+		description_model_obj = new Description_Model();
+		descriptionhtml_model_obj = new DescriptionHTML_Model();
+
+		newsitem_ItemModel_obj = new Items_Model();
+		newsImageModel_obj = new NewsImage_Model();
+		newsItemModel_obj = new NewsItem_Model();
+		String DB_NAME = getResources().getString(R.string.DB_NAME);
+		String DB_PATH = getResources().getString(R.string.DB_PATH);
+		onj = new DBModel(ActivityHomeItems.this, DB_NAME, DB_PATH);
+		homeItemModel_obj = new HomeItemModel();
+		drawer = (ListView) findViewById(R.id.left_drawer);
+		mydrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+		imgBtnList = (ImageView) findViewById(R.id.imgBtn_list);
+		arraylist_Drawer = new ArrayList<String>();
+		imgBtnList.setOnClickListener(this);
+		drawer.setOnItemClickListener(this);
+		arraylistData = new ArrayList<HomeItemModel>();
+		dbObj = new DBModel(ActivityHomeItems.this, DB_NAME, DB_PATH);
+
+		arraylistData = dbObj.getHomeItemsData();
+		list_MenuItems = onj.getMenuItems();
+		// lv_title.setAdapter(new CustomData());
+
+		new GetImage().execute();
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.imgBtn_list:
+
+			mydrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+			if (mydrawer.isDrawerOpen(drawer)) {
+				Animation animation1 = AnimationUtils.loadAnimation(
+						getApplicationContext(), R.anim.clockwise);
+
+				imgBtnList.startAnimation(animation1);
+
+				mydrawer.closeDrawer(drawer);
+				imgBtnList.setBackgroundResource(R.drawable.ic_list);
+
+			} else {
+				Animation animation2 = AnimationUtils.loadAnimation(
+						getApplicationContext(), R.anim.clockwise);
+				imgBtnList.startAnimation(animation2);
+				mydrawer.openDrawer(drawer);
+				imgBtnList.setBackgroundResource(R.drawable.img_back);
+			}
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		// TODO Auto-generated method stub
+
+		String selected = list_MenuItems.get(position).getItem_name();
+		
+		System.err.println(">>>>>>>>>>>>>>>>>>>>>"+selected);
+		if (selected.equalsIgnoreCase("homeItems")) {
+			Intent intent_home = new Intent(ActivityHomeItems.this,
+					HomeActivity.class);
+			startActivity(intent_home);
+		} else if (selected.equalsIgnoreCase("newsItems")) {
+			Intent intent_login = new Intent(ActivityHomeItems.this,
+					ActivityHomeItems.class);
+			startActivity(intent_login);
+		}
+
+	}
+
+	public class CustomData extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return arraylistData.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return arraylistData.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+			convertView = inflater.inflate(R.layout.raw_layout_homeitems, null);
+
+			TextView title = (TextView) convertView
+					.findViewById(R.id.tv_HomeItemName);
+
+			title.setText(arraylistData.get(position).getHomeItem_tabText());
+
+			return convertView;
+		}
+
+	}
+
+	public void JsonParser(String str) {
+
+		String data = "";
+
+		try {
+
+			ArrayList<HomeItemModel> listData = new ArrayList<HomeItemModel>();
+
+			String includeImageInLayou = null;
+			String includeTitleInLayout = null;
+			String includeTextInLayout = null;
+			String imagePosition = null;
+			String titlePosition = null;
+			String textPosition = null;
+			String title = null;
+			String text = null;
+			String textHtml = null;
+			String idImage, tabIcon, tabText, tabPosition, tabItem, dateChanged, isDirtyTwo, tempUniqeUID, type, useTabIcon, sortPosition, archievedTwo, listIcon;
+
+			String width, height, originalName, locationLocal, typeTwo, baseURL, mimeType, base64Version, isDirty, archieved, id, name;
+
+			JSONObject mainObj = new JSONObject(str);
+			/*
+			 * appMetaDataStr = mainObj.getString("AppMetaData");
+			 * versionNumberStr = mainObj.getString("versionNumber");
+			 * tABVersionNUmberStr = mainObj.getString("tABVersionNumber");
+			 * webServicesURLStr = mainObj.getString("webServicesURL");
+			 * appNameStr = mainObj.getString("appName");
+			 */
+
+			homeitems = mainObj.getJSONArray("homeItems");
+
+			System.err.println("+++++++++++++++++++++++++++"
+					+ mainObj.getString("homeItems"));
+
+			for (int i = 0; i < homeitems.length(); i++) {
+				JSONObject c = homeitems.getJSONObject(i);
+				includeImageInLayou = c.getString("includeImageInLayout");
+				includeTitleInLayout = c.getString("includeTitleInLayout");
+				includeTextInLayout = c.getString("includeTextInLayout");
+				imagePosition = c.getString("imagePosition");
+				titlePosition = c.getString("titlePosition");
+				textPosition = c.getString("textPosition");
+				text = c.getString("text");
+				title = c.getString("title");
+				textHtml = c.getString("textHTML");
+
+				idImage = c.getString("id");
+				tabPosition = c.getString("tabPosition");
+				tabText = c.getString("tabText");
+				tabIcon = c.getString("tabIcon");
+				dateChanged = c.getString("dateChanged");
+				isDirtyTwo = c.getString("isDirty");
+				tempUniqeUID = c.getString("tempUniqueUID");
+				typeTwo = c.getString("type");
+				useTabIcon = c.getString("useTabIcon");
+				sortPosition = c.getString("sortPosition");
+				archievedTwo = c.getString("archived");
+				listIcon = c.getString("listIcon");
+
+				homeItemModel_obj.setHomeItem_id(idImage);
+				homeItemModel_obj
+						.setHomeItem_includeImageInLayout(includeImageInLayou);
+				homeItemModel_obj
+						.setHomeItem_includeTitleInLayout(includeTitleInLayout);
+				homeItemModel_obj
+						.setHomeItem_includeTextInLayout(includeTextInLayout);
+				homeItemModel_obj.setHomeItem_imagePosition(imagePosition);
+				homeItemModel_obj.setHomeItem_titlePosition(titlePosition);
+				homeItemModel_obj.setHomeItem_textPosition(textPosition);
+				homeItemModel_obj.setHomeItem_title(title);
+				homeItemModel_obj.setHomeItem_text(text);
+				homeItemModel_obj.setHomeItem_textHTML(textHtml);
+				homeItemModel_obj.setHomeItem_tabPosition(tabPosition);
+				homeItemModel_obj.setHomeItem_tabText(tabText);
+				homeItemModel_obj.setHomeItem_tabIcon(tabIcon);
+				homeItemModel_obj.setHomeItem_dateChanged(dateChanged);
+				homeItemModel_obj.setHomeItem_isDirty(isDirtyTwo);
+				homeItemModel_obj.setHomeItem_tempUniqueUID(tempUniqeUID);
+				homeItemModel_obj.setHomeItem_Type(typeTwo);
+				homeItemModel_obj.setHomeItem_useTabIcon(useTabIcon);
+				homeItemModel_obj.setHomeItem_sortPosition(sortPosition);
+				homeItemModel_obj.setHomeItem_archived(archievedTwo);
+				homeItemModel_obj.setHomeItem_listIcon(listIcon);
+
+				JSONObject objImage = c.getJSONObject("image");
+				width = objImage.getString("width");
+				height = objImage.getString("height");
+				originalName = objImage.getString("originalName");
+				locationLocal = objImage.getString("locationLocal");
+				type = objImage.getString("type");
+				baseURL = objImage.getString("baseURL");
+				mimeType = objImage.getString("mimeType");
+				base64Version = objImage.getString("base64Version");
+				isDirty = objImage.getString("isDirty");
+				archieved = objImage.getString("archived");
+				id = objImage.getString("Id");
+				name = objImage.getString("name");
+
+				homeItemModel_obj.setHomeItem_Image_width(width);
+				homeItemModel_obj.setHomeItem_Image_height(height);
+				homeItemModel_obj.setHomeItem_Image_originaleName(originalName);
+				homeItemModel_obj
+						.setHomeItem_Image_locationLocal(locationLocal);
+				homeItemModel_obj.setHomeItem_Image_type(type);
+				homeItemModel_obj.setHomeItem_Image_baseURL(baseURL);
+				homeItemModel_obj.setHomeItem_Image_MIMEType(mimeType);
+				homeItemModel_obj
+						.setHomeItem_Image_base64Version(base64Version);
+				homeItemModel_obj.setHomeItem_Image_isDirty(isDirty);
+				homeItemModel_obj.setHomeItem_Image_Archived(archieved);
+				homeItemModel_obj.setHomeItem_Image_id(id);
+				homeItemModel_obj.setHomeItem_Image_Name(name);
+
+				onj.insertHomeItemsRecord(homeItemModel_obj);
+
+				onj.insertHomeItems_Image_Record(homeItemModel_obj);
+			}
+
+			/* data="Appname="+appMetaDataStr; */
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+	public String GET(String url) {
+		InputStream inputStream = null;
+		String result = "";
+		try {
+
+			// create HttpClient
+			HttpClient httpclient = new DefaultHttpClient();
+
+			// make GET request to the given URL
+			HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
+
+			// receive response as inputStream
+			inputStream = httpResponse.getEntity().getContent();
+
+			// convert inputstream to string
+			if (inputStream != null)
+				result = convertInputStreamToString(inputStream);
+			else
+				result = "Did not work!";
+
+		} catch (Exception e) {
+			Log.d("InputStream", e.getLocalizedMessage());
+		}
+
+		return result;
+	}
+
+	// convert inputstream to String
+	private static String convertInputStreamToString(InputStream inputStream)
+			throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(inputStream));
+		String line = "";
+		String result = "";
+		while ((line = bufferedReader.readLine()) != null)
+			result += line;
+
+		inputStream.close();
+		return result;
+
+	}
+
+	class GetImage extends AsyncTask<Void, Void, Void> {
+
+		String str = "";
+
+		@Override
+		protected void onPreExecute() {
+
+			mProgress = new ProgressDialog(ActivityHomeItems.this);
+			mProgress.setTitle("Image Loader");
+			mProgress.setMessage("Loading...");
+			mProgress.setCancelable(false);
+			mProgress.show();
+
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			str = GET("http://80.93.28.24/json/autoexpress.json");
+
+			Log.i("Response", ">>>" + str);
+			
+			
+			
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+
+			if (mProgress.isShowing()) {
+				mProgress.dismiss();
+			}
+			/*
+			 * if (mBitmap!=null) { mImageview.setImageBitmap(mBitmap); }
+			 */
+			getJsonKeys(str);
+			
+			
+			
+			drawer.setAdapter(new MenuItem_Adapter());
+			
+			
+			NewsItemJson(str);
+			Toast.makeText(ActivityHomeItems.this,
+					"" + newsItemModel_obj.getVideos(), Toast.LENGTH_SHORT)
+					.show();
+			JsonParser(str);
+			arraylistData = onj.getHomeItemsData();
+
+			super.onPostExecute(result);
+		}
+
+	}
+
+	public void NewsItemJson(String str) {
+		String str_item = "";
+
+		JSONObject mainObj;
+		try {
+			mainObj = new JSONObject(str);
+			newsItems = mainObj.getJSONArray("newsItems");
+			for (int i = 0; i < newsItems.length(); i++) {
+				JSONObject c = newsItems.getJSONObject(i);
+				newsItemModel_obj.setVideos(c.getString("videos"));
+				newsItemModel_obj.setSortType(c.getString("sortType"));
+				newsItemModel_obj
+						.setSharePointURL(c.getString("SharepointUrl"));
+				newsItemModel_obj.setDisplayAsGantt(c
+						.getString("DisplayAsGantt"));
+				newsItemModel_obj.setId(c.getString("id"));
+				newsItemModel_obj.setTabPosition(c.getString("tabPosition"));
+				newsItemModel_obj.setTabText(c.getString("tabText"));
+				newsItemModel_obj.setTabIcon(c.getString("tabIcon"));
+				newsItemModel_obj.setDateChanged(c.getString("dateChanged"));
+				newsItemModel_obj.setIsDirty(c.getString("isDirty"));
+				newsItemModel_obj
+						.setTempUniqueUID(c.getString("tempUniqueUID"));
+				newsItemModel_obj.setType(c.getString("type"));
+				newsItemModel_obj.setUseTabIcon(c.getString("useTabIcon"));
+				newsItemModel_obj.setSortPosition(c.getString("sortPosition"));
+				newsItemModel_obj.setArchived(c.getString("archived"));
+				newsItemModel_obj.setListIcon(c.getString("listIcon"));
+
+				Log.i("Video=============", ">>>>>>>>>>>>>>>>>>>>>"
+						+ newsItemModel_obj.getDisplayAsGantt());
+				JSONArray items = c.getJSONArray("items");
+				for (int j = 0; j < items.length(); j++) {
+					JSONObject items_obj = items.getJSONObject(j);
+					newsitem_ItemModel_obj.setId(items_obj.getString("id"));
+
+					newsitem_ItemModel_obj.setUrl(items_obj.getString("url"));
+					newsitem_ItemModel_obj.setDatePublished(items_obj
+							.getString("datePublished"));
+					newsitem_ItemModel_obj.setDateChanged(items_obj
+							.getString("dateChanged"));
+					newsitem_ItemModel_obj.setIsDirty(items_obj
+							.getString("isDirty"));
+					newsitem_ItemModel_obj.setEventFlag(items_obj
+							.getString("eventFlag"));
+					newsitem_ItemModel_obj.setEventDate(items_obj
+							.getString("eventDate"));
+					newsitem_ItemModel_obj.setPublishToFacebook(items_obj
+							.getString("publishToFacebook"));
+					newsitem_ItemModel_obj.setTempUniqueUID(items_obj
+							.getString("tempUniqueUID"));
+					newsitem_ItemModel_obj.setEventDateFinish(items_obj
+							.getString("EventDateFinish"));
+					newsitem_ItemModel_obj.setSortPosition(items_obj
+							.getString("sortPosition"));
+					newsitem_ItemModel_obj.setArchived(items_obj
+							.getString("archived"));
+					newsitem_ItemModel_obj.setListIcon(items_obj
+							.getString("listIcon"));
+
+					JSONObject newsimageObj = items_obj
+							.getJSONObject("newsImage");
+					newsImageModel_obj
+							.setWidth(newsimageObj.getString("width"));
+
+					newsImageModel_obj.setHeight(newsimageObj
+							.getString("height"));
+					newsImageModel_obj.setOriginalName(newsimageObj
+							.getString("originalName"));
+					newsImageModel_obj.setLocationLocal(newsimageObj
+							.getString("locationLocal"));
+					newsImageModel_obj.setType(newsimageObj.getString("type"));
+					newsImageModel_obj.setBaseURL(newsimageObj
+							.getString("baseURL"));
+					Log.i("Base URL=============", ">>>>>>>>>>>>>>>>>>>>>"
+							+ newsImageModel_obj.getBaseURL());
+					newsImageModel_obj.setMimeType(newsimageObj
+							.getString("mimeType"));
+					newsImageModel_obj.setBase64Version(newsimageObj
+							.getString("base64Version"));
+					newsImageModel_obj.setIsDirty(newsimageObj
+							.getString("isDirty"));
+					newsImageModel_obj.setArchived(newsimageObj
+							.getString("archived"));
+					newsImageModel_obj.setId(newsimageObj.getString("Id"));
+					newsImageModel_obj.setName(newsimageObj.getString("name"));
+					Log.i("Name=============", ">>>>>>>>>>>>>>>>>>>>>"
+							+ newsImageModel_obj.getName());
+
+					JSONObject headlineObj = items_obj
+							.getJSONObject("headline");
+					headline_model_obj.setTheString(headlineObj
+							.getString("theString"));
+
+					JSONObject descriptionObj = items_obj
+							.getJSONObject("description");
+					description_model_obj.setTheString(descriptionObj
+							.getString("theString"));
+
+					JSONObject descriptionHTMLObj = items_obj
+							.getJSONObject("descriptionHTML");
+					descriptionhtml_model_obj.setTheString(descriptionHTMLObj
+							.getString("theString"));
+
+					Log.i("The String DescriptionHTML=============",
+							">>>>>>>>>>>>>>>>>>>>>"
+									+ descriptionhtml_model_obj.getTheString());
+
+				}
+
+			}
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void getJsonKeys(String str) {
+
+		try {
+			JSONObject issueObj = new JSONObject(str);
+			Iterator iterator = issueObj.keys();
+			while (iterator.hasNext()) {
+				String key = (String) iterator.next();
+
+				menuItemModel_obj.setItem_name(key);
+				
+				
+				onj.insertMenuItems(menuItemModel_obj);
+
+				Toast.makeText(ActivityHomeItems.this, "" + key,
+						Toast.LENGTH_SHORT).show();
+
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+	public class MenuItem_Adapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return list_MenuItems.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return list_MenuItems.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			convertView = inflater.inflate(R.layout.raw_menuitems, null);
+
+			TextView tv_MenuItem = (TextView) convertView
+					.findViewById(R.id.tv_itemName);
+
+			tv_MenuItem.setText(""
+					+ list_MenuItems.get(position).getItem_name());
+
+			return convertView;
+		}
+
+	}
+
+}

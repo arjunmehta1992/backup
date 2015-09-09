@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.relative_layout_demo.Activity_Home" >
+
+    <RelativeLayout
+        android:id="@+id/rel_header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/black" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_Home_FirstScreen"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_header"
+        android:text="@string/btn_firstScreen"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_Home_SecondScreen"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Home_FirstScreen"
+        android:text="@string/btn_SecondScreen"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_Home_ThirdScreen"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Home_SecondScreen"
+        android:text="@string/btn_ThirdScreen"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_Home_FourthScreen"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Home_ThirdScreen"
+        android:text="@string/btn_FourScreen"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_Home_FifthScreen"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Home_FourthScreen"
+        android:text="@string/btn_FifthScreen"
+        android:textAllCaps="false" />
+
+    <RelativeLayout
+        android:id="@+id/rel_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/black" >
+    </RelativeLayout>
+
+</RelativeLayout>

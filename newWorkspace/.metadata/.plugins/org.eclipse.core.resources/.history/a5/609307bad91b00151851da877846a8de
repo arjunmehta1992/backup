@@ -1,0 +1,65 @@
+package com.zaptech.xmldom;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ListView;
+
+public class HomeActiivity extends ActionBarActivity implements OnClickListener{
+
+	ListView lv_ListOfPizza;
+	
+	public static final String Url="http://api.androidhive.info/pizza/?format=xml";
+	
+	
+	ArrayList<HashMap<String,String>> list_Pizza=new ArrayList<HashMap<String,String>>();
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		init();
+			
+		XMLParser parser = new XMLParser();
+		String xml=parser.getXmlFromUrl(Url);
+		 org.w3c.dom.Document doc = parser.getDomElement(xml); 
+		 
+		 NodeList nl = doc.getElementsByTagName("item");
+		
+		
+		
+		for (int i = 0; i < nl.getLength(); i++) {
+			
+			HashMap< String, String> map=new HashMap<String, String>();
+			Element e = (Element) nl.item(i);
+			map.put("id", parser.getValue(e, "id"));
+			map.put("name", parser.getValue(e, "name"));
+			map.put("cost", parser.getValue(e, "cost"));
+			map.put("description", parser.getValue(e, "description"));
+			
+		}
+	}
+
+	public void init()
+	{
+		lv_ListOfPizza=(ListView)findViewById(R.id.lv_ListOfPizza);
+		
+	}
+	
+
+	@Override
+	public void onClick(View v) {
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.relative_layout_demo.Activity_FirstScreen" >
+
+    <RelativeLayout
+        android:id="@+id/rel_FirstScreen_header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/header_color" >
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_FirstScreen_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_FirstScreen_header"
+        android:layout_centerInParent="true"
+        android:text="@string/txt_FirstScreen_Title"
+        android:textAllCaps="false" />
+
+    <ImageView
+        android:id="@+id/img_FirstScreen_Banner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/header_img" />
+
+    <RelativeLayout
+        android:id="@+id/rel_FirstScreen_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/header_color" >
+    </RelativeLayout>
+
+</RelativeLayout>

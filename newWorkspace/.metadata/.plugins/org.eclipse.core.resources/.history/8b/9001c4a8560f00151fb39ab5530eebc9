@@ -1,0 +1,84 @@
+package com.example.customseekbar;
+
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.TimePicker.OnTimeChangedListener;
+import android.widget.Toast;
+
+public class ActivityHome extends Activity {
+
+	AlarmManager alarmMgr;
+	Button btn_StartTime;
+	TimePicker tmp_Time;
+	TextView txt_getTime;
+	Calendar calendar;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		btn_StartTime = (Button) findViewById(R.id.btn_setTime);
+		tmp_Time = (TimePicker) findViewById(R.id.tmPicker_TimeClock);
+		txt_getTime = (TextView) findViewById(R.id.txt_selectedTime);
+
+		tmp_Time.setOnTimeChangedListener(new OnTimeChangedListener() {
+
+			@Override
+			public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+				// TODO Auto-generated method stub
+
+				txt_getTime.setText(hourOfDay + ":" + minute);
+
+				calendar = Calendar.getInstance();
+				calendar.setTimeInMillis(System.currentTimeMillis());
+				calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+				calendar.set(calendar.MINUTE, minute);
+
+			}
+		});
+
+		btn_StartTime.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+
+				Calendar cal = Calendar.getInstance();
+				SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+				try {
+					Date inTime = (Date) sdf.parse(calendar.HOUR_OF_DAY + ":"
+							+ calendar.MINUTE);
+					Date outTime = (Date) sdf.parse(cal.HOUR_OF_DAY + ":"
+							+ cal.MINUTE);
+					if (inTime.compareTo(outTime) > 0) {
+						Toast.makeText(this,
+								"Out time should be greater than In time",
+								Toast.LENGTH_SHORT).show();
+					}
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+
+				Toast.makeText(
+						getApplicationContext(),
+						"Calendar " + calendar.get(Calendar.HOUR_OF_DAY) + ":"
+								+ calendar.get(Calendar.MINUTE),
+						Toast.LENGTH_LONG).show();
+			}
+		});
+
+	}
+
+}

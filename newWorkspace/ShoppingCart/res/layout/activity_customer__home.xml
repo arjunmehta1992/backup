@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   tools:context="com.zaptech.shoppingcart.Customer_Home" >
+
+     <!-- Header Part -->
+
+    <RelativeLayout
+        android:id="@+id/Customer_Home_Header"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:background="@color/headerfootercolor" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/registerheadertext"
+            android:textColor="@color/headerfooterfontcolor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Footer Part -->
+
+    <RelativeLayout
+        android:id="@+id/Customer_Home_Footer"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/headerfootercolor" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/registerFootertext"
+            android:textColor="@color/headerfooterfontcolor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Body Part -->
+
+    <RelativeLayout
+        android:id="@+id/homeBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/Customer_Home_Footer"
+        android:layout_below="@+id/Customer_Home_Header"
+        android:background="@color/bodycolor"
+        android:padding="20sp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round"
+            android:orientation="vertical"
+            android:padding="10sp" >
+
+                    </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

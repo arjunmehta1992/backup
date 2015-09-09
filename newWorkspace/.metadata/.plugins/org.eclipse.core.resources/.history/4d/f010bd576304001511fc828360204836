@@ -1,0 +1,37 @@
+package com.example.relative_layout_demo;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Gallery;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class Activity_FifthScreen extends Activity {
+
+	Integer[] imageIDs = { R.drawable.five, R.drawable.two, R.drawable.six,
+
+	};
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_fifth_screen);
+		Gallery gallery = (Gallery) findViewById(R.id.gallery1);
+		gallery.setAdapter(new ImageAdapter(this));
+		gallery.setOnItemClickListener(new OnItemClickListener() {
+		public void onItemClick(AdapterView<?> parent, View v, int position,long id)
+		{
+		Toast.makeText(getBaseContext(),"pic" + (position + 1) + " selected",
+		Toast.LENGTH_SHORT).show();
+		// display the images selected
+		ImageView imageView = (ImageView) findViewById(R.id.image1);
+		imageView.setImageResource(imageIDs[position]);
+		}
+		});
+		
+	}
+
+}

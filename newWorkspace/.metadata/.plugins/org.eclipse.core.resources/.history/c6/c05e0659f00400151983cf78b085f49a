@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.framelayoutdemo.ActivityThird" >
+
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F8086" >
+
+        <TextView
+            android:id="@+id/txtOne"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Hiiii" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/frame1"
+        android:background="#5ABE45" >
+
+        <TextView
+            android:id="@+id/txtTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="HiiiiBro" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame1"
+        android:background="#C25C28" 
+        android:layout_toRightOf="@+id/frame2">
+
+        <TextView
+            android:id="@+id/txtThree"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="HiiiiBro" />
+    </FrameLayout>
+
+</RelativeLayout>

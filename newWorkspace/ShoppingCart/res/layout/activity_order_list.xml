@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   	tools:context="com.zaptech.shoppingcart.OrderList" >
+
+     <!-- Body Part -->
+
+    <RelativeLayout
+        android:id="@+id/homeBody"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/homeFooter"
+        android:layout_below="@+id/homeHeader"
+        android:background="@color/bodycolor"
+        android:padding="5sp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/headerfootercolor"
+            android:orientation="vertical"
+            android:padding="10sp" >
+
+            <Button
+                android:id="@+id/button1"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+            
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

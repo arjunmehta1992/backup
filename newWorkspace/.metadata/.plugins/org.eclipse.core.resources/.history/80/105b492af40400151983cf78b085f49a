@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FEF2E8"
+    tools:context="com.example.framelayoutdemo.ActivityFour" >
+
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#00AFDC" >
+
+        <TextView
+            android:id="@+id/txtOne"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="Hiiii" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_FourLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/frame1"
+        android:background="#3F8086" >
+
+        <TextView
+            android:id="@+id/txtTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Hiiii" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_FourLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/frame1"
+        android:background="#3F8086" >
+
+        <TextView
+            android:id="@+id/txtThree"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Hiiii" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_FourLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/frame_FourLayout2"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/frame1"
+        android:layout_toRightOf="@+id/frame1"
+        android:background="#00AFDC" >
+
+        <TextView
+            android:id="@+id/txtfour"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="Hiiii" />
+    </FrameLayout>
+
+</RelativeLayout>

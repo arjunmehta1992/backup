@@ -1,0 +1,78 @@
+package com.example.facebookintegration;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class HomeActivity extends Activity implements OnClickListener {
+
+	private ImageView img;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		img.setOnClickListener(this);
+
+		boolean installed = appInstalledOrNot("com.facebook.android");
+		if (installed) {
+
+			Intent LaunchIntent = getPackageManager()
+					.getLaunchIntentForPackage("com.facebook.android");
+			startActivity(LaunchIntent);
+
+			Toast.makeText(HomeActivity.this,
+					"App is currently installed on your phone",
+					Toast.LENGTH_SHORT).show();
+		} else {
+			Toast.makeText(HomeActivity.this,
+					"App is not currently installed on your phone",
+					Toast.LENGTH_SHORT).show();
+
+		}
+
+	}
+
+	public void init() {
+		img = (ImageView) findViewById(R.id.imageView1);
+	}
+
+	private boolean appInstalledOrNot(String string) {
+		PackageManager pm = getPackageManager();
+		boolean app_installed;
+		try {
+			pm.getPackageInfo(string, PackageManager.GET_ACTIVITIES);
+			app_installed = true;
+		} catch (PackageManager.NameNotFoundException e) {
+			app_installed = false;
+		}
+		return app_installed;
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.imageView1:
+
+			Intent shareIntent = new Intent();
+			shareIntent.setAction(Intent.ACTION_SEND);
+			shareIntent.setType("text/plain");
+			shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, from Mr.Arjun!!!");
+			startActivity(Intent.createChooser(shareIntent,
+					"Share your thoughts"));
+
+			break;
+
+		default:
+			break;
+		}
+	}
+
+}

@@ -1,0 +1,74 @@
+package com.zaptech.jsonhive;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class ActivityHome extends ListActivity {
+
+	private ProgressDialog pDialog;
+
+	private static String url = "http://api.androidhive.info/contacts/";
+
+	private static final String TAG_CONTACTS = "contacts";
+	private static final String TAG_ID = "id";
+	private static final String TAG_NAME = "name";
+	private static final String TAG_EMAIL = "email";
+	private static final String TAG_ADDRESS = "address";
+	private static final String TAG_GENDER = "gender";
+	private static final String TAG_PHONE = "phone";
+	private static final String TAG_PHONE_MOBILE = "mobile";
+	private static final String TAG_PHONE_HOME = "home";
+	private static final String TAG_PHONE_OFFICE = "office";
+
+	JSONArray contacts = null;
+
+	ArrayList<HashMap<String, String>> contactList;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+
+		contactList = new ArrayList<HashMap<String, String>>();
+
+		ListView lv = getListView();
+
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+
+				String name = ((TextView) view.findViewById(R.id.name))
+						.getText().toString();
+				String cost = ((TextView) view.findViewById(R.id.email))
+						.getText().toString();
+				String description = ((TextView) view.findViewById(R.id.mobile))
+						.getText().toString();
+
+				// Starting single contact activity
+				/*Intent in = new Intent(getApplicationContext(),
+						SingleContactActivity.class);*/
+				in.putExtra(TAG_NAME, name);
+				in.putExtra(TAG_EMAIL, cost);
+				in.putExtra(TAG_PHONE_MOBILE, description);
+				startActivity(in);
+
+			}
+		});
+
+	}
+
+}

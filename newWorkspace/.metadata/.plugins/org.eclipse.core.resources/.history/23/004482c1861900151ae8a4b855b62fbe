@@ -1,0 +1,38 @@
+package com.zaptech.json;
+
+import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class NewsItemActivity extends Activity implements OnClickListener{
+
+	ListView lv_categoryname;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_news_item);
+		inti();
+		
+		
+	}
+
+	public void inti() {
+
+		lv_categoryname = (ListView) findViewById(R.id.lv_newsCategory);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		
+		
+	}
+
+}

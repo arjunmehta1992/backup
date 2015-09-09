@@ -1,0 +1,33 @@
+package com.example.exapandablelistviewdemo;
+
+import java.util.HashMap;
+import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
+
+public class MainActivity extends Activity {
+
+	ListView lv_list;
+	ExpandableListAdapter listAdapter;
+	ExpandableListView expListView;
+	List<String> listDataHeader;
+	HashMap<String, List<String>> listDataChild;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+	}
+
+	public void init() {
+
+		lv_list = (ListView) findViewById(R.id.lvExp);
+
+	}
+
+}

@@ -1,0 +1,30 @@
+package com.example.framelayoutdemo;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.media.session.MediaController;
+import android.os.Bundle;
+import android.widget.VideoView;
+
+public class ActivityThird extends Activity {
+
+	private VideoView myVideoView;
+	private int position = 0;
+	private ProgressDialog progressDialog;
+	private MediaController mediaControls;
+
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_activity_third);
+
+		if (mediaControls == null) {
+			mediaControls = new MediaController(ActivityThird.this, null);
+
+		}
+
+	}
+
+}

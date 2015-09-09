@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@android:color/black">
+    
+    <TextView  
+        android:id="@+id/c_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name"
+        android:textColor="@android:color/white"
+        />
+    <TextView 
+        android:id="@+id/c_number"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/c_name"
+        android:text="Number"
+        android:textColor="#BEBEBE"/>
+    <ImageButton 
+        android:id="@+id/img_call"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_toLeftOf="@+id/img_update"
+       	android:layout_marginRight="5sp"
+        android:src="@drawable/phone"
+       
+        />
+      <ImageButton 
+        android:id="@+id/img_update"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        
+        android:layout_toLeftOf="@+id/img_delete"
+        android:src="@drawable/ed"
+       android:background="@android:color/transparent"
+        />
+     <ImageButton 
+        android:id="@+id/img_delete"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/erase"
+       android:background="@android:color/transparent"
+        />
+   
+</RelativeLayout>

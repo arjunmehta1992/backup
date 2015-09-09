@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.relative_layout_demo.Activity_SecondScreen" >
+
+    <RelativeLayout
+        android:id="@+id/rel_SecondScreen_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header_color" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_SecondScreen_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/header_color" >
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edt_SecondScreen_EdtOne"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_SecondScreen_header"
+        android:background="@android:drawable/editbox_background_normal"
+        android:text="First EditText" />
+
+    <EditText
+        android:id="@+id/edt_SecondScreen_EdtTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="hi"
+        android:layout_below="@+id/edt_SecondScreen_EdtOne"
+        android:background="@android:drawable/editbox_background_normal" />
+
+    <EditText
+        android:id="@+id/edt_SecondScreen_EdtThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:text="hi"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edt_SecondScreen_EdtOne"
+        android:layout_toRightOf="@+id/edt_SecondScreen_EdtTwo"
+        android:background="@android:drawable/editbox_background_normal" />
+
+</RelativeLayout>

@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.framelayoutdemo.ActivityFour" 
+    android:background="#FEF2E8"
+    
+    >
+
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#FEF4CF" >
+
+        <TextView
+            android:id="@+id/txtOne"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Hiiii" />
+    </FrameLayout>
+     <FrameLayout
+        android:id="@+id/frame_FourLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F8086" 
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/frame1">
+
+        <TextView
+            android:id="@+id/txtTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Hiiii" />
+    </FrameLayout>
+    
+    
+    <FrameLayout
+        android:id="@+id/frame_FourLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F8086" 
+        
+        android:layout_toRightOf="@+id/frame1">
+
+        <TextView
+            android:id="@+id/txtThree"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Hiiii" />
+    </FrameLayout>
+    
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.example.jsonparser.HandlerXML&apos; to &apos;HandlerJSON&apos;&#x0A;- Original project: &apos;JSONParser&apos;&#x0A;- Original element: &apos;com.example.jsonparser.HandlerXML&apos;&#x0A;- Renamed element: &apos;com.example.jsonparser.HandlerJSON&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;HandlerXML&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.example.jsonparser{HandlerXML.java[HandlerXML" matchStrategy="1" name="HandlerJSON" qualified="false" references="true" similarDeclarations="false" stamp="1430123387160" textual="false" version="1.0"/>
+</session>
